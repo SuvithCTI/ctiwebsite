@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <!-- Top-left arm: deep cyan to blue -->
+    <linearGradient id="g1" x1="0" y1="1" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#00C8FF"/>
+      <stop offset="100%" stop-color="#005FCC"/>
+    </linearGradient>
+    <!-- Top-right arm: blue to teal -->
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0080FF"/>
+      <stop offset="100%" stop-color="#00BBAA"/>
+    </linearGradient>
+    <!-- Bottom arm: teal to green -->
+    <linearGradient id="g3" x1="1" y1="0" x2="0" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#00DD88"/>
+      <stop offset="100%" stop-color="#00AACC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 
+    Three interlocking chevron arrows forming a triangle.
+    Each arrow has an outer shell and a hollow center cutout.
+    Arranged: top-left pointing upper-right, top-right pointing lower-right, bottom pointing left.
+  -->
+
+  <!-- TOP-LEFT ARROW (points toward upper-right, like "> " rotated) -->
+  <g fill="url(#g1)">
+    <!-- Outer arrow shape -->
+    <polygon points="8,85 28,50 48,50 60,28 40,28 20,63 0,63" />
+    <!-- The arrow chevron cutout handled by separate polygon -->
+    <polygon points="20,85 40,50 48,50 28,85" fill="#00a8e8" opacity="0.85"/>
+  </g>
+
+  <!-- TOP-RIGHT ARROW (points toward lower-right) -->
+  <g fill="url(#g2)">
+    <polygon points="60,28 80,28 100,63 80,63 100,98 80,98 60,63 80,63"/>
+    <polygon points="80,28 100,28 120,63 100,63" opacity="0.85" fill="#0066dd"/>
+  </g>
+
+  <!-- BOTTOM ARROW (points left, horizontal) -->
+  <g fill="url(#g3)">
+    <polygon points="28,87 100,87 100,100 88,115 88,100 28,100"/>
+    <polygon points="8,87 28,87 28,100 8,100 20,112 0,112 0,87" opacity="0.85" fill="#00ccaa"/>
+  </g>
+</svg>
