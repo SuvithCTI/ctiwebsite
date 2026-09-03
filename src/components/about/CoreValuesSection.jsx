@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, HeartHandshake, Rocket, Award, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export const CoreValuesSection = () => {
   const values = [
@@ -7,40 +7,40 @@ export const CoreValuesSection = () => {
       id: 'precision',
       title: 'Precision Engineering',
       description: 'Every line of code is deliberate. We build performance-first architectures designed to handle enterprise scale seamlessly.',
-      icon: <Layers className="w-9 h-9 sm:w-20 sm:h-20 text-cyan-500 animate-[spin_10s_linear_infinite] filter drop-shadow-[0_0_20px_rgba(6,182,212,0.9)]" />,
+      image: '/core-value-engine.png',
       titleGradient: 'from-sky-600 via-cyan-500 to-indigo-600',
-      accentGlow: 'from-sky-400/30 via-cyan-400/20 to-indigo-500/10',
-      orbGlow: 'bg-cyan-400/40',
+      accentGlow: 'from-sky-400/20 via-cyan-400/15 to-indigo-500/10',
+      orbGlow: 'bg-cyan-400/60',
       shapeClass: 'rounded-2xl sm:rounded-tl-[3.5rem] sm:rounded-br-[3.5rem] sm:rounded-tr-3xl sm:rounded-bl-3xl'
     },
     {
       id: 'client-first',
       title: 'Client-First Culture',
       description: 'We treat every project as our own product. Your business success is our priority — going far beyond delivery to ensure ROI.',
-      icon: <HeartHandshake className="w-9 h-9 sm:w-20 sm:h-20 text-rose-500 animate-bounce filter drop-shadow-[0_0_20px_rgba(244,63,94,0.9)]" />,
+      image: '/core-value-compass.png',
       titleGradient: 'from-rose-600 via-pink-500 to-amber-500',
-      accentGlow: 'from-rose-400/30 via-pink-400/20 to-amber-400/10',
-      orbGlow: 'bg-rose-400/40',
+      accentGlow: 'from-rose-400/20 via-pink-400/15 to-amber-400/10',
+      orbGlow: 'bg-rose-400/60',
       shapeClass: 'rounded-2xl sm:rounded-t-[4.5rem] sm:rounded-b-3xl'
     },
     {
       id: 'innovation',
       title: 'Innovation Driven',
       description: 'Staying at the bleeding edge — integrating autonomous AI systems, cloud-native pipelines, and modern stacks for lasting advantage.',
-      icon: <Rocket className="w-9 h-9 sm:w-20 sm:h-20 text-purple-500 animate-bounce -rotate-45 group-hover:rotate-0 group-hover:scale-125 transition-all duration-500 filter drop-shadow-[0_0_22px_rgba(147,51,234,0.9)]" />,
-      titleGradient: 'from-purple-600 via-indigo-500 to-cyan-500',
-      accentGlow: 'from-purple-400/30 via-indigo-400/20 to-cyan-400/10',
-      orbGlow: 'bg-purple-400/40',
+      image: '/core-value-brain.png',
+      titleGradient: 'from-indigo-600 via-sky-500 to-cyan-500',
+      accentGlow: 'from-indigo-400/20 via-sky-400/15 to-cyan-400/10',
+      orbGlow: 'bg-indigo-400/50',
       shapeClass: 'rounded-2xl sm:rounded-tr-[4.5rem] sm:rounded-bl-[4.5rem] sm:rounded-tl-3xl sm:rounded-br-3xl'
     },
     {
       id: 'quality',
       title: 'Quality Standards',
       description: "Our 98% client retention rate reflects our standard. We don't just ship code — we ship rock-solid, production-grade confidence.",
-      icon: <Award className="w-9 h-9 sm:w-20 sm:h-20 text-amber-500 animate-[spin_12s_linear_infinite_reverse] filter drop-shadow-[0_0_20px_rgba(245,158,11,0.9)]" />,
+      image: '/core-value-shield.png',
       titleGradient: 'from-amber-600 via-yellow-500 to-rose-500',
-      accentGlow: 'from-amber-400/30 via-yellow-400/20 to-rose-400/10',
-      orbGlow: 'bg-amber-400/40',
+      accentGlow: 'from-amber-400/20 via-yellow-400/15 to-rose-400/10',
+      orbGlow: 'bg-amber-400/60',
       shapeClass: 'rounded-2xl sm:rounded-[3.2rem]'
     }
   ];
@@ -70,12 +70,12 @@ export const CoreValuesSection = () => {
           </p>
         </div>
 
-        {/* 4 Multi-Color Real-Time Animated Glass Cards Grid (Compact 2 Columns on Mobile View) */}
+        {/* 4 Multi-Color Real-Time Animated Glass Cards Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-8 items-stretch">
           {values.map((v) => (
             <div
               key={v.id}
-              className={`group relative bg-white/75 backdrop-blur-xl border-none p-3 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_70px_rgba(14,165,233,0.22)] transition-all duration-500 hover:-translate-y-1 flex flex-col justify-start overflow-hidden ${v.shapeClass}`}
+              className={`group relative bg-white/85 backdrop-blur-xl border-none p-3 sm:p-7 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_70px_rgba(14,165,233,0.22)] transition-all duration-500 hover:-translate-y-1 flex flex-col justify-between overflow-hidden ${v.shapeClass}`}
             >
               {/* Top Edge Specular Glass Reflection Highlight */}
               <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-white/90 to-transparent pointer-events-none" />
@@ -83,19 +83,23 @@ export const CoreValuesSection = () => {
               {/* Multi-Color Internal Ambient Glow Overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${v.accentGlow} opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
-              <div className="space-y-2 sm:space-y-6 relative z-10 pt-1 pb-1">
+              <div className="space-y-3 sm:space-y-6 relative z-10 pt-1 pb-1 flex flex-col items-center">
                 
-                {/* CENTERED FREE-FLOATING GLOWING LOGO */}
-                <div className="flex justify-center pt-1 pb-1 sm:pt-3 sm:pb-3">
-                  <div className="relative group-hover:scale-110 transition-transform duration-500">
-                    <div className={`absolute inset-0 rounded-full ${v.orbGlow} blur-xl sm:blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
-                    {v.icon}
-                  </div>
+                {/* PURE FREE-FLOATING 3D IMAGE (No Box / No Border) */}
+                <div className="flex justify-center items-center relative pt-0.5 pb-0.5 sm:pt-2 sm:pb-2 w-full">
+                  {/* Glowing Ambient Halo Behind Image */}
+                  <div className={`absolute w-20 h-20 sm:w-36 sm:h-36 rounded-full ${v.orbGlow} blur-xl sm:blur-2xl opacity-40 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none`} />
+                  
+                  <img
+                    src={v.image}
+                    alt={v.title}
+                    className="w-24 h-24 sm:w-44 sm:h-44 object-contain relative z-10 transition-transform duration-700 group-hover:scale-110 filter drop-shadow-2xl"
+                  />
                 </div>
 
                 {/* Multi-Color Title & Description (Centered) */}
-                <div className="space-y-1 sm:space-y-3 text-center">
-                  <h3 className={`text-xs sm:text-2xl font-black font-editorial tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r ${v.titleGradient}`}>
+                <div className="space-y-1 sm:space-y-2.5 text-center">
+                  <h3 className={`text-sm sm:text-2xl font-black font-editorial tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r ${v.titleGradient}`}>
                     {v.title}
                   </h3>
                   <p className="text-[10px] sm:text-sm text-slate-800 font-semibold leading-tight sm:leading-relaxed">
