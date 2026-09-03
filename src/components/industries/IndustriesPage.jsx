@@ -164,24 +164,34 @@ export const IndustriesPage = ({ setActiveTab, openEstimator }) => {
           })}
         </div>
 
-        {/* Selected Industry Detail Card (Reduced Height & Compact Padding) */}
+        {/* Selected Industry Detail Card */}
         {activeIndustry && (
-          <div className={`relative rounded-3xl sm:rounded-[2.5rem] border-2 ${theme.cardBorder} overflow-hidden shadow-2xl p-4 sm:p-7 min-h-[420px] sm:min-h-[450px] flex flex-col justify-between transition-all duration-500`}>
+          <div className="relative pt-4 sm:pt-5">
             
-            {/* High-Resolution Domain Background Image & Light Gradient Overlay */}
-            <div className="absolute inset-0 z-0">
-              <img
-                src={bgPhoto}
-                alt={activeIndustry.name}
-                className="w-full h-full object-cover scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/75 to-white/45 backdrop-blur-[1px]" />
+            {/* Centered Top Floating Header Badge Overlapping Box Top Edge */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 w-max max-w-[92%] text-center">
+              <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-4 py-1 sm:px-8 sm:py-2 rounded-full text-[11px] sm:text-base font-black uppercase tracking-wider sm:tracking-widest shadow-xl border-2 ${theme.badgeBg}`}>
+                <Zap className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" />
+                <span className="truncate">{activeIndustry.name}</span>
+              </div>
             </div>
 
-            <div className="relative z-10 space-y-4 sm:space-y-5">
+            <div className={`relative rounded-3xl sm:rounded-[2.5rem] border-2 ${theme.cardBorder} overflow-hidden shadow-2xl p-3.5 sm:p-7 pt-6 sm:pt-8 min-h-[420px] sm:min-h-[450px] flex flex-col justify-between transition-all duration-500`}>
               
-              {/* Top Row: Industry Badge, Title & Target Clients */}
-              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 pb-3 sm:pb-4 border-b-2 border-slate-950/15">
+              {/* High-Resolution Domain Background Image & Light Gradient Overlay */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src={bgPhoto}
+                  alt={activeIndustry.name}
+                  className="w-full h-full object-cover scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/75 to-white/45 backdrop-blur-[1px]" />
+              </div>
+
+              <div className="relative z-10 space-y-4 sm:space-y-5">
+                
+                {/* Top Row: Industry Badge, Title & Target Clients */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 pb-3 sm:pb-4 border-b-2 border-slate-950/15">
                 
                 <div className="space-y-1 sm:space-y-1.5">
                   <div className={`inline-flex items-center gap-1.5 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-widest border shadow-xs ${theme.badgeBg}`}>
@@ -279,9 +289,9 @@ export const IndustriesPage = ({ setActiveTab, openEstimator }) => {
                 </button>
               </div>
             </div>
-
           </div>
-        )}
+        </div>
+      )}
 
       </div>
     </div>

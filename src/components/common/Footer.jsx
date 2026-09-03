@@ -37,6 +37,18 @@ export const Footer = ({ setActiveTab, openEstimator }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleCapabilityNav = () => {
+    if (setActiveTab) setActiveTab('home');
+    setTimeout(() => {
+      const servicesEl = document.getElementById('services');
+      if (servicesEl) {
+        servicesEl.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 500, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   const capabilities = [
     'Website Development & Web Apps',
     'Mobile App Builder & Engineering',
@@ -100,10 +112,11 @@ export const Footer = ({ setActiveTab, openEstimator }) => {
               {capabilities.map((cap, i) => (
                 <li
                   key={i}
-                  onClick={() => handleNav('contact')}
-                  className="hover:text-white transition-colors cursor-pointer leading-snug"
+                  onClick={handleCapabilityNav}
+                  className="hover:text-white hover:translate-x-1 transition-all duration-200 cursor-pointer leading-snug flex items-center gap-1.5 group"
                 >
-                  {cap}
+                  <span className="text-[#F3D77F]/60 group-hover:text-white transition-colors text-xs">›</span>
+                  <span>{cap}</span>
                 </li>
               ))}
             </ul>
@@ -159,15 +172,24 @@ export const Footer = ({ setActiveTab, openEstimator }) => {
                 <span>{COMPANY_INFO.phone}</span>
               </a>
 
-              {/* Location */}
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-xl bg-[#F3D77F]/10 border border-[#F3D77F]/30 flex items-center justify-center shrink-0 text-[#F3D77F] mt-0.5">
+              {/* Location (Tap-Friendly Google Maps Link for Mobile & PC) */}
+              <a
+                href={COMPANY_INFO.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 group text-[#F3D77F] hover:text-white transition-all cursor-pointer active:scale-98 py-1"
+                title="Open Google Maps Location"
+              >
+                <div className="w-8 h-8 rounded-xl bg-[#F3D77F]/15 border border-[#F3D77F]/40 flex items-center justify-center shrink-0 text-[#F3D77F] mt-0.5 group-hover:bg-[#F3D77F] group-hover:text-black transition-colors shadow-xs">
                   📍
                 </div>
-                <span className="leading-relaxed">
-                  {COMPANY_INFO.address}
-                </span>
-              </div>
+                <div className="space-y-0.5">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#F3D77F]/80 block">Headquarters (Coimbatore)</span>
+                  <span className="leading-relaxed font-bold text-xs sm:text-sm block group-hover:underline underline-offset-2">
+                    {COMPANY_INFO.address}
+                  </span>
+                </div>
+              </a>
 
               {/* Hours */}
               <div className="flex items-center gap-3">

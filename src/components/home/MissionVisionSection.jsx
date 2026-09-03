@@ -30,7 +30,7 @@ export const MissionVisionSection = () => {
         </div>
 
         {/* 2 Colorful Cards Grid (items-start prevents empty gap when one card expands) */}
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 sm:gap-10 items-start">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-2.5 sm:gap-10 items-start">
 
           {/* Mission Card (Vibrant Electric Sky Theme) */}
           <div
@@ -49,20 +49,20 @@ export const MissionVisionSection = () => {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
 
               {/* Glowing Mission Badge Pill */}
-              <div className="absolute left-3 top-3 sm:left-4 sm:top-4 inline-flex items-center gap-1.5 rounded-full bg-[#0284C7] text-white px-3 py-1 text-[9.5px] sm:text-xs font-black shadow-lg shadow-sky-500/40 border border-white/40 backdrop-blur-md">
-                <Target className="h-3.5 w-3.5 text-white" />
+              <div className="absolute left-2 top-2 sm:left-4 sm:top-4 inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-[#0284C7] text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[8.5px] sm:text-xs font-black shadow-lg shadow-sky-500/40 border border-white/40 backdrop-blur-md">
+                <Target className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
                 <span className="uppercase tracking-widest">MISSION</span>
               </div>
             </div>
 
-            <div className="flex flex-col justify-between space-y-4 p-3.5 sm:p-8 flex-1">
-              <div className="space-y-2">
-                <h3 className="font-editorial text-lg sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#0284C7] via-[#0284C7] to-[#0369A1] text-left">
+            <div className="flex flex-col justify-between space-y-3 p-2.5 sm:p-8 flex-1">
+              <div className="space-y-1.5 sm:space-y-2">
+                <h3 className="font-editorial text-base sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#0284C7] via-[#0284C7] to-[#0369A1] text-left">
                   Our Mission
                 </h3>
 
                 {/* Clean Left-Aligned Text */}
-                <p className="text-left text-[11px] sm:text-sm font-semibold leading-relaxed text-slate-700">
+                <p className="text-left text-[10.5px] sm:text-sm font-semibold leading-snug sm:leading-relaxed text-slate-700">
                   {expandedMission ? (
                     <span>
                       To deliver cutting-edge, reliable, and scalable software solutions that empower businesses to thrive in the digital era. We are committed to translating complex challenges into elegant, intuitive, and high-performance digital products that drive real-world success. By constantly evolving and adopting the latest technological standards, we bridge the gap between ambitious ideas and seamless execution.
@@ -81,19 +81,19 @@ export const MissionVisionSection = () => {
                     e.stopPropagation();
                     setExpandedMission(!expandedMission);
                   }}
-                  className="mt-1 inline-flex items-center gap-1 text-[10px] sm:text-xs font-black text-[#0284C7] bg-white border border-sky-300 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-xs active:scale-95 transition"
+                  className="mt-0.5 sm:mt-1 inline-flex items-center gap-1 text-[9px] sm:text-xs font-black text-[#0284C7] bg-white border border-sky-300 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-xs active:scale-95 transition"
                 >
                   <span>{expandedMission ? 'Show Less' : 'Tap to Elaborate'}</span>
-                  {expandedMission ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                  {expandedMission ? <ChevronUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> : <ChevronDown className="w-2.5 h-2.5 sm:w-3 sm:h-3" />}
                 </button>
               </div>
 
-              <div className="flex items-center justify-between border-t border-sky-200/80 pt-3 text-[10px] sm:text-sm font-extrabold text-slate-900">
-                <div className="flex items-center gap-1.5 text-sky-800 bg-sky-100/90 border border-sky-200 px-2.5 py-0.5 rounded-full">
-                  <Sparkles className="h-3 w-3 text-[#0284C7] shrink-0" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 border-t border-sky-200/80 pt-2 sm:pt-3 text-[9px] sm:text-sm font-extrabold text-slate-900">
+                <div className="flex items-center gap-1 text-sky-800 bg-sky-100/90 border border-sky-200 px-2 py-0.5 rounded-full text-[8.5px] sm:text-xs">
+                  <Sparkles className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[#0284C7] shrink-0" />
                   <span className="truncate">Impact-Driven</span>
                 </div>
-                <span className="font-black text-[#0284C7] shrink-0">CodeThrive</span>
+                <span className="font-black text-[#0284C7] text-[9.5px] sm:text-sm hidden sm:inline">CodeThrive</span>
               </div>
             </div>
           </div>
@@ -115,20 +115,20 @@ export const MissionVisionSection = () => {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
 
               {/* Glowing Vision Badge Pill */}
-              <div className="absolute left-3 top-3 sm:left-4 sm:top-4 inline-flex items-center gap-1.5 rounded-full bg-[#9333EA] text-white px-3 py-1 text-[9.5px] sm:text-xs font-black shadow-lg shadow-purple-500/40 border border-white/40 backdrop-blur-md">
-                <Eye className="h-3.5 w-3.5 text-white" />
+              <div className="absolute left-2 top-2 sm:left-4 sm:top-4 inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-[#9333EA] text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[8.5px] sm:text-xs font-black shadow-lg shadow-purple-500/40 border border-white/40 backdrop-blur-md">
+                <Eye className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
                 <span className="uppercase tracking-widest">VISION</span>
               </div>
             </div>
 
-            <div className="flex flex-col justify-between space-y-4 p-3.5 sm:p-8 flex-1">
-              <div className="space-y-2">
-                <h3 className="font-editorial text-lg sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#9333EA] via-[#9333EA] to-[#6B21A8] text-left">
+            <div className="flex flex-col justify-between space-y-3 p-2.5 sm:p-8 flex-1">
+              <div className="space-y-1.5 sm:space-y-2">
+                <h3 className="font-editorial text-base sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#9333EA] via-[#9333EA] to-[#6B21A8] text-left">
                   Our Vision
                 </h3>
 
                 {/* Clean Left-Aligned Text */}
-                <p className="text-left text-[11px] sm:text-sm font-semibold leading-relaxed text-slate-700">
+                <p className="text-left text-[10.5px] sm:text-sm font-semibold leading-snug sm:leading-relaxed text-slate-700">
                   {expandedVision ? (
                     <span>
                       To become the most trusted global technology partner, recognized universally for our relentless innovation, unparalleled quality, and profound impact on our clients' success. We aim to shape the future of tech with solutions that lead industries forward. We envision a modern digital landscape where automation and intelligent software design set a new baseline for enterprise efficiency.
@@ -147,19 +147,19 @@ export const MissionVisionSection = () => {
                     e.stopPropagation();
                     setExpandedVision(!expandedVision);
                   }}
-                  className="mt-1 inline-flex items-center gap-1 text-[10px] sm:text-xs font-black text-purple-700 bg-white border border-purple-300 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-xs active:scale-95 transition"
+                  className="mt-0.5 sm:mt-1 inline-flex items-center gap-1 text-[9px] sm:text-xs font-black text-purple-700 bg-white border border-purple-300 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-xs active:scale-95 transition"
                 >
                   <span>{expandedVision ? 'Show Less' : 'Tap to Elaborate'}</span>
-                  {expandedVision ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                  {expandedVision ? <ChevronUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> : <ChevronDown className="w-2.5 h-2.5 sm:w-3 sm:h-3" />}
                 </button>
               </div>
 
-              <div className="flex items-center justify-between border-t border-purple-200/80 pt-3 text-[10px] sm:text-sm font-extrabold text-slate-900">
-                <div className="flex items-center gap-1.5 text-purple-800 bg-purple-100/90 border border-purple-200 px-2.5 py-0.5 rounded-full">
-                  <Globe className="h-3 w-3 text-[#9333EA] shrink-0" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 border-t border-purple-200/80 pt-2 sm:pt-3 text-[9px] sm:text-sm font-extrabold text-slate-900">
+                <div className="flex items-center gap-1 text-purple-800 bg-purple-100/90 border border-purple-200 px-2 py-0.5 rounded-full text-[8.5px] sm:text-xs">
+                  <Globe className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[#9333EA] shrink-0" />
                   <span className="truncate">Global Leadership</span>
                 </div>
-                <span className="font-black text-[#9333EA] shrink-0">CodeThrive</span>
+                <span className="font-black text-[#9333EA] text-[9.5px] sm:text-sm hidden sm:inline">CodeThrive</span>
               </div>
             </div>
           </div>

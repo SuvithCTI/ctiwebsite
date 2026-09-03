@@ -38,10 +38,10 @@ export const Hero = ({ setActiveTab, openEstimator }) => {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative min-h-[calc(100vh-86px)] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-20 pb-8 overflow-hidden bg-gradient-to-br from-sky-50/80 via-white to-indigo-50/60 text-[#050B14]"
+      className="relative min-h-[calc(100vh-86px)] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-20 pb-6 sm:pb-8 overflow-hidden bg-gradient-to-br from-sky-50/80 via-white to-indigo-50/60 text-[#050B14]"
     >
       <video
-        className="absolute inset-0 z-0 h-full w-full object-cover opacity-35"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-30 pointer-events-none"
         src="/hero-background.mp4"
         autoPlay
         loop
@@ -49,27 +49,27 @@ export const Hero = ({ setActiveTab, openEstimator }) => {
         playsInline
         aria-hidden="true"
       />
-      <div className="absolute inset-0 z-0 bg-white/40" />
+      <div className="absolute inset-0 z-0 bg-white/40 pointer-events-none" />
 
       {/* Background Radial Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-300/20 blur-[160px] rounded-full pointer-events-none animate-pulse" />
 
       {/* Watermark Background Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full pointer-events-none select-none overflow-hidden opacity-10">
-        <span className="font-editorial text-[7rem] sm:text-[13rem] font-black tracking-tighter text-slate-400/40 whitespace-nowrap">
+        <span className="font-editorial text-[4.5rem] sm:text-[13rem] font-black tracking-tighter text-slate-400/30 whitespace-nowrap">
           Building Greater Futures
         </span>
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex flex-1 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 w-full">
-        <div className="grid items-center gap-8 lg:grid-cols-12 w-full">
+      <div className="relative z-10 flex flex-1 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 w-full">
+        <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-12 w-full">
 
           {/* Left / Main Column */}
           <div className="lg:col-span-7 text-center lg:text-left w-full">
 
             {/* 1. Headline */}
-            <h1 className="font-editorial text-4xl sm:text-6xl lg:text-[4.25rem] font-black tracking-tight leading-[1.02] text-[#050B14] mb-4 sm:mb-5">
+            <h1 className="font-editorial text-3xl sm:text-6xl lg:text-[4.25rem] font-black tracking-tight leading-[1.05] text-[#050B14] mb-3 sm:mb-5">
               We build <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600">
                 {displayText}
@@ -80,7 +80,7 @@ export const Hero = ({ setActiveTab, openEstimator }) => {
             </h1>
 
             {/* 2. Subtitle */}
-            <p className="text-sm sm:text-base text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed font-semibold mb-5 sm:mb-6">
+            <p className="text-xs sm:text-base text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed font-semibold mb-4 sm:mb-6">
               Codethrive partners with founders and enterprises to craft high-concurrency digital platforms with architectural rigor, precision, and reliable scalability.
             </p>
 
@@ -109,23 +109,23 @@ export const Hero = ({ setActiveTab, openEstimator }) => {
             </div>
 
             {/* 4. MOBILE VIEW ONLY: Interactive Orbital Animation Graphic in Center */}
-            <div className="flex lg:hidden items-center justify-center relative my-6 w-full">
+            <div className="flex lg:hidden items-center justify-center relative my-4 w-full">
               <div
                 style={{
                   transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`
                 }}
-                className="relative w-full max-w-[340px] sm:max-w-[440px] h-[280px] sm:h-[360px] flex items-center justify-center transition-transform duration-300 ease-out"
+                className="relative w-full max-w-[320px] sm:max-w-[440px] h-[260px] sm:h-[360px] flex items-center justify-center transition-transform duration-300 ease-out mx-auto"
               >
                 {/* Radial Glow Pulse */}
                 <div className="absolute inset-0 bg-radial from-sky-300/40 via-purple-300/25 to-transparent blur-3xl rounded-full animate-pulse" />
 
                 {/* Orbit Rings */}
-                <div className="absolute w-[260px] sm:w-[350px] h-[260px] sm:h-[350px] rounded-full border border-sky-400/40 animate-spin-slow" />
-                <div className="absolute w-[200px] sm:w-[260px] h-[200px] sm:h-[260px] rounded-full border border-dashed border-purple-400/50 animate-reverse-spin" />
+                <div className="absolute w-[220px] sm:w-[350px] h-[220px] sm:h-[350px] rounded-full border border-sky-400/40 animate-spin-slow" />
+                <div className="absolute w-[160px] sm:w-[260px] h-[160px] sm:h-[260px] rounded-full border border-dashed border-purple-400/50 animate-reverse-spin" />
 
                 {/* Center Brand Badge */}
                 <div className="relative z-20 flex flex-col items-center justify-center animate-float">
-                  <div className="w-20 sm:w-24 h-20 sm:h-24 rounded-[1.8rem] sm:rounded-[2rem] p-2.5 sm:p-3 flex items-center justify-center shadow-2xl shadow-sky-400/40 border-2 border-white/90 bg-gradient-to-br from-sky-500 via-indigo-600 to-purple-600 transition-transform duration-300 hover:scale-110">
+                  <div className="w-16 sm:w-24 h-16 sm:h-24 rounded-2xl sm:rounded-[2rem] p-2 sm:p-3 flex items-center justify-center shadow-2xl shadow-sky-400/40 border-2 border-white/90 bg-gradient-to-br from-sky-500 via-indigo-600 to-purple-600 transition-transform duration-300 hover:scale-110">
                     <img
                       src="/brand-symbol-transparent.png"
                       alt="CodeThrive"
@@ -133,50 +133,50 @@ export const Hero = ({ setActiveTab, openEstimator }) => {
                       onError={(e) => { (e.target).src = '/logo.png'; }}
                     />
                   </div>
-                  <span className="mt-2 text-[9px] sm:text-xs font-black tracking-widest text-slate-900 uppercase">
+                  <span className="mt-1.5 text-[8.5px] sm:text-xs font-black tracking-widest text-slate-900 uppercase">
                     CODETHRIVE INFOTECH
                   </span>
                 </div>
 
                 {/* Capability Badges on Orbital Arc */}
-                <div className="absolute top-1 left-0 z-10 animate-float">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-sky-50 via-cyan-50 to-blue-50 border-2 border-sky-400 text-[10px] font-black text-sky-950 shadow-md">
-                    <Globe className="w-3.5 h-3.5 text-sky-600 shrink-0" />
+                <div className="absolute top-0 left-0 z-10 animate-float">
+                  <div className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-r from-sky-50 via-cyan-50 to-blue-50 border-2 border-sky-400 text-[9px] sm:text-[10px] font-black text-sky-950 shadow-md">
+                    <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-sky-600 shrink-0" />
                     <span>Website Development</span>
                   </div>
                 </div>
 
-                <div className="absolute top-1 right-0 z-10 animate-float-slow">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-50 via-fuchsia-50 to-pink-50 border-2 border-purple-400 text-[10px] font-black text-purple-950 shadow-md">
-                    <Code2 className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                <div className="absolute top-0 right-0 z-10 animate-float-slow">
+                  <div className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-r from-purple-50 via-fuchsia-50 to-pink-50 border-2 border-purple-400 text-[9px] sm:text-[10px] font-black text-purple-950 shadow-md">
+                    <Code2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-purple-600 shrink-0" />
                     <span>Mobile App Builder</span>
                   </div>
                 </div>
 
-                <div className="absolute top-1/2 -translate-y-1/2 -left-4 z-10 animate-float">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-indigo-50 via-blue-50 to-cyan-50 border-2 border-indigo-500 text-[10px] font-black text-indigo-950 shadow-md">
-                    <Cpu className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                <div className="absolute top-1/2 -translate-y-1/2 -left-1 sm:-left-4 z-10 animate-float">
+                  <div className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-r from-indigo-50 via-blue-50 to-cyan-50 border-2 border-indigo-500 text-[9px] sm:text-[10px] font-black text-indigo-950 shadow-md">
+                    <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-indigo-600 shrink-0" />
                     <span>AI Systems</span>
                   </div>
                 </div>
 
-                <div className="absolute top-1/2 -translate-y-1/2 -right-4 z-10 animate-float-slow">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-50 via-teal-50 to-green-50 border-2 border-emerald-400 text-[10px] font-black text-emerald-950 shadow-md">
-                    <Zap className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>CRM & ERP</span>
+                <div className="absolute top-1/2 -translate-y-1/2 -right-1 sm:-right-4 z-10 animate-float-slow">
+                  <div className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-r from-emerald-50 via-teal-50 to-green-50 border-2 border-emerald-400 text-[9px] sm:text-[10px] font-black text-emerald-950 shadow-md">
+                    <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-600 shrink-0" />
+                    <span>CRM &amp; ERP</span>
                   </div>
                 </div>
 
-                <div className="absolute bottom-1 left-0 z-10 animate-float">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-50 via-yellow-50 to-orange-50 border-2 border-amber-400 text-[10px] font-black text-amber-950 shadow-md">
-                    <Globe className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <div className="absolute bottom-0 left-0 z-10 animate-float">
+                  <div className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-r from-amber-50 via-yellow-50 to-orange-50 border-2 border-amber-400 text-[9px] sm:text-[10px] font-black text-amber-950 shadow-md">
+                    <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-600 shrink-0" />
                     <span>Cloud Architecture</span>
                   </div>
                 </div>
 
-                <div className="absolute bottom-1 right-0 z-10 animate-float-slow">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-50 via-pink-50 to-red-50 border-2 border-rose-400 text-[10px] font-black text-rose-950 shadow-md">
-                    <Code2 className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                <div className="absolute bottom-0 right-0 z-10 animate-float-slow">
+                  <div className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-r from-rose-50 via-pink-50 to-red-50 border-2 border-rose-400 text-[9px] sm:text-[10px] font-black text-rose-950 shadow-md">
+                    <Code2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-rose-600 shrink-0" />
                     <span>Business Support</span>
                   </div>
                 </div>

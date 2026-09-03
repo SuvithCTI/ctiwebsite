@@ -9,7 +9,7 @@ export const COMPANY_INFO = {
   phone: '+91 9150781685',
   whatsapp: '+91 9150781685',
   address: 'No : 1, Srihari Nivas, Indira Nagar, Sungam, Coimbatore, Tamil Nadu - 641045',
-  mapsUrl: 'https://maps.google.com',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=CodeThrive+Infotech+No+1+Srihari+Nivas+Indira+Nagar+Sungam+Coimbatore+Tamil+Nadu+641045',
   workingHours: 'Monday - Saturday: 9:00 AM - 6:00 PM',
   websiteUrl: 'https://codethriveinfotech.in',
   socialLinks: {

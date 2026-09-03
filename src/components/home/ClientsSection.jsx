@@ -166,7 +166,7 @@ export const ClientsSection = () => {
       <div
         key={c.id}
         onClick={() => toggleFlip(c.id)}
-        className={`perspective-[1000px] ${isCompact ? 'h-[215px] max-w-[190px]' : 'h-[370px]'} cursor-pointer group w-full mx-auto`}
+        className={`perspective-[1000px] ${isCompact ? 'h-[175px] max-w-[175px]' : 'h-[310px]'} cursor-pointer group w-full mx-auto`}
       >
         <div
           className={`relative w-full h-full duration-700 transition-transform [transform-style:preserve-3d] ${
@@ -176,16 +176,16 @@ export const ClientsSection = () => {
           
           {/* FRONT SIDE */}
           <div
-            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] ${c.bg} ${c.border} border ${isCompact ? 'rounded-2xl p-2' : 'rounded-3xl p-3.5'} shadow-sm hover:shadow-xl flex flex-col justify-between overflow-hidden`}
+            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] ${c.bg} ${c.border} border ${isCompact ? 'rounded-xl p-1.5' : 'rounded-2xl p-2.5'} shadow-sm hover:shadow-xl flex flex-col justify-between overflow-hidden`}
           >
-            <div className={isCompact ? 'space-y-1' : 'space-y-2'}>
+            <div className={isCompact ? 'space-y-0.5' : 'space-y-1.5'}>
               
-              {/* Top White Logo Box - LARGER LOGO DISPLAY */}
-              <div className={`bg-white border border-slate-200/90 ${isCompact ? 'rounded-xl h-15 p-1' : 'rounded-2xl h-28 p-2'} flex items-center justify-center shadow-xs overflow-hidden`}>
+              {/* Top White Logo Box */}
+              <div className={`bg-white border border-slate-200/90 ${isCompact ? 'rounded-lg h-11 p-1' : 'rounded-xl h-20 p-1.5'} flex items-center justify-center shadow-xs overflow-hidden`}>
                 <img
                   src={c.logo}
                   alt={c.name}
-                  className={`${isCompact ? 'h-12 w-[95%] max-h-full object-contain scale-115' : 'h-20 max-h-full max-w-full object-contain'} filter drop-shadow-md group-hover:scale-115 transition-transform duration-300`}
+                  className={`${isCompact ? 'h-8 w-[95%] max-h-full object-contain scale-110' : 'h-14 max-h-full max-w-full object-contain'} filter drop-shadow-md group-hover:scale-115 transition-transform duration-300`}
                   onError={(e) => {
                     (e.target).src = '/logo.png';
                   }}
@@ -275,7 +275,7 @@ export const ClientsSection = () => {
                     e.stopPropagation();
                     setSelectedScreenshot(c);
                   }}
-                  className={`relative ${isCompact ? 'h-24' : 'h-42'} w-full overflow-hidden bg-slate-950 flex items-center justify-center p-1 group/img`}
+                  className={`relative ${isCompact ? 'h-18' : 'h-42'} w-full overflow-hidden bg-slate-950 flex items-center justify-center p-1 group/img`}
                 >
                   <img
                     src={c.screenshot}
@@ -309,21 +309,11 @@ export const ClientsSection = () => {
 
             </div>
 
-            {/* Bottom Metric & External Link Action Button */}
+            {/* Bottom Metric */}
             <div className="pt-0.5 border-t border-slate-800/80 flex items-center justify-between gap-1 px-1">
               <span className="text-[8.5px] sm:text-[9.5px] font-black text-sky-400 leading-tight truncate">
                 {c.metrics}
               </span>
-              <a
-                href={c.link || 'https://codethriveinfotech.in'}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-sky-500 hover:bg-sky-400 text-white flex items-center justify-center shrink-0 shadow-md transition hover:scale-110"
-                title="Visit Live Client Website"
-              >
-                <ExternalLink className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-              </a>
             </div>
 
           </div>

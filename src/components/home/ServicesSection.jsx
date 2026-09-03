@@ -162,7 +162,7 @@ export const ServicesSection = ({ setActiveTab, openEstimator }) => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#F4F9FF] via-[#FAFCFF] to-[#EEF5FF] text-[#050B14] relative overflow-hidden">
+    <section id="services" className="py-24 bg-gradient-to-br from-[#F4F9FF] via-[#FAFCFF] to-[#EEF5FF] text-[#050B14] relative overflow-hidden">
       
       {/* Background Radial Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-sky-200/20 blur-[160px] pointer-events-none" />

@@ -33,7 +33,7 @@ export const ContactPage = () => {
     } else if (channel === 'MEET') {
       setIsScheduleOpen(true);
     } else if (channel === 'MAP') {
-      window.open('https://maps.google.com/?q=Coimbatore,TamilNadu', '_blank');
+      window.open(COMPANY_INFO.mapsUrl, '_blank');
     } else if (channel === 'NETWORK') {
       window.open(COMPANY_INFO.socialLinks.linkedin, '_blank');
     }
@@ -177,37 +177,37 @@ export const ContactPage = () => {
         {/* ROW 2: MAIN BODY GRID (Form Left + 2 Cards Right) */}
         <div className="grid lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* LEFT COLUMN: Initiate Project Scope Form (Reduced Height) */}
-          <div className="lg:col-span-7 bg-white rounded-[2rem] border border-slate-200/90 p-4 sm:p-7 shadow-lg flex flex-col justify-between space-y-3 sm:space-y-4">
+          {/* LEFT COLUMN: Initiate Project Scope Form (Larger & Expanded on PC View) */}
+          <div className="lg:col-span-7 bg-white rounded-[2rem] border border-slate-200/90 p-4 sm:p-7 lg:p-9 shadow-lg flex flex-col justify-between space-y-3 sm:space-y-4 lg:space-y-6">
             
             <div>
-              <h2 className="font-editorial text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
+              <h2 className="font-editorial text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight">
                 Initiate Project Scope
               </h2>
-              <p className="mt-0.5 text-xs font-bold text-slate-500">
+              <p className="mt-0.5 sm:mt-1 text-xs lg:text-sm font-bold text-slate-500">
                 Average reply time: under 4 business hours.
               </p>
             </div>
 
             {formSubmitted ? (
-              <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-2 animate-fade-in my-auto">
-                <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto text-xl font-bold shadow-md">
+              <div className="p-6 lg:p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-2 lg:space-y-3 animate-fade-in my-auto">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto text-xl lg:text-2xl font-bold shadow-md">
                   ✓
                 </div>
-                <h3 className="text-lg font-black text-emerald-950 font-editorial">
+                <h3 className="text-lg lg:text-2xl font-black text-emerald-950 font-editorial">
                   Inquiry Received!
                 </h3>
-                <p className="text-xs font-semibold text-emerald-800 max-w-md mx-auto">
+                <p className="text-xs lg:text-sm font-semibold text-emerald-800 max-w-md mx-auto leading-relaxed">
                   Thank you! Our Engineering Leadership team has received your project details and will get back to you within 4 business hours.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
+              <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3 lg:space-y-5">
                 
                 {/* Row 1: Full Name & Mobile Number (2 Columns) */}
-                <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-800">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-5">
+                  <div className="space-y-1 lg:space-y-1.5">
+                    <label className="text-xs lg:text-sm font-black text-slate-800 block">
                       Your Full Name *
                     </label>
                     <input
@@ -216,12 +216,12 @@ export const ContactPage = () => {
                       placeholder="Jane Doe"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 text-xs font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 transition shadow-xs"
+                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 lg:p-3.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs"
                     />
                   </div>
 
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-800">
+                  <div className="space-y-1 lg:space-y-1.5">
+                    <label className="text-xs lg:text-sm font-black text-slate-800 block">
                       Mobile / Phone Number *
                     </label>
                     <input
@@ -230,15 +230,15 @@ export const ContactPage = () => {
                       placeholder="+91 91507 81685"
                       value={formData.mobileNumber}
                       onChange={(e) => setFormData({ ...formData, mobileNumber: e.target.value })}
-                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 text-xs font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 transition shadow-xs"
+                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 lg:p-3.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs"
                     />
                   </div>
                 </div>
 
                 {/* Row 2: Work Email & Company Email (2 Columns) */}
-                <div className="grid sm:grid-cols-2 gap-3">
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-800">
+                <div className="grid sm:grid-cols-2 gap-3 lg:gap-5">
+                  <div className="space-y-1 lg:space-y-1.5">
+                    <label className="text-xs lg:text-sm font-black text-slate-800 block">
                       Work Email Address *
                     </label>
                     <input
@@ -247,12 +247,12 @@ export const ContactPage = () => {
                       placeholder="jane@enterprise.com"
                       value={formData.workEmail}
                       onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 text-xs font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 transition shadow-xs"
+                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 lg:p-3.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs"
                     />
                   </div>
 
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-800">
+                  <div className="space-y-1 lg:space-y-1.5">
+                    <label className="text-xs lg:text-sm font-black text-slate-800 block">
                       Company Email
                     </label>
                     <input
@@ -260,38 +260,38 @@ export const ContactPage = () => {
                       placeholder="contact@company.com"
                       value={formData.companyEmail}
                       onChange={(e) => setFormData({ ...formData, companyEmail: e.target.value })}
-                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 text-xs font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 transition shadow-xs"
+                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 lg:p-3.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs"
                     />
                   </div>
                 </div>
 
                 {/* Row 3: Project Overview */}
-                <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-800">
+                <div className="space-y-1 lg:space-y-1.5">
+                  <label className="text-xs lg:text-sm font-black text-slate-800 block">
                     Project Overview & Requirements *
                   </label>
                   <textarea
                     required
-                    rows={2}
+                    rows={4}
                     placeholder="Describe your current product, target timeline, and key technical goals..."
                     value={formData.projectOverview}
                     onChange={(e) => setFormData({ ...formData, projectOverview: e.target.value })}
-                    className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 text-xs font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 transition shadow-xs resize-none"
+                    className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2.5 sm:p-3.5 lg:p-4 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs resize-none"
                   />
                 </div>
 
                 {/* Bottom Bar: NDA + Send Inquiry Button */}
-                <div className="pt-0.5 sm:pt-1 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 lg:gap-4">
+                  <div className="flex items-center gap-2 text-xs lg:text-sm font-bold text-slate-700">
+                    <ShieldCheck className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600 shrink-0" />
                     <span>Protected by mutual Non-Disclosure Agreement (NDA).</span>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-7 py-2 sm:py-2.5 rounded-full bg-[#3B82F6] hover:bg-[#2563EB] !text-white font-bold text-xs shadow-md shadow-blue-200 flex items-center justify-center gap-2 transition hover:scale-105 cursor-pointer shrink-0"
+                    className="w-full sm:w-auto px-7 py-2.5 sm:py-3 lg:px-9 lg:py-3.5 rounded-full bg-[#3B82F6] hover:bg-[#2563EB] !text-white font-black text-xs lg:text-sm shadow-md shadow-blue-200 flex items-center justify-center gap-2 transition hover:scale-105 cursor-pointer shrink-0"
                   >
-                    <Send className="w-3.5 h-3.5 !text-white" />
+                    <Send className="w-4 h-4 !text-white" />
                     <span className="!text-white">Send Inquiry</span>
                   </button>
                 </div>
@@ -301,74 +301,74 @@ export const ContactPage = () => {
 
           </div>
 
-          {/* RIGHT COLUMN: 2 Cards (Reduced Height) */}
-          <div className="lg:col-span-5 space-y-5 flex flex-col justify-between">
+          {/* RIGHT COLUMN: 2 Cards (Expanded & Larger on PC View) */}
+          <div className="lg:col-span-5 space-y-5 lg:space-y-6 flex flex-col justify-between">
             
             {/* CARD 1: Book a Consultation */}
-            <div className="bg-white rounded-[1.8rem] border border-slate-200/90 p-5 sm:p-5.5 shadow-lg space-y-3">
-              <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-center text-slate-800">
-                <Calendar className="w-4.5 h-4.5 text-slate-800" />
+            <div className="bg-white rounded-[1.8rem] border border-slate-200/90 p-5 sm:p-5.5 lg:p-8 shadow-lg space-y-3 lg:space-y-5">
+              <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-xl bg-slate-100 border border-slate-200/90 shadow-xs flex items-center justify-center text-slate-800">
+                <Calendar className="w-4.5 h-4.5 lg:w-5 lg:h-5 text-slate-800" />
               </div>
 
-              <h3 className="font-editorial text-xl sm:text-2xl font-black text-slate-950">
+              <h3 className="font-editorial text-xl sm:text-2xl lg:text-3xl font-black text-slate-950">
                 Book a Consultation
               </h3>
 
-              <p className="text-xs text-slate-600 font-semibold leading-relaxed">
+              <p className="text-xs lg:text-sm text-slate-600 font-semibold leading-relaxed">
                 Prefer a real-time discussion? Pick a convenient 30-minute window with our Engineering Leadership team.
               </p>
 
               <button
                 onClick={() => setIsScheduleOpen(true)}
-                className="w-full py-2.5 sm:py-3 rounded-xl bg-[#3E3846] hover:bg-[#2E2935] !text-white font-bold text-xs flex items-center justify-center gap-2 transition shadow-xs cursor-pointer"
+                className="w-full py-2.5 sm:py-3 lg:py-3.5 rounded-xl bg-[#3E3846] hover:bg-[#2E2935] !text-white font-black text-xs lg:text-sm flex items-center justify-center gap-2 transition hover:scale-[1.02] shadow-md cursor-pointer"
               >
-                <Calendar className="w-4 h-4 text-white" />
-                <span className="text-white">Select Date & Time Slot</span>
+                <Calendar className="w-4 h-4 lg:w-4.5 lg:h-4.5 text-white" />
+                <span className="text-white">Select Date &amp; Time Slot</span>
               </button>
             </div>
 
-            {/* CARD 2: OFFICIAL HEADQUARTERS & CONTACTS */}
-            <div className="bg-white rounded-[1.8rem] border border-slate-200/90 p-5 sm:p-5.5 shadow-lg space-y-3">
-              <div className="text-[10px] font-black tracking-widest text-slate-500 uppercase">
-                OFFICIAL HEADQUARTERS & CONTACTS
+            {/* CARD 2: OFFICIAL HEADQUARTERS & CONTACTS (Expanded & Larger on PC View) */}
+            <div className="bg-white rounded-[1.8rem] border border-slate-200/90 p-5 sm:p-5.5 lg:p-8 shadow-lg space-y-3 lg:space-y-5">
+              <div className="text-[10px] lg:text-xs font-black tracking-widest text-slate-500 uppercase">
+                OFFICIAL HEADQUARTERS &amp; CONTACTS
               </div>
 
-              {/* Address Item */}
-              <div className="space-y-0.5">
-                <div className="flex items-center gap-1.5 text-xs font-black text-slate-950">
-                  <span className="text-rose-500">📍</span>
-                  <span>Coimbatore Office (HQ)</span>
+              {/* Address Item (Interactive Tap-Friendly Card for Mobile & PC View) */}
+              <a
+                href={COMPANY_INFO.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-3 lg:p-4.5 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/80 border border-slate-200 hover:border-sky-300 transition-all cursor-pointer group active:scale-98 shadow-xs"
+                title="Open Google Maps Location"
+              >
+                <div className="flex items-center justify-between gap-2 text-xs lg:text-sm font-black text-slate-950">
+                  <div className="flex items-center gap-1.5 lg:gap-2">
+                    <span className="text-rose-500 text-sm lg:text-base">📍</span>
+                    <span>Coimbatore Office (HQ)</span>
+                  </div>
+                  <span className="text-[10px] lg:text-xs font-black text-[#0284C7] bg-sky-100 px-2.5 py-1 rounded-full flex items-center gap-1 group-hover:bg-[#0284C7] group-hover:text-white transition-colors">
+                    <span>Map</span>
+                    <ArrowUpRight className="w-3 h-3 lg:w-3.5 lg:h-3.5" />
+                  </span>
                 </div>
 
-                <p className="text-xs font-semibold text-slate-600 pl-5 leading-relaxed">
+                <p className="text-xs lg:text-sm font-bold text-slate-700 mt-1.5 lg:mt-2 leading-relaxed">
                   {COMPANY_INFO.address}
                 </p>
-
-                <div className="pl-5 pt-0.5">
-                  <a
-                    href="https://maps.google.com/?q=Coimbatore,TamilNadu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-bold text-slate-900 underline hover:text-sky-600 flex items-center gap-1 cursor-pointer"
-                  >
-                    <span>Open in Google Maps</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
+              </a>
 
               {/* Email */}
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-900 border-t border-slate-100 pt-2">
-                <Mail className="w-3.5 h-3.5 text-slate-600" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-sky-600">
+              <div className="flex items-center gap-2.5 text-xs lg:text-sm font-bold text-slate-900 border-t border-slate-100 pt-2.5 lg:pt-3.5">
+                <Mail className="w-4 h-4 lg:w-5 lg:h-5 text-slate-600 shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-sky-600 transition-colors">
                   {COMPANY_INFO.email}
                 </a>
               </div>
 
               {/* Phone */}
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-900">
-                <Phone className="w-3.5 h-3.5 text-slate-600" />
-                <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-sky-600">
+              <div className="flex items-center gap-2.5 text-xs lg:text-sm font-bold text-slate-900">
+                <Phone className="w-4 h-4 lg:w-5 lg:h-5 text-slate-600 shrink-0" />
+                <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-sky-600 transition-colors">
                   {COMPANY_INFO.phone}
                 </a>
               </div>
@@ -376,7 +376,7 @@ export const ContactPage = () => {
               {/* WhatsApp Button */}
               <button
                 onClick={() => handleChannelClick('WHATSAPP')}
-                className="w-full py-2.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs flex items-center justify-center gap-2 transition shadow-xs cursor-pointer"
+                className="w-full py-2.5 sm:py-3 lg:py-3.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-black text-xs lg:text-sm flex items-center justify-center gap-2 transition hover:scale-[1.02] shadow-md cursor-pointer"
               >
                 <span>💬 Chat on WhatsApp ({COMPANY_INFO.phone})</span>
               </button>
@@ -407,48 +407,52 @@ export const ContactPage = () => {
           <div className="grid md:grid-cols-2 gap-4 items-start max-w-6xl mx-auto">
             {[
               {
-                q: "What is the typical turnaround time for a project consultation?",
-                a: "Our lead solution architects review your project requirements and respond with technical proposals and scoping estimates within 4 business hours."
+                q: "How much does custom web or mobile app development cost?",
+                a: "Our project budgets start from initial MVP builds up to enterprise platforms. We provide transparent, itemized fixed-sprint quotes after a 30-minute scoping call, with zero hidden charges."
               },
               {
-                q: "How quickly can CodeThrive Infotech kick off our development sprint?",
-                a: "We deploy dedicated senior engineering pods within 3 to 5 business days following scope alignment and NDA execution."
+                q: "How fast can CodeThrive Infotech kick off our development sprint?",
+                a: "We deploy dedicated senior engineering pods within 3 to 5 business days following scope alignment and NDA execution. Milestone deliverables are shipped in rapid 2-week sprints."
               },
               {
-                q: "Are all project details covered under a Non-Disclosure Agreement (NDA)?",
-                a: "Yes! All communications, product specifications, code, and proprietary business logic shared with us are strictly protected under mutual NDA."
+                q: "Do I own 100% of the source code and intellectual property (IP)?",
+                a: "Yes, 100%! Upon milestone completion, full ownership of all source code, design assets, repositories, and intellectual property transfers directly to your company."
               },
               {
-                q: "Do you build custom mobile apps, web platforms, and AI systems?",
-                a: "Yes! We specialize in Next.js web applications, cross-platform mobile apps (React Native/iOS/Android), custom CRM/ERP engines, and enterprise AI implementations."
+                q: "Will my project details be protected under a Non-Disclosure Agreement (NDA)?",
+                a: "Yes. Every client engagement is protected under a strict mutual Non-Disclosure Agreement (NDA) before any proprietary business logic, code, or ideas are shared."
               },
               {
-                q: "What engagement & pricing models do you offer?",
-                a: "We provide fixed-sprint pricing for rapid MVP delivery (2-week milestones) as well as dedicated monthly engineering pod extensions tailored to your product roadmap."
+                q: "What happens after my app or website goes live?",
+                a: "We provide 30 days of complimentary post-launch monitoring and bug fixes. Afterwards, we offer flexible SLA plans for continuous feature development, security updates, and cloud scaling."
               },
               {
-                q: "Can we schedule a direct technical scoping call with senior engineers?",
-                a: "Absolutely! Click the 'MEET' button in Quick Connect or select a 30-minute calendar window to speak directly with our engineering leadership."
+                q: "Can CodeThrive integrate AI models or LLMs into my existing product?",
+                a: "Yes! We specialize in integrating OpenAI, Anthropic, custom RAG knowledge bases, AI agents, and local open-source LLMs into web, mobile, and enterprise platforms."
               },
               {
-                q: "What technologies does your engineering team work with?",
-                a: "Our team works with modern web, mobile, cloud, and AI technologies including React, Next.js, Node.js, Python, React Native, AWS, and leading language-model platforms."
+                q: "Can your engineers work alongside our existing in-house tech team?",
+                a: "Definitely. We offer dedicated team augmentation where our senior developers join your Slack, Jira, and GitHub workflows to accelerate delivery and fill technical skill gaps."
               },
               {
-                q: "Can you work with an existing in-house engineering team?",
-                a: "Yes. Our senior engineers can integrate with your team, fill capability gaps, or lead specific product work while following your existing tools and delivery processes."
+                q: "How do you handle project communication and status updates?",
+                a: "We hold weekly video demo syncs, maintain live Jira task boards, provide staging build links, and set up a dedicated WhatsApp / Slack channel for instant daily updates."
               },
               {
-                q: "Do you provide ongoing support after launch?",
-                a: "Yes. We offer post-launch monitoring, maintenance, performance improvements, security updates, and continued feature development through flexible support plans."
+                q: "Which tech stacks and frameworks do you specialize in?",
+                a: "Our core stack includes React 19, Next.js 15, Node.js, Python, Flutter, React Native, Tailwind CSS, PostgreSQL, AWS Cloud, and AI / Machine Learning integrations."
               },
               {
-                q: "How do you keep projects on track and transparent?",
-                a: "You receive regular sprint reviews, progress updates, access to project tracking, and direct communication with the delivery team throughout the engagement."
+                q: "What if I only have a product idea and no technical specification document?",
+                a: "No problem! Our solution architects conduct a 1-on-1 Discovery Session to help define your user flows, wireframes, technical architecture, and a realistic launch roadmap."
               },
               {
-                q: "Can you help validate an idea before development begins?",
-                a: "Absolutely. We can help with discovery workshops, technical feasibility, product strategy, UX direction, and a phased roadmap before committing to full development."
+                q: "Do you build compliant software for Healthcare, E-Commerce, or FinTech?",
+                a: "Yes! We engineer HIPAA-compliant healthcare systems, PCI-DSS compliant e-commerce platforms, and high-concurrency enterprise applications."
+              },
+              {
+                q: "Where is CodeThrive Infotech located and what hours do you operate?",
+                a: "Our headquarters is located in Sungam, Coimbatore, Tamil Nadu, India. Our engineering pods operate Monday to Saturday, supporting global timezones across US, Europe, and Asia."
               }
             ].map((faq, index) => {
               const isOpen = openFaqIndex === index;

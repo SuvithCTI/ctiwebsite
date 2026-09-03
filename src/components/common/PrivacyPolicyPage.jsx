@@ -53,7 +53,7 @@ export const PrivacyPolicyPage = ({ setActiveTab }) => {
       icon: <Key className="w-5 h-5 text-purple-500" />,
       content: [
         'You have the right to request access to, correction of, or deletion of your personal data. You may also opt out of marketing communications at any time.',
-        'To exercise any of these rights, email us at info@codethriveinfotech.in and we will respond within 30 days.'
+        'To exercise any of these rights, email us at info@codethriveinfotech.in and we will respond within 24 hours.'
       ],
       hasEmailLink: true
     },
@@ -166,7 +166,7 @@ export const PrivacyPolicyPage = ({ setActiveTab }) => {
             >
               info@codethriveinfotech.in
             </a>
-            . We answer all data inquiries within 30 days.
+            . We answer all data inquiries within 24 hours.
           </p>
         </div>
 
