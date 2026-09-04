@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { INDUSTRIES } from '../../data/mockData';
-import { ShieldCheck, ArrowRight, CheckCircle2, AlertTriangle, Zap } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Zap } from 'lucide-react';
 
-export const IndustriesPage = ({ setActiveTab, openEstimator }) => {
+export const IndustriesPage = ({ setActiveTab }) => {
   const [selectedIndustryId, setSelectedIndustryId] = useState(INDUSTRIES[0]?.id || 'healthcare');
   const activeIndustry = INDUSTRIES.find((ind) => ind.id === selectedIndustryId) || INDUSTRIES[0];
 

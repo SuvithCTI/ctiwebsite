@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Logo = ({ size = 'md', showText = true, showTagline = true, className = '', variant = 'auto', monochrome = false, animateThrive = false }) => {
+export const Logo = ({ size = 'md', showText = true, showTagline = true, className = '', variant = 'auto', _monochrome = false, animateThrive = false }) => {
   const sizeMap = {
     sm: { img: 'w-8 h-8', text: 'text-base sm:text-lg', sub: 'text-[8px]' },
     md: { img: 'w-10 h-10', text: 'text-xl sm:text-2xl', sub: 'text-[9px]' },

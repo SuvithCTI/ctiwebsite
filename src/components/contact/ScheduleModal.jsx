@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { X, Calendar, CheckCircle2, Video, Clock, Sparkles, User, Mail, ShieldCheck } from 'lucide-react';
+import { X, Calendar, CheckCircle2, Video, Clock, Sparkles, User, Mail } from 'lucide-react';
 
 export const ScheduleModal = ({ isOpen, onClose }) => {
   const [selectedDate, setSelectedDate] = useState('2026-09-05');

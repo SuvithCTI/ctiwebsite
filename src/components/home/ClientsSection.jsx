@@ -18,14 +18,16 @@ export const ClientsSection = () => {
       tagline: 'Enterprise Booking Engine',
       industry: 'TRAVEL',
       metricPill: '+140% Bookings',
+      impactMetric: '⚡ 12,000+ Monthly Bookings',
       location: 'Coimbatore',
       logo: '/clients/samyuktha.png',
       screenshot: '/clients/preview-samyuktha.png',
-      description: 'End-to-end digital travel booking & customer portal.',
+      description: 'End-to-end digital travel booking & customer management portal.',
       bullets: [
         'Automated Itinerary Engine',
         'Online Ticket Booking API',
-        'Customer CRM & SMS Alerts'
+        'Customer CRM & SMS Alerts',
+        '24/7 WhatsApp Booking Bot'
       ],
       metrics: '12,000+ monthly bookings',
       bg: 'bg-[#FFFBF2]',
@@ -43,14 +45,16 @@ export const ClientsSection = () => {
       tagline: 'AI Fleet Dispatch Suite',
       industry: 'MOBILITY',
       metricPill: '< 2 min Dispatch',
+      impactMetric: '⚡ Sub-3-Second Dispatch',
       location: 'Madurai',
       logo: '/clients/madurai-tour-taxi.png',
       screenshot: '/clients/preview-madurai-taxi.png',
-      description: 'Scalable fleet management and automated booking platform.',
+      description: 'Scalable fleet management and automated ride booking platform.',
       bullets: [
         'Real-time GPS Dispatch',
         'Driver Telemetry Dashboard',
-        'Instant Fare Calculator'
+        'Instant Fare Calculator',
+        'Automated Driver Payouts'
       ],
       metrics: 'Sub-3-second driver allocation',
       bg: 'bg-[#F2FCFF]',
@@ -68,14 +72,16 @@ export const ClientsSection = () => {
       tagline: 'Multi-Day Tour Checkout',
       industry: 'HOSPITALITY',
       metricPill: '99.99% Uptime',
+      impactMetric: '⚡ 3.8x Booking Growth',
       location: 'Madurai',
       logo: '/clients/madurai-best.png',
       screenshot: '/clients/preview-madurai-best.png',
-      description: 'Tourism experience platforms with multi-day tour packages.',
+      description: 'Tourism experience platforms with multi-day package builders.',
       bullets: [
         'Multi-Day Tour Builder',
         'Payment Gateway Integration',
-        'Multi-Language Portal'
+        'Multi-Language Portal',
+        'Custom Package Customizer'
       ],
       metrics: '3.8x increase in online bookings',
       bg: 'bg-[#FAF5FF]',
@@ -93,14 +99,16 @@ export const ClientsSection = () => {
       tagline: 'EHR Clinician Portal',
       industry: 'HEALTHCARE',
       metricPill: '4.9/5 Rating',
+      impactMetric: '⚡ 99.9% Encrypted EHR Uptime',
       location: 'Chennai',
       logo: '/clients/therapy-universe.png',
       screenshot: '/clients/preview-madurai-therapy.png',
-      description: 'Modern healthcare management and patient portal.',
+      description: 'Modern healthcare management and clinical patient portal.',
       bullets: [
         'HIPAA/EHR Patient Portal',
         'Smart Appointment Booking',
-        'Physio Rehab Tracker'
+        'Physio Rehab Tracker',
+        'Telehealth Video Consults'
       ],
       metrics: '99.9% uptime with encrypted EHR',
       bg: 'bg-[#F0FDF4]',
@@ -118,14 +126,16 @@ export const ClientsSection = () => {
       tagline: '4K Cloud Asset Pipeline',
       industry: 'MEDIA',
       metricPill: '5x Faster Video',
+      impactMetric: '⚡ 500GB+ Daily Transcoding',
       location: 'Bangalore',
       logo: '/clients/amf-studio.png',
       screenshot: '/clients/preview-amf-studio.png',
-      description: 'Enterprise video production workflows and cloud proofing.',
+      description: 'Enterprise video production workflows & cloud proofing.',
       bullets: [
         '4K Media Storage Pipeline',
         'Client Proofing & Reviews',
-        'Automated Cloud Transcoding'
+        'Automated Cloud Transcoding',
+        'High-Speed GPU Rendering'
       ],
       metrics: '500GB+ daily media transcoding',
       bg: 'bg-[#FFF5F9]',
@@ -166,7 +176,7 @@ export const ClientsSection = () => {
       <div
         key={c.id}
         onClick={() => toggleFlip(c.id)}
-        className={`perspective-[1000px] ${isCompact ? 'h-[175px] max-w-[175px]' : 'h-[310px]'} cursor-pointer group w-full mx-auto`}
+        className={`perspective-[1000px] ${isCompact ? 'h-[175px] max-w-[175px]' : 'h-[310px] sm:h-[340px] lg:h-[355px]'} cursor-pointer group w-full mx-auto`}
       >
         <div
           className={`relative w-full h-full duration-700 transition-transform [transform-style:preserve-3d] ${
@@ -176,16 +186,16 @@ export const ClientsSection = () => {
           
           {/* FRONT SIDE */}
           <div
-            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] ${c.bg} ${c.border} border ${isCompact ? 'rounded-xl p-1.5' : 'rounded-2xl p-2.5'} shadow-sm hover:shadow-xl flex flex-col justify-between overflow-hidden`}
+            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] ${c.bg} ${c.border} border ${isCompact ? 'rounded-xl p-1.5' : 'rounded-2xl p-2.5 sm:p-3 lg:p-3.5'} shadow-sm hover:shadow-xl flex flex-col justify-between overflow-hidden`}
           >
-            <div className={isCompact ? 'space-y-0.5' : 'space-y-1.5'}>
+            <div className={isCompact ? 'space-y-0.5' : 'space-y-1 lg:space-y-1.5'}>
               
               {/* Top White Logo Box */}
-              <div className={`bg-white border border-slate-200/90 ${isCompact ? 'rounded-lg h-11 p-1' : 'rounded-xl h-20 p-1.5'} flex items-center justify-center shadow-xs overflow-hidden`}>
+              <div className={`bg-white border border-slate-200/90 ${isCompact ? 'rounded-lg h-11 p-1' : 'rounded-xl h-16 sm:h-18 lg:h-20 p-1 lg:p-1.5'} flex items-center justify-center shadow-xs overflow-hidden`}>
                 <img
                   src={c.logo}
                   alt={c.name}
-                  className={`${isCompact ? 'h-8 w-[95%] max-h-full object-contain scale-110' : 'h-14 max-h-full max-w-full object-contain'} filter drop-shadow-md group-hover:scale-115 transition-transform duration-300`}
+                  className={`${isCompact ? 'h-8 w-[95%] max-h-full object-contain scale-110' : 'h-12 sm:h-14 lg:h-15 max-h-full max-w-full object-contain'} filter drop-shadow-md group-hover:scale-115 transition-transform duration-300`}
                   onError={(e) => {
                     (e.target).src = '/logo.png';
                   }}
@@ -193,48 +203,55 @@ export const ClientsSection = () => {
               </div>
 
               {/* Second Row: Industry Tag + Metric Pill */}
-              <div className="flex items-center gap-1 flex-wrap pt-0.5">
-                <div className={`px-2 py-0.5 rounded-full text-[8.5px] font-black tracking-wider uppercase border ${c.chipBg}`}>
+              <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap pt-0.5">
+                <div className={`rounded-full font-black tracking-wider uppercase border ${isCompact ? 'px-2 py-0.5 text-[8.5px]' : 'px-2 lg:px-2.5 py-0.5 lg:py-1 text-[8.5px] sm:text-[9.5px] lg:text-[11px]'} ${c.chipBg}`}>
                   {c.industry}
                 </div>
 
-                <div className="px-2 py-0.5 rounded-full text-[8.5px] font-black bg-slate-200/80 text-slate-900 border border-slate-300/80 truncate max-w-[100px] sm:max-w-[120px]">
+                <div className={`rounded-full font-black bg-slate-200/80 text-slate-900 border border-slate-300/80 truncate ${isCompact ? 'px-2 py-0.5 text-[8.5px] max-w-[100px]' : 'px-2 lg:px-2.5 py-0.5 lg:py-1 text-[8.5px] sm:text-[9.5px] lg:text-[11px] max-w-[120px] lg:max-w-none'}`}>
                   {c.metricPill}
                 </div>
               </div>
 
               {/* Title & Subtitle Tagline */}
-              <div className="space-y-0">
-                <h3 className={`${isCompact ? 'text-xs' : 'text-base'} font-black font-editorial leading-tight ${c.titleColor}`}>
+              <div className="space-y-0.5">
+                <h3 className={`${isCompact ? 'text-xs' : 'text-base sm:text-lg lg:text-xl'} font-black font-editorial leading-tight ${c.titleColor}`}>
                   {c.name}
                 </h3>
-                <div className="text-[9.5px] font-extrabold text-slate-900 leading-tight truncate">
+                <div className={`${isCompact ? 'text-[9.5px]' : 'text-[9.5px] sm:text-[11px] lg:text-[12.5px]'} font-extrabold text-slate-900 leading-tight truncate`}>
                   {c.tagline}
                 </div>
               </div>
 
               {/* Short Description */}
-              <p className="text-[9.5px] font-bold text-slate-700 leading-tight line-clamp-1">
+              <p className={`${isCompact ? 'text-[9.5px] line-clamp-1' : 'text-[9.5px] sm:text-[11px] lg:text-xs'} font-semibold text-slate-700 leading-snug sm:line-clamp-2`}>
                 {c.description}
               </p>
 
             </div>
 
             {/* Bullets List with Green Checkmarks */}
-            <div className={`pt-1 border-t border-slate-200/60 ${isCompact ? 'space-y-0.5' : 'space-y-1.5'}`}>
-              {(c.bullets || []).slice(0, isCompact ? 2 : 3).map((b, idx) => (
-                <div key={idx} className="flex items-start gap-1 text-[9.5px] font-extrabold text-slate-900 leading-tight truncate">
-                  <span className="text-emerald-600 font-black">✓</span>
+            <div className={`pt-1.5 border-t border-slate-200/60 ${isCompact ? 'space-y-0.5' : 'space-y-1 sm:space-y-1.5 lg:space-y-2'}`}>
+              {(c.bullets || []).slice(0, isCompact ? 2 : 4).map((b, idx) => (
+                <div key={idx} className={`flex items-center gap-1.5 ${isCompact ? 'text-[9.5px]' : 'text-[9.5px] sm:text-[11px] lg:text-[12px]'} font-bold text-slate-900 leading-tight truncate`}>
+                  <span className="text-emerald-600 font-black text-xs lg:text-sm">✓</span>
                   <span className="truncate">{b}</span>
                 </div>
               ))}
 
+              {/* Impact Highlight Badge on PC */}
+              {!isCompact && (
+                <div className="hidden lg:flex items-center gap-1 text-[10.5px] font-extrabold text-sky-800 bg-sky-100/90 border border-sky-200/90 px-2 py-0.5 rounded-md truncate mt-1">
+                  <span>{c.impactMetric}</span>
+                </div>
+              )}
+
               {/* Bottom Bar: Location + Tech Flip */}
-              <div className="pt-0.5 flex items-center justify-between text-[9px] font-black border-t border-slate-200/50 text-slate-900">
-                <span>{c.location}</span>
-                <div className="flex items-center gap-0.5 text-sky-600">
+              <div className={`pt-1 flex items-center justify-between font-black border-t border-slate-200/50 text-slate-900 ${isCompact ? 'text-[9px]' : 'text-[9px] sm:text-[10px] lg:text-xs'}`}>
+                <span className="flex items-center gap-1">📍 {c.location}</span>
+                <div className="flex items-center gap-1 text-sky-600 font-extrabold">
                   <span>Preview</span>
-                  <RotateCcw className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-sky-600" />
+                  <RotateCcw className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5 text-sky-600" />
                 </div>
               </div>
             </div>

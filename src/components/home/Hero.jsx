@@ -3,7 +3,7 @@ import { ArrowRight, Code2, Cpu, Globe, Zap } from 'lucide-react';
 
 const TYPED_WORDS = ['high-concurrency', 'enterprise-grade', 'AI-powered', 'cloud-native'];
 
-export const Hero = ({ setActiveTab, openEstimator }) => {
+export const Hero = ({ setActiveTab }) => {
   const [typedIndex, setTypedIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -38,7 +38,7 @@ export const Hero = ({ setActiveTab, openEstimator }) => {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative min-h-[calc(100vh-86px)] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-20 pb-6 sm:pb-8 overflow-hidden bg-gradient-to-br from-sky-50/80 via-white to-indigo-50/60 text-[#050B14]"
+      className="relative min-h-[calc(100vh-86px)] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-32 pb-6 sm:pb-8 overflow-hidden bg-gradient-to-br from-sky-50/80 via-white to-indigo-50/60 text-[#050B14]"
     >
       <video
         className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-30 pointer-events-none"

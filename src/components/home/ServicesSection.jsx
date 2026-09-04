@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowRight, LayoutGrid, Smartphone, Cpu, Shield, Sparkles, Layout, X, CheckCircle2, Zap, Rocket } from 'lucide-react';
+import { ArrowRight, LayoutGrid, Smartphone, Cpu, Shield, Sparkles, Layout, X, CheckCircle2, Rocket } from 'lucide-react';
 
-export const ServicesSection = ({ setActiveTab, openEstimator }) => {
+export const ServicesSection = ({ setActiveTab }) => {
   const [selectedService, setSelectedService] = useState(null);
 
   const services = [

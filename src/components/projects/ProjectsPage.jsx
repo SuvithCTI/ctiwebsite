@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PROJECTS } from '../../data/mockData';
-import { Search, ArrowRight, ExternalLink, Play, X, CheckCircle2, ShieldCheck, Cpu, Calendar, Star, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { Search, ArrowRight, ExternalLink, Play, X, CheckCircle2, Calendar, Star, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 // Auto-Changing Multi-Image Carousel Component
 const AutoImageSlider = ({ images = [], title = '', heightClass = 'h-44 sm:h-56' }) => {

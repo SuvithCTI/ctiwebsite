@@ -4,7 +4,6 @@ import { MissionVisionSection } from '../home/MissionVisionSection';
 import { CoreValuesSection } from './CoreValuesSection';
 import { WhyCodeThrive } from '../home/WhyCodeThrive';
 import { LeadershipAndContactSection } from './LeadershipAndContactSection';
-import { COMPANY_INFO } from '../../data/mockData';
 
 export function AboutPage({ setActiveTab }) {
   const handleContact = () => {

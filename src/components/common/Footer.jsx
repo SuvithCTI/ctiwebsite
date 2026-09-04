@@ -31,7 +31,7 @@ const WhatsappIcon = () => (
   </svg>
 );
 
-export const Footer = ({ setActiveTab, openEstimator }) => {
+export const Footer = ({ setActiveTab }) => {
   const handleNav = (tab) => {
     if (setActiveTab) setActiveTab(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
