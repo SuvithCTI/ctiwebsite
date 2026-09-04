@@ -164,12 +164,12 @@ export const Navbar = ({ activeTab, setActiveTab, openEstimator }) => {
                     className="w-3.5 h-3.5 object-contain shrink-0 filter brightness-150 saturate-200"
                     onError={(e) => { (e.target).src = '/logo.png'; }}
                   />
-                  <span className="tracking-wider font-black text-xs sm:text-sm leading-none" style={{ color: GOLD_BRIGHT, fontWeight: 900 }}>CODETHRIVE INFOTECH</span>
+                  <span className="tracking-wider font-black text-[10.5px] sm:text-sm leading-none" style={{ color: GOLD_BRIGHT, fontWeight: 900 }}>CODETHRIVE INFOTECH</span>
                 </span>
-                <span className="font-black tracking-widest text-xs sm:text-xs leading-none" style={{ color: GOLD_PRIMARY, fontWeight: 900 }}>
+                <span className="font-black tracking-widest text-[9.5px] sm:text-xs leading-none" style={{ color: GOLD_PRIMARY, fontWeight: 900 }}>
                   Progress. Cultivate. Innovate.
                 </span>
-                <span className="font-black text-xs leading-none" style={{ color: GOLD_MUTED }}>✦</span>
+                <span className="font-black text-[10px] sm:text-xs leading-none" style={{ color: GOLD_MUTED }}>✦</span>
               </div>
             ))}
           </div>

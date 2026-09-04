@@ -100,7 +100,7 @@ export const ClientsSection = () => {
       industry: 'HEALTHCARE',
       metricPill: '4.9/5 Rating',
       impactMetric: '⚡ 99.9% Encrypted EHR Uptime',
-      location: 'Chennai',
+      location: 'Coimbatore',
       logo: '/clients/therapy-universe.png',
       screenshot: '/clients/preview-madurai-therapy.png',
       description: 'Modern healthcare management and clinical patient portal.',
@@ -148,27 +148,31 @@ export const ClientsSection = () => {
     }
   ];
 
-  // Auto-Changing Mobile Timer (Advances by 2 so clients do not repeat across steps)
+  // Auto-Changing Mobile Timer (Cycles strictly: 0 -> 2 -> 4 -> 0)
   useEffect(() => {
     const timer = setInterval(() => {
-      setMobileIndex((prev) => (prev + 2) % clients.length);
-    }, 3500);
+      setMobileIndex((prev) => (prev === 0 ? 2 : prev === 2 ? 4 : 0));
+    }, 4000);
     return () => clearInterval(timer);
-  }, [clients.length]);
+  }, []);
 
   const handleMobileNext = () => {
-    setMobileIndex((prev) => (prev + 2) % clients.length);
+    setMobileIndex((prev) => (prev === 0 ? 2 : prev === 2 ? 4 : 0));
   };
 
   const handleMobilePrev = () => {
-    setMobileIndex((prev) => (prev - 2 + clients.length) % clients.length);
+    setMobileIndex((prev) => (prev === 0 ? 4 : prev === 2 ? 0 : 2));
   };
 
-  // Get unique clients for Mobile 1-Row 2-Column view without repetition (No duplicate Samyuktha)
+  // Get exact paired clients per slide for Mobile View
+  // Slide 1 (0): Samyuktha Tours & Madurai Tour Taxi
+  // Slide 2 (2): Madurai Best Tours & Therapy Universe
+  // Slide 3 (4): AMF Studio alone
   const mobileVisibleClients = mobileIndex === 4
     ? [clients[4]]
     : [clients[mobileIndex], clients[mobileIndex + 1]];
 
+  // Helper Card Renderer
   // Helper Card Renderer
   const renderCard = (c, isCompact = false) => {
     const isFlipped = !!flippedCards[c.id];
@@ -176,11 +180,11 @@ export const ClientsSection = () => {
       <div
         key={c.id}
         onClick={() => toggleFlip(c.id)}
-        className={`perspective-[1000px] ${isCompact ? 'h-[175px] max-w-[175px]' : 'h-[310px] sm:h-[340px] lg:h-[355px]'} cursor-pointer group w-full mx-auto`}
+        className={`perspective-[1000px] ${isCompact ? 'h-[188px] max-w-[185px]' : 'h-[310px] sm:h-[340px] lg:h-[355px]'} cursor-pointer group w-full mx-auto select-none`}
       >
         <div
           className={`relative w-full h-full duration-700 transition-transform [transform-style:preserve-3d] ${
-            isFlipped ? '[transform:rotateY(180deg)]' : 'group-hover:[transform:rotateY(180deg)]'
+            isFlipped ? '[transform:rotateY(180deg)]' : (isCompact ? '' : 'group-hover:[transform:rotateY(180deg)]')
           }`}
         >
           
@@ -191,11 +195,11 @@ export const ClientsSection = () => {
             <div className={isCompact ? 'space-y-0.5' : 'space-y-1 lg:space-y-1.5'}>
               
               {/* Top White Logo Box */}
-              <div className={`bg-white border border-slate-200/90 ${isCompact ? 'rounded-lg h-11 p-1' : 'rounded-xl h-16 sm:h-18 lg:h-20 p-1 lg:p-1.5'} flex items-center justify-center shadow-xs overflow-hidden`}>
+              <div className={`bg-white border border-slate-200/90 ${isCompact ? 'rounded-lg h-10 p-0.5' : 'rounded-xl h-16 sm:h-18 lg:h-20 p-1 lg:p-1.5'} flex items-center justify-center shadow-xs overflow-hidden`}>
                 <img
                   src={c.logo}
                   alt={c.name}
-                  className={`${isCompact ? 'h-8 w-[95%] max-h-full object-contain scale-110' : 'h-12 sm:h-14 lg:h-15 max-h-full max-w-full object-contain'} filter drop-shadow-md group-hover:scale-115 transition-transform duration-300`}
+                  className={`${isCompact ? 'h-7 w-[95%] max-h-full object-contain scale-105' : 'h-12 sm:h-14 lg:h-15 max-h-full max-w-full object-contain'} filter drop-shadow-md group-hover:scale-115 transition-transform duration-300`}
                   onError={(e) => {
                     (e.target).src = '/logo.png';
                   }}
@@ -204,36 +208,36 @@ export const ClientsSection = () => {
 
               {/* Second Row: Industry Tag + Metric Pill */}
               <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap pt-0.5">
-                <div className={`rounded-full font-black tracking-wider uppercase border ${isCompact ? 'px-2 py-0.5 text-[8.5px]' : 'px-2 lg:px-2.5 py-0.5 lg:py-1 text-[8.5px] sm:text-[9.5px] lg:text-[11px]'} ${c.chipBg}`}>
+                <div className={`rounded-full font-black tracking-wider uppercase border ${isCompact ? 'px-1.5 py-0.5 text-[8px]' : 'px-2 lg:px-2.5 py-0.5 lg:py-1 text-[8.5px] sm:text-[9.5px] lg:text-[11px]'} ${c.chipBg}`}>
                   {c.industry}
                 </div>
 
-                <div className={`rounded-full font-black bg-slate-200/80 text-slate-900 border border-slate-300/80 truncate ${isCompact ? 'px-2 py-0.5 text-[8.5px] max-w-[100px]' : 'px-2 lg:px-2.5 py-0.5 lg:py-1 text-[8.5px] sm:text-[9.5px] lg:text-[11px] max-w-[120px] lg:max-w-none'}`}>
+                <div className={`rounded-full font-black bg-slate-200/80 text-slate-900 border border-slate-300/80 truncate ${isCompact ? 'px-1.5 py-0.5 text-[8px] max-w-[95px]' : 'px-2 lg:px-2.5 py-0.5 lg:py-1 text-[8.5px] sm:text-[9.5px] lg:text-[11px] max-w-[120px] lg:max-w-none'}`}>
                   {c.metricPill}
                 </div>
               </div>
 
               {/* Title & Subtitle Tagline */}
-              <div className="space-y-0.5">
-                <h3 className={`${isCompact ? 'text-xs' : 'text-base sm:text-lg lg:text-xl'} font-black font-editorial leading-tight ${c.titleColor}`}>
+              <div className="space-y-0">
+                <h3 className={`${isCompact ? 'text-[11.5px]' : 'text-base sm:text-lg lg:text-xl'} font-black font-editorial leading-tight ${c.titleColor}`}>
                   {c.name}
                 </h3>
-                <div className={`${isCompact ? 'text-[9.5px]' : 'text-[9.5px] sm:text-[11px] lg:text-[12.5px]'} font-extrabold text-slate-900 leading-tight truncate`}>
+                <div className={`${isCompact ? 'text-[9px]' : 'text-[9.5px] sm:text-[11px] lg:text-[12.5px]'} font-extrabold text-slate-900 leading-tight truncate`}>
                   {c.tagline}
                 </div>
               </div>
 
               {/* Short Description */}
-              <p className={`${isCompact ? 'text-[9.5px] line-clamp-1' : 'text-[9.5px] sm:text-[11px] lg:text-xs'} font-semibold text-slate-700 leading-snug sm:line-clamp-2`}>
+              <p className={`${isCompact ? 'text-[9px] line-clamp-1' : 'text-[9.5px] sm:text-[11px] lg:text-xs'} font-semibold text-slate-700 leading-snug sm:line-clamp-2`}>
                 {c.description}
               </p>
 
             </div>
 
             {/* Bullets List with Green Checkmarks */}
-            <div className={`pt-1.5 border-t border-slate-200/60 ${isCompact ? 'space-y-0.5' : 'space-y-1 sm:space-y-1.5 lg:space-y-2'}`}>
+            <div className={`pt-1 border-t border-slate-200/60 ${isCompact ? 'space-y-0.5' : 'space-y-1 sm:space-y-1.5 lg:space-y-2'}`}>
               {(c.bullets || []).slice(0, isCompact ? 2 : 4).map((b, idx) => (
-                <div key={idx} className={`flex items-center gap-1.5 ${isCompact ? 'text-[9.5px]' : 'text-[9.5px] sm:text-[11px] lg:text-[12px]'} font-bold text-slate-900 leading-tight truncate`}>
+                <div key={idx} className={`flex items-center gap-1 ${isCompact ? 'text-[8.5px]' : 'text-[9.5px] sm:text-[11px] lg:text-[12px]'} font-bold text-slate-900 leading-tight truncate`}>
                   <span className="text-emerald-600 font-black text-xs lg:text-sm">✓</span>
                   <span className="truncate">{b}</span>
                 </div>
@@ -247,11 +251,11 @@ export const ClientsSection = () => {
               )}
 
               {/* Bottom Bar: Location + Tech Flip */}
-              <div className={`pt-1 flex items-center justify-between font-black border-t border-slate-200/50 text-slate-900 ${isCompact ? 'text-[9px]' : 'text-[9px] sm:text-[10px] lg:text-xs'}`}>
-                <span className="flex items-center gap-1">📍 {c.location}</span>
-                <div className="flex items-center gap-1 text-sky-600 font-extrabold">
+              <div className={`pt-0.5 flex items-center justify-between font-black border-t border-slate-200/50 text-slate-900 ${isCompact ? 'text-[8.5px]' : 'text-[9px] sm:text-[10px] lg:text-xs'}`}>
+                <span className="flex items-center gap-0.5">📍 {c.location}</span>
+                <div className="flex items-center gap-0.5 text-sky-600 font-extrabold bg-sky-50 border border-sky-200/80 px-1.5 py-0.5 rounded-full shadow-2xs active:scale-95 transition">
                   <span>Preview</span>
-                  <RotateCcw className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5 text-sky-600" />
+                  <RotateCcw className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5 text-sky-600 animate-spin-slow" />
                 </div>
               </div>
             </div>
@@ -260,15 +264,15 @@ export const ClientsSection = () => {
 
           {/* BACK SIDE (100% Full Uncropped Website Screenshot Display) */}
           <div
-            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] ${c.darkBg} ${c.border} border ${isCompact ? 'rounded-2xl p-2' : 'rounded-3xl p-3'} shadow-2xl flex flex-col justify-between text-white overflow-hidden`}
+            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] ${c.darkBg} ${c.border} border ${isCompact ? 'rounded-xl p-1.5' : 'rounded-3xl p-3'} shadow-2xl flex flex-col justify-between text-white overflow-hidden`}
           >
             <div className="space-y-1">
               
               {/* Browser Frame Showcase Container */}
-              <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-slate-950 flex flex-col">
+              <div className="rounded-lg sm:rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-slate-950 flex flex-col">
                 
                 {/* Top Browser Window Controls */}
-                <div className="bg-slate-900 px-2 py-0.5 border-b border-slate-800 flex items-center justify-between">
+                <div className="bg-slate-900 px-1.5 py-0.5 border-b border-slate-800 flex items-center justify-between">
                   <div className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500/80" />
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500/80" />
@@ -282,7 +286,7 @@ export const ClientsSection = () => {
                     className="flex items-center gap-1 text-[8px] font-bold text-sky-400 hover:text-sky-300 transition"
                   >
                     <span>Full View</span>
-                    <Maximize2 className="w-2.5 h-2.5" />
+                    <Maximize2 className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
                   </button>
                 </div>
 
@@ -292,7 +296,7 @@ export const ClientsSection = () => {
                     e.stopPropagation();
                     setSelectedScreenshot(c);
                   }}
-                  className={`relative ${isCompact ? 'h-18' : 'h-42'} w-full overflow-hidden bg-slate-950 flex items-center justify-center p-1 group/img`}
+                  className={`relative ${isCompact ? 'h-24' : 'h-42'} w-full overflow-hidden bg-slate-950 flex items-center justify-center p-1 group/img`}
                 >
                   <img
                     src={c.screenshot}
@@ -315,22 +319,24 @@ export const ClientsSection = () => {
               </div>
 
               {/* Title & Description */}
-              <div className="space-y-0.5 px-1">
-                <h4 className="text-[10.5px] sm:text-xs font-black font-editorial text-white leading-tight truncate">
-                  {c.fullName}
+              <div className="space-y-0.5 px-0.5">
+                <h4 className="text-[10px] sm:text-xs font-black font-editorial text-white leading-tight truncate">
+                  {c.name}
                 </h4>
-                <p className="text-[9px] sm:text-[10px] text-slate-300 font-semibold leading-tight line-clamp-1">
-                  {c.description}
+                <p className="text-[8.5px] sm:text-[10px] text-slate-300 font-semibold leading-tight line-clamp-1">
+                  {c.tagline}
                 </p>
               </div>
 
             </div>
 
-            {/* Bottom Metric */}
-            <div className="pt-0.5 border-t border-slate-800/80 flex items-center justify-between gap-1 px-1">
-              <span className="text-[8.5px] sm:text-[9.5px] font-black text-sky-400 leading-tight truncate">
-                {c.metrics}
-              </span>
+            {/* Bottom Flip Back Action Bar */}
+            <div className="pt-0.5 border-t border-slate-800/80 flex items-center justify-between gap-1 px-0.5">
+              <span className="text-[8px] font-bold text-slate-400">Tap to flip back</span>
+              <div className="flex items-center gap-0.5 text-sky-400 text-[8.5px] font-black">
+                <span>Front</span>
+                <RotateCcw className="w-2.5 h-2.5 text-sky-400" />
+              </div>
             </div>
 
           </div>
@@ -341,9 +347,9 @@ export const ClientsSection = () => {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white text-[#050B14] relative overflow-hidden select-none">
+    <section className="py-10 sm:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white text-[#050B14] relative overflow-hidden select-none">
       
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6 sm:space-y-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4 sm:space-y-8">
         
         {/* Top Header */}
         <div className="text-center">
@@ -370,8 +376,8 @@ export const ClientsSection = () => {
             </div>
           </div>
 
-          {/* 1 Row 2 Column Grid Container (Consistently sized max-w-[190px] cards) */}
-          <div className={`grid gap-2 mx-auto ${mobileVisibleClients.length === 1 ? 'grid-cols-1 max-w-[190px]' : 'grid-cols-2 max-w-[390px]'}`}>
+          {/* 1 Row 2 Column Grid Container (Consistently sized max-w-[200px] cards) */}
+          <div className={`grid gap-2 mx-auto ${mobileVisibleClients.length === 1 ? 'grid-cols-1 max-w-[200px]' : 'grid-cols-2 max-w-[420px]'}`}>
             {mobileVisibleClients.map((c) => renderCard(c, true))}
           </div>
 

@@ -20,77 +20,77 @@ export const IndustriesPage = ({ setActiveTab }) => {
   const industryThemes = {
     healthcare: {
       accent: '#0284C7',
-      bgImage: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-healthcare.png',
       cardBorder: 'border-cyan-400/80 shadow-cyan-200/50',
       badgeBg: 'bg-cyan-100 text-[#0284C7] border-cyan-300',
       buttonBg: 'bg-[#0284C7] hover:bg-[#0369a1]'
     },
     education: {
       accent: '#9333EA',
-      bgImage: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-education.png',
       cardBorder: 'border-purple-400/80 shadow-purple-200/50',
       badgeBg: 'bg-purple-100 text-[#9333EA] border-purple-300',
       buttonBg: 'bg-[#9333EA] hover:bg-[#7e22ce]'
     },
     ecommerce: {
       accent: '#EC4899',
-      bgImage: 'https://images.unsplash.com/photo-1556742049-0a6756574f9d?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-ecommerce.png',
       cardBorder: 'border-pink-400/80 shadow-pink-200/50',
       badgeBg: 'bg-pink-100 text-[#EC4899] border-pink-300',
       buttonBg: 'bg-[#EC4899] hover:bg-[#db2777]'
     },
     enterprise: {
       accent: '#3B82F6',
-      bgImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-enterprise.png',
       cardBorder: 'border-blue-400/80 shadow-blue-200/50',
       badgeBg: 'bg-blue-100 text-[#3B82F6] border-blue-300',
       buttonBg: 'bg-[#3B82F6] hover:bg-[#2563eb]'
     },
     startups: {
       accent: '#D97706',
-      bgImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-startup.png',
       cardBorder: 'border-amber-400/80 shadow-amber-200/50',
       badgeBg: 'bg-amber-100 text-[#D97706] border-amber-300',
       buttonBg: 'bg-[#D97706] hover:bg-[#b45309]'
     },
     finance: {
       accent: '#059669',
-      bgImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-banking.png',
       cardBorder: 'border-emerald-400/80 shadow-emerald-200/50',
       badgeBg: 'bg-emerald-100 text-[#059669] border-emerald-300',
       buttonBg: 'bg-[#059669] hover:bg-[#047857]'
     },
     hospitality: {
       accent: '#E11D48',
-      bgImage: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-hotels.png',
       cardBorder: 'border-rose-400/80 shadow-rose-200/50',
       badgeBg: 'bg-rose-100 text-[#E11D48] border-rose-300',
       buttonBg: 'bg-[#E11D48] hover:bg-[#be123c]'
     },
     hotels: {
       accent: '#E11D48',
-      bgImage: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-hotels.png',
       cardBorder: 'border-rose-400/80 shadow-rose-200/50',
       badgeBg: 'bg-rose-100 text-[#E11D48] border-rose-300',
       buttonBg: 'bg-[#E11D48] hover:bg-[#be123c]'
     },
     manufacturing: {
       accent: '#EA580C',
-      bgImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-manufacturing.png',
       cardBorder: 'border-orange-400/80 shadow-orange-200/50',
       badgeBg: 'bg-orange-100 text-[#EA580C] border-orange-300',
       buttonBg: 'bg-[#EA580C] hover:bg-[#c2410c]'
     },
     travel: {
       accent: '#0EA5E9',
-      bgImage: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-travels.png',
       cardBorder: 'border-sky-400/80 shadow-sky-200/50',
       badgeBg: 'bg-sky-100 text-[#0EA5E9] border-sky-300',
       buttonBg: 'bg-[#0EA5E9] hover:bg-[#0284c7]'
     },
     travels: {
       accent: '#0EA5E9',
-      bgImage: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80',
+      bgImage: '/industry-travels.png',
       cardBorder: 'border-sky-400/80 shadow-sky-200/50',
       badgeBg: 'bg-sky-100 text-[#0EA5E9] border-sky-300',
       buttonBg: 'bg-[#0EA5E9] hover:bg-[#0284c7]'
@@ -98,7 +98,7 @@ export const IndustriesPage = ({ setActiveTab }) => {
   };
 
   const theme = industryThemes[activeIndustry.id] || industryThemes.healthcare;
-  const bgPhoto = theme.bgImage || activeIndustry.bgImage;
+  const bgPhoto = theme.bgImage || activeIndustry.bgImage || '/industry-ecommerce.png';
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-gradient-to-br from-[#F5F8FF] via-[#FAFCFF] to-[#EFF5FF] text-[#050B14] relative overflow-hidden select-none">
@@ -151,7 +151,7 @@ export const IndustriesPage = ({ setActiveTab }) => {
                     alt={ind.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      (e.target).src = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=300&q=80';
+                      (e.target).src = '/industry-ecommerce.png';
                     }}
                   />
                 </div>
@@ -183,9 +183,12 @@ export const IndustriesPage = ({ setActiveTab }) => {
                 <img
                   src={bgPhoto}
                   alt={activeIndustry.name}
-                  className="w-full h-full object-cover scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover scale-105 transition-transform duration-700 opacity-80"
+                  onError={(e) => {
+                    (e.target).src = '/industry-ecommerce.png';
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/75 to-white/45 backdrop-blur-[1px]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/60 to-white/30" />
               </div>
 
               <div className="relative z-10 space-y-4 sm:space-y-5">
