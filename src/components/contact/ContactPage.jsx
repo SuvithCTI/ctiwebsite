@@ -9,7 +9,8 @@ export const ContactPage = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [showAllFaqs, setShowAllFaqs] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: '',
+    firstName: '',
+    lastName: '',
     mobileNumber: '',
     workEmail: '',
     companyEmail: '',
@@ -21,7 +22,7 @@ export const ContactPage = () => {
     setFormSubmitted(true);
     setTimeout(() => {
       setFormSubmitted(false);
-      setFormData({ fullName: '', mobileNumber: '', workEmail: '', companyEmail: '', projectOverview: '' });
+      setFormData({ firstName: '', lastName: '', mobileNumber: '', workEmail: '', companyEmail: '', projectOverview: '' });
     }, 4000);
   };
 
@@ -48,43 +49,59 @@ export const ContactPage = () => {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
         
-        {/* TOP HERO BANNER CONTENT */}
-        <div className="pt-2 space-y-3 text-center lg:text-left max-w-3xl">
-          <h1 className="font-editorial text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.1]">
-            Let's Build Something <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0284C7] via-[#9333EA] to-[#E11D48]">
-              Extraordinary Together.
-            </span>
-          </h1>
+        {/* TOP HERO BANNER CONTENT (2-Column Grid: Text Left + Contact Banner Image Right) */}
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center pt-2">
+          
+          {/* Left Text Column */}
+          <div className="lg:col-span-7 space-y-3 text-center lg:text-left">
+            <h1 className="font-editorial text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.1]">
+              Let's Build Something <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-[#9333EA] to-[#E11D48]">
+                Extraordinary Together.
+              </span>
+            </h1>
 
-          <p className="text-xs sm:text-sm text-slate-600 font-bold leading-normal max-w-xl">
-            Have a project in mind or need technical advice? Our engineering team in Coimbatore is ready to collaborate.
-          </p>
+            <p className="text-xs sm:text-sm text-slate-600 font-bold leading-normal max-w-xl mx-auto lg:mx-0">
+              Have a project in mind or need technical advice? Our engineering team in Coimbatore is ready to collaborate.
+            </p>
 
-          {/* 3 Compact Trust Metric Pills */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-0.5">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-slate-200/90 shadow-xs text-[11px] font-extrabold text-slate-800">
-              <Clock className="w-3 h-3 text-sky-600 shrink-0" />
-              <span>4-Hour Response</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-slate-200/90 shadow-xs text-[11px] font-extrabold text-slate-800">
-              <ShieldCheck className="w-3 h-3 text-emerald-600 shrink-0" />
-              <span>100% Mutual NDA</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-slate-200/90 shadow-xs text-[11px] font-extrabold text-slate-800">
-              <MapPin className="w-3 h-3 text-rose-500 shrink-0" />
-              <span>Coimbatore, India</span>
+            {/* 3 Compact Trust Metric Pills */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-0.5">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-emerald-200 shadow-xs text-[11px] font-extrabold text-slate-800">
+                <Clock className="w-3 h-3 text-emerald-600 shrink-0" />
+                <span>4-Hour Response</span>
+              </div>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-purple-200 shadow-xs text-[11px] font-extrabold text-slate-800">
+                <ShieldCheck className="w-3 h-3 text-purple-600 shrink-0" />
+                <span>100% Mutual NDA</span>
+              </div>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-rose-200 shadow-xs text-[11px] font-extrabold text-slate-800">
+                <MapPin className="w-3 h-3 text-rose-500 shrink-0" />
+                <span>Coimbatore, India</span>
+              </div>
             </div>
           </div>
+
+          {/* Right Column: Branded Contact Banner Image (Fills the right side gap) */}
+          <div className="lg:col-span-5 relative flex justify-center">
+            <div className="relative w-full max-w-md lg:max-w-none rounded-3xl overflow-hidden border-2 border-purple-200/90 shadow-2xl group hover:shadow-purple-300/40 transition-all duration-500">
+              <img
+                src="/contact-hero.jpg"
+                alt="CodeThrive Infotech Contact Us"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </div>
+
         </div>
         
-        {/* ROW 1: QUICK CONNECT BAR (White Badge & Compact Box Height) */}
+        {/* ROW 1: QUICK CONNECT BAR (Distinct Purple Border & Rich Icon Colors) */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pt-4">
           
           {/* Left Title Box */}
           <div className="space-y-2 lg:max-w-xs text-center lg:text-left shrink-0">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white text-slate-900 border border-slate-200/90 text-xs font-black uppercase tracking-widest shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-900 border-2 border-emerald-300 text-xs font-black uppercase tracking-widest shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
               <span>QUICK CONNECT</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-950 font-black leading-relaxed">
@@ -92,8 +109,8 @@ export const ContactPage = () => {
             </p>
           </div>
 
-          {/* Right White Rounded Quick Connect Channels Bar (Compact Height) */}
-          <div className="bg-white/95 backdrop-blur-md rounded-[2.2rem] border border-slate-200/90 p-3.5 sm:p-4 shadow-xl w-full flex-1 space-y-2.5">
+          {/* Right White Rounded Quick Connect Channels Bar (Distinct 2px Border) */}
+          <div className="bg-white/95 backdrop-blur-md rounded-[2.2rem] border-2 border-purple-200/90 p-3.5 sm:p-4 shadow-2xl w-full flex-1 space-y-2.5">
             
             {/* 5 Channels Icon Row */}
             <div className="grid grid-cols-5 gap-1.5 text-center">
@@ -111,15 +128,15 @@ export const ContactPage = () => {
                 </span>
               </button>
 
-              {/* CALL */}
+              {/* CALL (Purple, No Blue) */}
               <button
                 onClick={() => handleChannelClick('CALL')}
                 className="flex flex-col items-center gap-1 group cursor-pointer"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#3B82F6] hover:bg-[#2563EB] text-white flex items-center justify-center shadow-md transition-transform group-hover:scale-110 animate-float" style={{ animationDelay: '0.8s' }}>
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white flex items-center justify-center shadow-md transition-transform group-hover:scale-110 animate-float" style={{ animationDelay: '0.8s' }}>
                   <Phone className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] sm:text-xs font-black tracking-widest uppercase text-slate-950 group-hover:text-[#3B82F6] transition-colors">
+                <span className="text-[10px] sm:text-xs font-black tracking-widest uppercase text-slate-950 group-hover:text-[#8B5CF6] transition-colors">
                   CALL
                 </span>
               </button>
@@ -174,27 +191,27 @@ export const ContactPage = () => {
 
         </div>
 
-        {/* ROW 2: MAIN BODY GRID (Form Left + 2 Cards Right) */}
+        {/* ROW 2: MAIN BODY GRID (Form Left + 2 Cards Right - Perfectly Aligned Height Matching) */}
         <div className="grid lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* LEFT COLUMN: Initiate Project Scope Form (Larger & Expanded on PC View) */}
-          <div className="lg:col-span-7 bg-white rounded-[2rem] border border-slate-200/90 p-4 sm:p-7 lg:p-9 shadow-lg flex flex-col justify-between space-y-3 sm:space-y-4 lg:space-y-6">
+          {/* LEFT COLUMN: Initiate Project Scope Form (Distinct Emerald Border & Green Button) */}
+          <div className="lg:col-span-7 bg-white rounded-[2rem] border-2 border-emerald-300/90 p-4 sm:p-6 lg:p-7 shadow-2xl flex flex-col justify-between h-full space-y-3 sm:space-y-4">
             
             <div>
-              <h2 className="font-editorial text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight">
+              <h2 className="font-editorial text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
                 Initiate Project Scope
               </h2>
-              <p className="mt-0.5 sm:mt-1 text-xs lg:text-sm font-bold text-slate-500">
+              <p className="mt-0.5 text-xs lg:text-sm font-bold text-slate-500">
                 Average reply time: under 4 business hours.
               </p>
             </div>
 
             {formSubmitted ? (
-              <div className="p-6 lg:p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-2 lg:space-y-3 animate-fade-in my-auto">
-                <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto text-xl lg:text-2xl font-bold shadow-md">
+              <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-2 animate-fade-in my-auto">
+                <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto text-xl font-bold shadow-md">
                   ✓
                 </div>
-                <h3 className="text-lg lg:text-2xl font-black text-emerald-950 font-editorial">
+                <h3 className="text-lg lg:text-xl font-black text-emerald-950 font-editorial">
                   Inquiry Received!
                 </h3>
                 <p className="text-xs lg:text-sm font-semibold text-emerald-800 max-w-md mx-auto leading-relaxed">
@@ -202,43 +219,58 @@ export const ContactPage = () => {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3 lg:space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3.5">
                 
-                {/* Row 1: Full Name & Mobile Number (2 Columns) */}
-                <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-5">
-                  <div className="space-y-1 lg:space-y-1.5">
-                    <label className="text-xs lg:text-sm font-black text-slate-800 block">
-                      Your Full Name *
+                {/* Row 1: First Name & Last Name (2 Columns) */}
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
+                  <div className="space-y-1">
+                    <label className="text-xs font-black text-slate-800 block">
+                      First Name *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Jane Doe"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 lg:p-3.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs"
+                      placeholder="Jane"
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      className="w-full bg-[#F8FAFC] border-2 border-slate-200 rounded-xl p-2 sm:p-2.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 transition shadow-xs"
                     />
                   </div>
 
-                  <div className="space-y-1 lg:space-y-1.5">
-                    <label className="text-xs lg:text-sm font-black text-slate-800 block">
-                      Mobile / Phone Number *
+                  <div className="space-y-1">
+                    <label className="text-xs font-black text-slate-800 block">
+                      Last Name *
                     </label>
                     <input
-                      type="tel"
+                      type="text"
                       required
-                      placeholder="+91 91507 81685"
-                      value={formData.mobileNumber}
-                      onChange={(e) => setFormData({ ...formData, mobileNumber: e.target.value })}
-                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 lg:p-3.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs"
+                      placeholder="Doe"
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      className="w-full bg-[#F8FAFC] border-2 border-slate-200 rounded-xl p-2 sm:p-2.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 transition shadow-xs"
                     />
                   </div>
                 </div>
 
-                {/* Row 2: Work Email & Company Email (2 Columns) */}
-                <div className="grid sm:grid-cols-2 gap-3 lg:gap-5">
-                  <div className="space-y-1 lg:space-y-1.5">
-                    <label className="text-xs lg:text-sm font-black text-slate-800 block">
+                {/* Row 2: Mobile / Phone Number (Separate Row) */}
+                <div className="space-y-1">
+                  <label className="text-xs font-black text-slate-800 block">
+                    Mobile / Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+91 91507 81685"
+                    value={formData.mobileNumber}
+                    onChange={(e) => setFormData({ ...formData, mobileNumber: e.target.value })}
+                    className="w-full bg-[#F8FAFC] border-2 border-slate-200 rounded-xl p-2 sm:p-2.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 transition shadow-xs"
+                  />
+                </div>
+
+                {/* Row 3: Work Email & Company Email (2 Columns) */}
+                <div className="grid sm:grid-cols-2 gap-2.5 sm:gap-4">
+                  <div className="space-y-1">
+                    <label className="text-xs font-black text-slate-800 block">
                       Work Email Address *
                     </label>
                     <input
@@ -247,12 +279,12 @@ export const ContactPage = () => {
                       placeholder="jane@enterprise.com"
                       value={formData.workEmail}
                       onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 lg:p-3.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs"
+                      className="w-full bg-[#F8FAFC] border-2 border-slate-200 rounded-xl p-2 sm:p-2.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 transition shadow-xs"
                     />
                   </div>
 
-                  <div className="space-y-1 lg:space-y-1.5">
-                    <label className="text-xs lg:text-sm font-black text-slate-800 block">
+                  <div className="space-y-1">
+                    <label className="text-xs font-black text-slate-800 block">
                       Company Email
                     </label>
                     <input
@@ -260,36 +292,36 @@ export const ContactPage = () => {
                       placeholder="contact@company.com"
                       value={formData.companyEmail}
                       onChange={(e) => setFormData({ ...formData, companyEmail: e.target.value })}
-                      className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2 sm:p-3 lg:p-3.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs"
+                      className="w-full bg-[#F8FAFC] border-2 border-slate-200 rounded-xl p-2 sm:p-2.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 transition shadow-xs"
                     />
                   </div>
                 </div>
 
-                {/* Row 3: Project Overview */}
-                <div className="space-y-1 lg:space-y-1.5">
-                  <label className="text-xs lg:text-sm font-black text-slate-800 block">
+                {/* Row 4: Project Overview */}
+                <div className="space-y-1">
+                  <label className="text-xs font-black text-slate-800 block">
                     Project Overview & Requirements *
                   </label>
                   <textarea
                     required
-                    rows={4}
+                    rows={2.5}
                     placeholder="Describe your current product, target timeline, and key technical goals..."
                     value={formData.projectOverview}
                     onChange={(e) => setFormData({ ...formData, projectOverview: e.target.value })}
-                    className="w-full bg-[#F8FAFC] border border-slate-200/90 rounded-xl p-2.5 sm:p-3.5 lg:p-4 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-200 transition shadow-xs resize-none"
+                    className="w-full bg-[#F8FAFC] border-2 border-slate-200 rounded-xl p-2 sm:p-2.5 text-xs lg:text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200 transition shadow-xs resize-none"
                   />
                 </div>
 
-                {/* Bottom Bar: NDA + Send Inquiry Button */}
-                <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 lg:gap-4">
-                  <div className="flex items-center gap-2 text-xs lg:text-sm font-bold text-slate-700">
-                    <ShieldCheck className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600 shrink-0" />
+                {/* Bottom Bar: NDA + Send Inquiry Button (Emerald Green, No Blue) */}
+                <div className="pt-1 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
+                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Protected by mutual Non-Disclosure Agreement (NDA).</span>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-7 py-2.5 sm:py-3 lg:px-9 lg:py-3.5 rounded-full bg-[#3B82F6] hover:bg-[#2563EB] !text-white font-black text-xs lg:text-sm shadow-md shadow-blue-200 flex items-center justify-center gap-2 transition hover:scale-105 cursor-pointer shrink-0"
+                    className="w-full sm:w-auto px-6 py-2.5 lg:px-8 lg:py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 !text-white font-black text-xs lg:text-sm shadow-lg shadow-emerald-200 flex items-center justify-center gap-2 transition hover:scale-105 cursor-pointer shrink-0"
                   >
                     <Send className="w-4 h-4 !text-white" />
                     <span className="!text-white">Send Inquiry</span>
@@ -301,82 +333,87 @@ export const ContactPage = () => {
 
           </div>
 
-          {/* RIGHT COLUMN: 2 Cards (Expanded & Larger on PC View) */}
-          <div className="lg:col-span-5 space-y-5 lg:space-y-6 flex flex-col justify-between">
+          {/* RIGHT COLUMN: 2 Cards (Matching Height Stack) */}
+          <div className="lg:col-span-5 flex flex-col justify-between h-full gap-4 lg:gap-5">
             
-            {/* CARD 1: Book a Consultation */}
-            <div className="bg-white rounded-[1.8rem] border border-slate-200/90 p-5 sm:p-5.5 lg:p-8 shadow-lg space-y-3 lg:space-y-5">
-              <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-xl bg-slate-100 border border-slate-200/90 shadow-xs flex items-center justify-center text-slate-800">
-                <Calendar className="w-4.5 h-4.5 lg:w-5 lg:h-5 text-slate-800" />
+            {/* CARD 1: Book a Consultation (Distinct Purple Border & Warm Pastel Background) */}
+            <div className="bg-gradient-to-br from-white via-purple-50/40 to-pink-50/30 rounded-[1.8rem] border-2 border-purple-300 p-4 sm:p-5 lg:p-6 shadow-2xl space-y-2.5 flex flex-col justify-between flex-1">
+              <div className="space-y-2.5">
+                <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-xl bg-purple-100 border border-purple-200 shadow-xs flex items-center justify-center text-purple-700">
+                  <Calendar className="w-4 h-4 lg:w-5 lg:h-5 text-purple-700" />
+                </div>
+
+                <h3 className="font-editorial text-xl sm:text-2xl lg:text-2xl font-black text-slate-950">
+                  Book a Consultation
+                </h3>
+
+                <p className="text-xs font-semibold text-slate-600 leading-relaxed">
+                  Prefer a real-time discussion? Pick a convenient 30-minute window with our Engineering Leadership team.
+                </p>
               </div>
-
-              <h3 className="font-editorial text-xl sm:text-2xl lg:text-3xl font-black text-slate-950">
-                Book a Consultation
-              </h3>
-
-              <p className="text-xs lg:text-sm text-slate-600 font-semibold leading-relaxed">
-                Prefer a real-time discussion? Pick a convenient 30-minute window with our Engineering Leadership team.
-              </p>
 
               <button
                 onClick={() => setIsScheduleOpen(true)}
-                className="w-full py-2.5 sm:py-3 lg:py-3.5 rounded-xl bg-[#3E3846] hover:bg-[#2E2935] !text-white font-black text-xs lg:text-sm flex items-center justify-center gap-2 transition hover:scale-[1.02] shadow-md cursor-pointer"
+                className="w-full py-2.5 lg:py-3 rounded-xl bg-slate-950 hover:bg-slate-900 !text-white font-black text-xs lg:text-sm flex items-center justify-center gap-2 transition hover:scale-[1.02] shadow-md cursor-pointer mt-2"
               >
-                <Calendar className="w-4 h-4 lg:w-4.5 lg:h-4.5 text-white" />
+                <Calendar className="w-4 h-4 text-white" />
                 <span className="text-white">Select Date &amp; Time Slot</span>
               </button>
             </div>
 
-            {/* CARD 2: OFFICIAL HEADQUARTERS & CONTACTS (Expanded & Larger on PC View) */}
-            <div className="bg-white rounded-[1.8rem] border border-slate-200/90 p-5 sm:p-5.5 lg:p-8 shadow-lg space-y-3 lg:space-y-5">
-              <div className="text-[10px] lg:text-xs font-black tracking-widest text-slate-500 uppercase">
-                OFFICIAL HEADQUARTERS &amp; CONTACTS
-              </div>
-
-              {/* Address Item (Interactive Tap-Friendly Card for Mobile & PC View) */}
-              <a
-                href={COMPANY_INFO.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-3 lg:p-4.5 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/80 border border-slate-200 hover:border-sky-300 transition-all cursor-pointer group active:scale-98 shadow-xs"
-                title="Open Google Maps Location"
-              >
-                <div className="flex items-center justify-between gap-2 text-xs lg:text-sm font-black text-slate-950">
-                  <div className="flex items-center gap-1.5 lg:gap-2">
-                    <span className="text-rose-500 text-sm lg:text-base">📍</span>
-                    <span>Coimbatore Office (HQ)</span>
-                  </div>
-                  <span className="text-[10px] lg:text-xs font-black text-[#0284C7] bg-sky-100 px-2.5 py-1 rounded-full flex items-center gap-1 group-hover:bg-[#0284C7] group-hover:text-white transition-colors">
-                    <span>Map</span>
-                    <ArrowUpRight className="w-3 h-3 lg:w-3.5 lg:h-3.5" />
-                  </span>
+            {/* CARD 2: OFFICIAL HEADQUARTERS & CONTACTS (Distinct Warm Amber / Gold Theme) */}
+            <div className="bg-gradient-to-br from-white via-amber-50/60 to-orange-50/40 rounded-[1.8rem] border-2 border-amber-300 p-4 sm:p-5 lg:p-6 shadow-2xl space-y-2.5 flex flex-col justify-between flex-1">
+              
+              <div className="space-y-2.5">
+                <div className="text-[10px] font-black tracking-widest text-slate-500 uppercase">
+                  OFFICIAL HEADQUARTERS &amp; CONTACTS
                 </div>
 
-                <p className="text-xs lg:text-sm font-bold text-slate-700 mt-1.5 lg:mt-2 leading-relaxed">
-                  {COMPANY_INFO.address}
-                </p>
-              </a>
+                {/* Address Item (Interactive Tap-Friendly Card for Mobile & PC View) */}
+                <a
+                  href={COMPANY_INFO.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-2.5 lg:p-3 rounded-2xl bg-white border-2 border-amber-200 hover:border-amber-400 transition-all cursor-pointer group active:scale-98 shadow-xs"
+                  title="Open Google Maps Location"
+                >
+                  <div className="flex items-center justify-between gap-2 text-xs lg:text-sm font-black text-slate-950">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-amber-500 text-sm">📍</span>
+                      <span>Coimbatore Office (HQ)</span>
+                    </div>
+                    <span className="text-[10px] font-black text-amber-900 bg-amber-100 border border-amber-300 px-2.5 py-0.5 rounded-full flex items-center gap-1 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                      <span>Map</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </span>
+                  </div>
 
-              {/* Email */}
-              <div className="flex items-center gap-2.5 text-xs lg:text-sm font-bold text-slate-900 border-t border-slate-100 pt-2.5 lg:pt-3.5">
-                <Mail className="w-4 h-4 lg:w-5 lg:h-5 text-slate-600 shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-sky-600 transition-colors">
-                  {COMPANY_INFO.email}
+                  <p className="text-xs font-bold text-slate-700 mt-1 leading-relaxed">
+                    {COMPANY_INFO.address}
+                  </p>
                 </a>
-              </div>
 
-              {/* Phone */}
-              <div className="flex items-center gap-2.5 text-xs lg:text-sm font-bold text-slate-900">
-                <Phone className="w-4 h-4 lg:w-5 lg:h-5 text-slate-600 shrink-0" />
-                <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-sky-600 transition-colors">
-                  {COMPANY_INFO.phone}
-                </a>
+                {/* Email */}
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-900 border-t border-amber-200/80 pt-2">
+                  <Mail className="w-4 h-4 text-slate-600 shrink-0" />
+                  <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-amber-700 transition-colors">
+                    {COMPANY_INFO.email}
+                  </a>
+                </div>
+
+                {/* Phone */}
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-900">
+                  <Phone className="w-4 h-4 text-slate-600 shrink-0" />
+                  <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-amber-700 transition-colors">
+                    {COMPANY_INFO.phone}
+                  </a>
+                </div>
               </div>
 
               {/* WhatsApp Button */}
               <button
                 onClick={() => handleChannelClick('WHATSAPP')}
-                className="w-full py-2.5 sm:py-3 lg:py-3.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-black text-xs lg:text-sm flex items-center justify-center gap-2 transition hover:scale-[1.02] shadow-md cursor-pointer"
+                className="w-full py-2.5 lg:py-3 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-950 font-black text-xs lg:text-sm flex items-center justify-center gap-2 transition hover:scale-[1.02] shadow-sm border border-amber-300/80 cursor-pointer mt-2"
               >
                 <span>💬 Chat on WhatsApp ({COMPANY_INFO.phone})</span>
               </button>
@@ -407,52 +444,52 @@ export const ContactPage = () => {
           <div className="grid md:grid-cols-2 gap-4 items-start max-w-6xl mx-auto">
             {[
               {
-                q: "How much does custom web or mobile app development cost?",
-                a: "Our project budgets start from initial MVP builds up to enterprise platforms. We provide transparent, itemized fixed-sprint quotes after a 30-minute scoping call, with zero hidden charges."
+                q: "How does CodeThrive Infotech structure project pricing and scope estimation?",
+                a: "Every engagement is uniquely scoped based on technical requirements, architecture complexity, and feature roadmap. We provide transparent, itemized fixed-sprint quotes after a free 30-minute discovery session — guaranteeing zero hidden charges, clear milestone deliverables, and predictable execution timelines."
               },
               {
-                q: "How fast can CodeThrive Infotech kick off our development sprint?",
-                a: "We deploy dedicated senior engineering pods within 3 to 5 business days following scope alignment and NDA execution. Milestone deliverables are shipped in rapid 2-week sprints."
+                q: "How quickly can CodeThrive Infotech kick off our development sprint?",
+                a: "We can onboard and deploy a dedicated senior engineering pod within 3 to 5 business days following scope alignment and NDA execution. We work in rapid 2-week agile sprints with working staging builds delivered every Friday."
               },
               {
-                q: "Do I own 100% of the source code and intellectual property (IP)?",
-                a: "Yes, 100%! Upon milestone completion, full ownership of all source code, design assets, repositories, and intellectual property transfers directly to your company."
+                q: "Do I get 100% full ownership of the source code, design files, and IP?",
+                a: "Yes, 100%! Upon milestone completion, full ownership of all source code repositories (GitHub/GitLab), Figma design systems, database schemas, and intellectual property (IP) is legally transferred to your company."
               },
               {
-                q: "Will my project details be protected under a Non-Disclosure Agreement (NDA)?",
-                a: "Yes. Every client engagement is protected under a strict mutual Non-Disclosure Agreement (NDA) before any proprietary business logic, code, or ideas are shared."
+                q: "Do you execute a Non-Disclosure Agreement (NDA) before discussing proprietary ideas?",
+                a: "Absolutely. Protecting your confidential business logic and intellectual property is our top priority. We execute a standard mutual Non-Disclosure Agreement (NDA) before reviewing any project specifications or sensitive files."
               },
               {
-                q: "What happens after my app or website goes live?",
-                a: "We provide 30 days of complimentary post-launch monitoring and bug fixes. Afterwards, we offer flexible SLA plans for continuous feature development, security updates, and cloud scaling."
+                q: "Can you integrate custom AI models, OpenAI, or LLMs into our existing web or mobile app?",
+                a: "Yes! We specialize in integrating GPT-4o, Anthropic Claude, custom RAG (Retrieval-Augmented Generation) knowledge bases, vector databases (Pinecone/Qdrant), autonomous AI agents, and local open-source models (Llama 3) into existing tech stacks."
               },
               {
-                q: "Can CodeThrive integrate AI models or LLMs into my existing product?",
-                a: "Yes! We specialize in integrating OpenAI, Anthropic, custom RAG knowledge bases, AI agents, and local open-source LLMs into web, mobile, and enterprise platforms."
+                q: "What support and maintenance do you offer after our app or website goes live?",
+                a: "We provide 30 days of complimentary post-launch monitoring, warranty, and bug fixes. Afterwards, we offer flexible Monthly Care & SLA plans for continuous 24/7 server monitoring, security patches, feature upgrades, and cloud scaling."
               },
               {
-                q: "Can your engineers work alongside our existing in-house tech team?",
-                a: "Definitely. We offer dedicated team augmentation where our senior developers join your Slack, Jira, and GitHub workflows to accelerate delivery and fill technical skill gaps."
+                q: "Can your developers augment our existing in-house engineering team?",
+                a: "Definitely! We offer dedicated staff augmentation where our senior full-stack developers, mobile engineers, or AI architects embed directly into your Slack, Jira, and GitHub workflows to accelerate your roadmap."
               },
               {
-                q: "How do you handle project communication and status updates?",
-                a: "We hold weekly video demo syncs, maintain live Jira task boards, provide staging build links, and set up a dedicated WhatsApp / Slack channel for instant daily updates."
+                q: "How do you manage communication, progress tracking, and staging builds during development?",
+                a: "We maintain complete transparency via weekly live video demos, interactive staging environment URLs, real-time Jira/Trello boards, and a dedicated WhatsApp or Slack channel for instant daily communication."
               },
               {
-                q: "Which tech stacks and frameworks do you specialize in?",
-                a: "Our core stack includes React 19, Next.js 15, Node.js, Python, Flutter, React Native, Tailwind CSS, PostgreSQL, AWS Cloud, and AI / Machine Learning integrations."
+                q: "Which technologies and frameworks do your engineers specialize in?",
+                a: "Our core stack includes React 19, Next.js 15, Node.js, Python/Django, Flutter, React Native, Tailwind CSS, PostgreSQL, MongoDB, Redis, AWS Cloud, Docker, and AI/ML integrations."
               },
               {
-                q: "What if I only have a product idea and no technical specification document?",
-                a: "No problem! Our solution architects conduct a 1-on-1 Discovery Session to help define your user flows, wireframes, technical architecture, and a realistic launch roadmap."
+                q: "What if I only have a high-level idea without detailed technical documentation?",
+                a: "That is completely fine! Our solution architects conduct a 1-on-1 Discovery Workshop to map out your user journeys, wireframes, database schema, tech stack recommendation, and a realistic launch roadmap."
               },
               {
-                q: "Do you build compliant software for Healthcare, E-Commerce, or FinTech?",
-                a: "Yes! We engineer HIPAA-compliant healthcare systems, PCI-DSS compliant e-commerce platforms, and high-concurrency enterprise applications."
+                q: "Do you build compliant software for Healthcare, E-Commerce, or FinTech sectors?",
+                a: "Yes! We build HIPAA-compliant healthcare portals, PCI-DSS compliant payment gateways for e-commerce, sub-30ms fintech ledger systems, and high-concurrency enterprise SAAS platforms."
               },
               {
-                q: "Where is CodeThrive Infotech located and what hours do you operate?",
-                a: "Our headquarters is located in Sungam, Coimbatore, Tamil Nadu, India. Our engineering pods operate Monday to Saturday, supporting global timezones across US, Europe, and Asia."
+                q: "Where is your campus located, and what timezones do your engineering teams support?",
+                a: "Our global technology campus is located at Srihari Nivas, Indira Nagar, Sungam, Coimbatore, Tamil Nadu, India. Our engineering pods operate Monday to Saturday, supporting overlapping hours for US, Europe, Middle East, and APAC timezones."
               }
             ].map((faq, index) => {
               const isOpen = openFaqIndex === index;
@@ -482,7 +519,7 @@ export const ContactPage = () => {
                   </div>
 
                   {isOpen && (
-                    <div className="pt-3.5 mt-3 border-t border-sky-100/90 text-xs sm:text-sm font-black text-slate-950 leading-relaxed animate-fade-in pl-6">
+                    <div className="pt-3.5 mt-3 border-t border-sky-100/90 text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed animate-fade-in pl-6">
                       {faq.a}
                     </div>
                   )}

@@ -4,8 +4,8 @@ export const COMPANY_INFO = {
   tagline: 'Progress. Cultivate. Innovate.',
   heroTagline: 'Engineering Digital Excellence & Scalable Products',
   establishedYear: 2020,
-  email: 'info@codethriveinfotech.in',
-  salesEmail: 'sales@codethriveinfotech.in',
+  email: 'codethriveinfotech@gmail.com',
+  salesEmail: 'codethriveinfotech@gmail.com',
   phone: '+91 9150781685',
   whatsapp: '+91 9150781685',
   address: 'No : 1, Srihari Nivas, Indira Nagar, Sungam, Coimbatore, Tamil Nadu - 641045',
@@ -13,9 +13,12 @@ export const COMPANY_INFO = {
   workingHours: 'Monday - Saturday: 9:00 AM - 6:00 PM',
   websiteUrl: 'https://codethriveinfotech.in',
   socialLinks: {
-    linkedin: 'https://www.linkedin.com/company/codethriveinfotech',
-    facebook: 'https://www.facebook.com/codethriveinfotech',
-    instagram: 'https://www.instagram.com/codethriveinfotech'
+    linkedin: 'https://www.linkedin.com/in/codethrive-infotech-5b6361402',
+    github: 'https://github.com/Codethriveinfotech',
+    instagram: 'https://www.instagram.com/codethriveinfotech_official?igsh=MTIzZXA5MXF5dXRlaQ==',
+    facebook: 'https://www.facebook.com/share/18pBfimAcw/',
+    youtube: 'https://www.youtube.com/@CodeThriveInfotech',
+    portfolio: '#' // Replace with your official Portfolio URL later
   },
   stats: {
     projectsDelivered: '180+',
@@ -665,29 +668,214 @@ Migration Phases:
 export const TESTIMONIALS = [
   {
     id: '1',
-    quote: 'CodeThrive Infotech engineered our core fleet dispatch platform with zero downtime. Their attention to sub-second performance and mobile UI is phenomenal.',
+    quote: 'CodeThrive Infotech engineered our enterprise booking platform and automated WhatsApp engine. Bookings grew by +140% with zero downtime during peak holiday seasons.',
     author: 'K. Rajasekaran',
     role: 'Managing Director',
     company: 'Samyuktha Tours & Travels',
+    location: 'Coimbatore',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'
+    initials: 'KR',
+    avatarBg: 'from-[#0284C7] to-[#0369A1]'
   },
   {
     id: '2',
-    quote: 'Our patient EHR portal was built with high HIPAA compliance standards and smooth telemetry. They are our trusted long-term engineering partners.',
-    author: 'Dr. A. Meenakshi',
-    role: 'Clinical Director',
-    company: 'The Therapy Universe',
-    rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80'
-  },
-  {
-    id: '3',
-    quote: 'From cloud media storage pipelines to automated 4K transcoding, CodeThrive delivered an enterprise system ahead of schedule.',
+    quote: 'From 4K media storage pipelines to automated cloud transcoding, CodeThrive delivered an enterprise system ahead of schedule with 5x faster video rendering.',
     author: 'V. Anand',
     role: 'Chief Technology Officer',
     company: 'AMF Studio',
+    location: 'Bangalore',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80'
+    initials: 'VA',
+    avatarBg: 'from-[#9333EA] to-[#6B21A8]'
+  },
+  {
+    id: '3',
+    quote: 'Our HIPAA-compliant patient EHR portal was built with top-tier security standards and intuitive scheduling. CodeThrive is our trusted long-term tech partner.',
+    author: 'Dr. A. Meenakshi',
+    role: 'Clinical Director',
+    company: 'The Therapy Universe',
+    location: 'Coimbatore',
+    rating: 5,
+    initials: 'AM',
+    avatarBg: 'from-[#059669] to-[#047857]'
+  },
+  {
+    id: '4',
+    quote: 'The real-time GPS telemetry and driver dispatch dashboard built by CodeThrive cut allocation times to under 3 seconds. Exceptional engineering standards!',
+    author: 'S. Karthikeyan',
+    role: 'Head of Logistics',
+    company: 'Fleet Operations & Logistics',
+    location: 'Chennai',
+    rating: 5,
+    initials: 'SK',
+    avatarBg: 'from-[#D97706] to-[#B45309]'
+  },
+  {
+    id: '5',
+    quote: 'CodeThrive built our integrated holistic health portal seamlessly. Patient appointment booking and digital health records are faster and 100% reliable.',
+    author: 'Dr. S. Thangavel',
+    role: 'Founder & Chief Physician',
+    company: 'Thulir Healthcare',
+    location: 'Coimbatore',
+    rating: 5,
+    initials: 'ST',
+    avatarBg: 'from-[#10B981] to-[#059669]'
+  },
+  {
+    id: '6',
+    quote: 'Sub-second ride allocation and instant fare calculation transformed our fleet operations across Tamil Nadu. Highly recommend CodeThrive Infotech.',
+    author: 'P. Murugesan',
+    role: 'Operations Director',
+    company: 'Madurai Tour Taxi',
+    location: 'Madurai',
+    rating: 5,
+    initials: 'PM',
+    avatarBg: 'from-[#0891B2] to-[#0E7490]'
+  },
+  {
+    id: '7',
+    quote: 'Our online booking conversions increased 3.8x after CodeThrive redesigned our multi-day tour checkout portal. Stellar UI design and backend speed.',
+    author: 'R. Vignesh',
+    role: 'Founder & CEO',
+    company: 'Madurai Best Tours',
+    location: 'Madurai',
+    rating: 5,
+    initials: 'RV',
+    avatarBg: 'from-[#7C3AED] to-[#5B21B6]'
+  },
+  {
+    id: '8',
+    quote: 'CodeThrive senior engineering pod delivered our custom web & mobile app architecture with clean code and SOC-2 security protocols. World-class team!',
+    author: 'T. Senthil Kumar',
+    role: 'VP of Product Strategy',
+    company: 'Enterprise Commerce Systems',
+    location: 'Bangalore',
+    rating: 5,
+    initials: 'TS',
+    avatarBg: 'from-[#E11D48] to-[#BE123C]'
   }
 ];
+
+export const GALLERY_ITEMS = [
+  {
+    id: 'gal-1',
+    title: 'Enterprise Fintech Dashboard UI',
+    category: 'Web Applications',
+    description: 'Real-time multi-currency transaction monitor with sub-second analytics graph and automated reconciliation tools.',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    date: '2026',
+    client: 'OmniPay Merchant Systems',
+    tags: ['React 19', 'Tailwind CSS', 'Recharts', 'Financial Tech']
+  },
+  {
+    id: 'gal-2',
+    title: 'AI Medical Diagnostic Portal',
+    category: 'AI & Automation',
+    description: 'HIPAA-compliant medical imaging platform integrated with PyTorch inference models for instant clinical summaries.',
+    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+    date: '2026',
+    client: 'HealthRx Labs',
+    tags: ['Python', 'PyTorch', 'React', 'Telehealth']
+  },
+  {
+    id: 'gal-3',
+    title: 'Cross-Platform Mobile Fitness App',
+    category: 'Mobile Apps',
+    description: 'Flutter mobile experience with offline sync, biometric tracking, live exercise streaming, and workout scheduling.',
+    imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
+    date: '2025',
+    client: 'Pulse Fitness Club',
+    tags: ['Flutter', 'Firebase', 'iOS & Android', 'UI/UX']
+  },
+  {
+    id: 'gal-4',
+    title: 'Smart Factory IoT Telemetry Console',
+    category: 'Cloud & Security',
+    description: 'Cloud dashboard receiving high-frequency telemetry data from 500+ factory sensors for predictive maintenance.',
+    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+    date: '2025',
+    client: 'Industrial Automations Corp',
+    tags: ['AWS', 'Kubernetes', 'MQTT', 'IoT Telemetry']
+  },
+  {
+    id: 'gal-5',
+    title: 'Headless E-Commerce Bakery Hub',
+    category: 'Web Applications',
+    description: 'Sub-second digital storefront with custom cake builder, real-time inventory sync, and instant WhatsApp ordering.',
+    imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
+    date: '2026',
+    client: 'Artisan Confectionery Hub',
+    tags: ['Next.js', 'Headless Commerce', 'Tailwind', 'Stripe']
+  },
+  {
+    id: 'gal-6',
+    title: 'CodeThrive Annual Tech Summit 2026',
+    category: 'Culture & Events',
+    description: 'CodeThrive engineering team gather at Coimbatore HQ to showcase internal AI innovation projects and architecture roadmaps.',
+    imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    date: '2026',
+    client: 'CodeThrive Infotech',
+    tags: ['Team Culture', 'Tech Summit', 'Coimbatore HQ']
+  },
+  {
+    id: 'gal-7',
+    title: 'Boutique Hotel Direct Reservation Engine',
+    category: 'Web Applications',
+    description: 'Elegant luxury room booking platform featuring interactive 360-degree room previews and contactless check-in.',
+    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+    date: '2025',
+    client: 'Samyuktha Hospitality',
+    tags: ['React', 'Framer Motion', 'Stripe Gateway']
+  },
+  {
+    id: 'gal-8',
+    title: 'Autonomous RAG Knowledge Assistant',
+    category: 'AI & Automation',
+    description: 'Enterprise document retrieval assistant that ingests PDFs, policies, and contracts to provide cited instant answers.',
+    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80',
+    date: '2026',
+    client: 'Enterprise Systems',
+    tags: ['LangChain', 'Vector DB', 'FastAPI', 'OpenAI']
+  },
+  {
+    id: 'gal-9',
+    title: 'Zero-Downtime AWS Kubernetes Cluster',
+    category: 'Cloud & Security',
+    description: 'Automated Terraform infrastructure pipeline powering multi-region Kubernetes clusters with zero-downtime blue/green deployments.',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+    date: '2025',
+    client: 'Global Logistics SaaS',
+    tags: ['AWS EKS', 'Docker', 'Terraform', 'CI/CD']
+  },
+  {
+    id: 'gal-10',
+    title: 'Groceries Express Shopping Experience',
+    category: 'Mobile Apps',
+    description: 'Lightning-fast mobile web app enabling 30-minute doorstep grocery ordering with live rider location map.',
+    imageUrl: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80',
+    date: '2026',
+    client: 'FreshMart Express',
+    tags: ['React Native', 'Google Maps API', 'PWA']
+  },
+  {
+    id: 'gal-11',
+    title: 'AI Hackathon & Innovation Sprint',
+    category: 'Culture & Events',
+    description: '24-hour internal engineering hackathon building generative UI components and voice-enabled bot interfaces.',
+    imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
+    date: '2026',
+    client: 'CodeThrive Labs',
+    tags: ['Hackathon', 'Innovation', 'Engineering']
+  },
+  {
+    id: 'gal-12',
+    title: 'Modern Organic Products Store',
+    category: 'Web Applications',
+    description: 'Eco-conscious e-commerce web platform for organic skincare and natural products with customer review badges.',
+    imageUrl: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
+    date: '2025',
+    client: 'Pure Earth Botanicals',
+    tags: ['React', 'Tailwind', 'UX Design']
+  }
+];
+

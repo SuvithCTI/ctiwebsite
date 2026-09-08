@@ -61,8 +61,8 @@ export function AboutPage({ setActiveTab }) {
               <span className="text-[#0ea5e9]">Enterprise AI.</span>
             </h1>
 
-            {/* Description */}
-            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-semibold max-w-2xl">
+            {/* Description (Dark Black Font) */}
+            <p className="text-sm sm:text-base text-black leading-relaxed font-extrabold max-w-2xl">
               CODETHRIVE INFOTECH is an engineering product powerhouse based in Coimbatore, India. We team up with ambitious founders, startups, and enterprises to craft high-concurrency websites, mobile products, AI systems, and custom CRM/ERP platforms.
             </p>
 
@@ -86,19 +86,38 @@ export function AboutPage({ setActiveTab }) {
               </div>
             </div>
 
-            {/* 3 Feature Pills Row */}
+            {/* Keyframe Float Animation Styles for Pills */}
+            <style>{`
+              @keyframes floatPill {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+              }
+            `}</style>
+
+            {/* 3 Feature Pills Row (Vibrant Distinct Colors & Smooth Floating Animations) */}
             <div className="flex flex-wrap gap-2.5 pt-1">
-              <div className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs font-bold text-slate-800">
-                <Cpu className="w-4 h-4 text-sky-600" />
-                <span>100% Senior Pods</span>
+              <div
+                style={{ animation: 'floatPill 3.6s ease-in-out infinite', animationDelay: '0s' }}
+                className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#B3F0FF] border-2 border-[#00B4D8] shadow-md hover:shadow-xl text-xs font-black text-black hover:scale-110 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              >
+                <Cpu className="w-4 h-4 text-sky-900 group-hover:rotate-180 transition-transform duration-700" />
+                <span className="font-black text-black">100% Senior Pods</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs font-bold text-slate-800">
-                <Shield className="w-4 h-4 text-purple-600" />
-                <span>SOC-2 & HIPAA</span>
+
+              <div
+                style={{ animation: 'floatPill 3.6s ease-in-out infinite', animationDelay: '1.2s' }}
+                className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#E7D1FF] border-2 border-[#8B5CF6] shadow-md hover:shadow-xl text-xs font-black text-black hover:scale-110 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              >
+                <Shield className="w-4 h-4 text-purple-900 group-hover:scale-125 transition-transform duration-300" />
+                <span className="font-black text-black">SOC-2 &amp; HIPAA</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs font-bold text-slate-800">
-                <Rocket className="w-4 h-4 text-emerald-600" />
-                <span>2-Week Agile Sprints</span>
+
+              <div
+                style={{ animation: 'floatPill 3.6s ease-in-out infinite', animationDelay: '2.4s' }}
+                className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#BDF5D4] border-2 border-[#10B981] shadow-md hover:shadow-xl text-xs font-black text-black hover:scale-110 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              >
+                <Rocket className="w-4 h-4 text-emerald-900 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                <span className="font-black text-black">2-Week Agile Sprints</span>
               </div>
             </div>
 
@@ -114,7 +133,7 @@ export function AboutPage({ setActiveTab }) {
 
               <button
                 onClick={handleProjects}
-                className="px-7 py-3.5 rounded-full text-xs font-black tracking-wide bg-white border border-slate-300 hover:border-sky-500 text-slate-800 transition-all hover:scale-105 shadow-sm cursor-pointer"
+                className="px-7 py-3.5 rounded-full text-xs font-black tracking-wide bg-pink-500 hover:bg-pink-600 text-white shadow-lg shadow-pink-200 transition-all hover:scale-105 border border-pink-400 cursor-pointer"
               >
                 See Our Work
               </button>

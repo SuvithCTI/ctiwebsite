@@ -8,7 +8,7 @@ const GOLD_BRIGHT = '#FFF2BF';
 const GOLD_MUTED = '#FFE08A';
 const GOLD_BORDER = 'linear-gradient(90deg, #5C4000 0%, #F7D66B 25%, #F6E29C 50%, #F7D66B 75%, #5C4000 100%)';
 
-export const Navbar = ({ activeTab, setActiveTab, openEstimator }) => {
+export const Navbar = ({ activeTab, setActiveTab }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -23,6 +23,7 @@ export const Navbar = ({ activeTab, setActiveTab, openEstimator }) => {
     { id: 'about', label: 'About Us' },
     { id: 'industries', label: 'Industries' },
     { id: 'projects', label: 'Work' },
+    { id: 'gallery', label: 'Gallery' },
     { id: 'insights', label: 'Insights' },
     { id: 'contact', label: "Let's Talk" }
   ];
@@ -47,12 +48,12 @@ export const Navbar = ({ activeTab, setActiveTab, openEstimator }) => {
           boxShadow: isScrolled ? '0 10px 30px rgba(0,0,0,0.50)' : 'none'
         }}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div
               onClick={() => handleNavClick('home')}
-              className="cursor-pointer transition-transform hover:scale-105"
+              className="cursor-pointer transition-transform hover:scale-105 shrink-0"
             >
               <Logo size="lg" showTagline={false} variant="light" animateThrive />
             </div>

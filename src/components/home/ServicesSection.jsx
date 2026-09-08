@@ -95,7 +95,7 @@ export const ServicesSection = ({ setActiveTab }) => {
         'Continuous Agile Feature Deployments'
       ],
       tags: ['AWS', 'Google Cloud (GCP)', 'Docker', 'Kubernetes', 'Terraform'],
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
       icon: <Shield className="w-4 h-4 text-white" />,
       iconBg: 'bg-purple-600',
       titleColor: 'text-[#9333EA]',
@@ -143,7 +143,7 @@ export const ServicesSection = ({ setActiveTab }) => {
         'UX Research & User Journey Maps'
       ],
       tags: ['Figma', 'Adobe XD', 'Tailwind CSS', 'Framer Motion'],
-      image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1200&q=80',
       icon: <Layout className="w-4 h-4 text-white" />,
       iconBg: 'bg-purple-600',
       titleColor: 'text-[#9333EA]',
@@ -162,18 +162,25 @@ export const ServicesSection = ({ setActiveTab }) => {
   };
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-br from-[#F4F9FF] via-[#FAFCFF] to-[#EEF5FF] text-[#050B14] relative overflow-hidden">
+    <section id="services" className="py-20 sm:py-28 text-slate-950 relative overflow-hidden">
       
-      {/* Background Radial Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-sky-200/20 blur-[160px] pointer-events-none" />
+      {/* Background High-Res Skyscraper Office Image with Crisp Lighting & Subtle Contrast Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/services-bg.jpg"
+          alt="Skyscraper Executive Office Background"
+          className="w-full h-full object-cover object-center transform scale-102 filter brightness-[1.02] contrast-[1.02]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-white/30 to-white/70 backdrop-blur-[0.3px]" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10 sm:space-y-12">
         
         {/* Top Header Section */}
         <div>
           {/* SERVICES & EXPERTISE Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EBF5FF] text-[#0284C7] text-[10px] font-black tracking-widest uppercase border border-sky-200/80 shadow-xs mb-4">
-            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 text-[#0284C7] text-[10px] font-black tracking-widest uppercase border border-sky-300/80 shadow-lg backdrop-blur-md mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#0284c7] animate-pulse" />
             <span>SERVICES & EXPERTISE</span>
           </div>
 
@@ -184,18 +191,18 @@ export const ServicesSection = ({ setActiveTab }) => {
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-4 max-w-3xl text-sm sm:text-base font-semibold leading-relaxed text-slate-700">
+          <p className="mt-4 max-w-3xl text-sm sm:text-base font-black leading-relaxed text-slate-950">
             We work across the entire product lifecycle—from zero-to-one architectural scoping to high-concurrency cloud infrastructure and AI integration.
           </p>
         </div>
 
-        {/* 6 Services Cards Grid (2 Columns on Mobile View) */}
+        {/* 6 Services Cards Grid (Glassmorphic Floating Cards over High-Res Skyscraper View) */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7">
           {services.map((s) => (
             <div
               key={s.id}
               onClick={() => handleServiceClick(s)}
-              className="group bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer"
+              className="group bg-white/95 sm:bg-white/90 backdrop-blur-md hover:bg-white rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 hover:border-sky-400 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1.5 overflow-hidden"
             >
               <div>
                 
@@ -218,21 +225,21 @@ export const ServicesSection = ({ setActiveTab }) => {
                   </div>
                 </div>
 
-                {/* Card Content Body (Reduced Content Density on Mobile View) */}
+                {/* Card Content Body (Dark Black Text Content) */}
                 <div className="p-2 sm:p-5 space-y-1 sm:space-y-2.5">
                   
                   <h3 className={`text-[11px] sm:text-lg font-black font-editorial tracking-tight leading-tight ${s.titleColor}`}>
                     {s.title}
                   </h3>
 
-                  <p className="text-[9.5px] sm:text-xs text-slate-600 font-medium sm:font-semibold leading-tight line-clamp-2">
+                  <p className="text-[9.5px] sm:text-xs text-black font-bold sm:font-extrabold leading-tight line-clamp-2">
                     {s.description}
                   </p>
 
                   {/* Bullet points hidden on mobile to keep cards ultra minimal */}
                   <div className="hidden sm:block space-y-1 pt-0.5">
                     {s.bullets.slice(0, 2).map((b, idx) => (
-                      <div key={idx} className="flex items-center gap-1 text-xs font-bold text-slate-800 truncate">
+                      <div key={idx} className="flex items-center gap-1 text-xs font-black text-black truncate">
                         <span className="text-sky-600 font-black">•</span>
                         <span className="truncate">{b}</span>
                       </div>
@@ -250,13 +257,13 @@ export const ServicesSection = ({ setActiveTab }) => {
                   {s.tags.slice(0, 2).map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-1.5 sm:px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-950 text-[8.5px] sm:text-[10px] font-bold sm:font-black border border-slate-300 truncate max-w-[70px] sm:max-w-none"
+                      className="px-1.5 sm:px-2.5 py-0.5 rounded-full bg-slate-200/90 text-black text-[8.5px] sm:text-[10px] font-black border border-slate-400 truncate max-w-[70px] sm:max-w-none"
                     >
                       {tag}
                     </span>
                   ))}
                   {s.tags.length > 2 && (
-                    <span className="text-[8.5px] font-bold text-slate-400 sm:hidden">
+                    <span className="text-[8.5px] font-black text-black sm:hidden">
                       +{s.tags.length - 2}
                     </span>
                   )}

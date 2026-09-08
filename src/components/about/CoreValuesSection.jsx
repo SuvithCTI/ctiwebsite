@@ -46,11 +46,22 @@ export const CoreValuesSection = () => {
   ];
 
   return (
-    <section className="py-10 sm:py-24 bg-gradient-to-br from-[#F4F8FF] via-[#FAFCFF] to-[#EFF5FF] text-[#050B14] relative overflow-hidden select-none">
+    <section className="py-10 sm:py-24 bg-gradient-to-br from-[#F0F4FF] via-[#F8FAFF] to-[#EFF5FF] text-[#050B14] relative overflow-hidden select-none">
       
+      {/* High-Tech Circuit Board / AI Node Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="/core-values-bg.png"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center opacity-60 scale-105 filter drop-shadow-md"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F0F4FF]/50 via-transparent to-[#EFF5FF]/50 pointer-events-none" />
+      </div>
+
       {/* Real-Time Ambient Dynamic Glowing Light Orbs */}
-      <div className="absolute top-0 left-1/4 w-[750px] h-[750px] bg-gradient-to-r from-cyan-300/30 to-sky-300/30 blur-[180px] pointer-events-none animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-[750px] h-[750px] bg-gradient-to-r from-purple-300/30 to-pink-300/30 blur-[180px] pointer-events-none animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-0 left-1/4 w-[750px] h-[750px] bg-gradient-to-r from-cyan-300/25 to-sky-300/25 blur-[180px] pointer-events-none animate-pulse" />
+      <div className="absolute bottom-0 right-1/4 w-[750px] h-[750px] bg-gradient-to-r from-purple-300/25 to-pink-300/25 blur-[180px] pointer-events-none animate-pulse" style={{ animationDelay: '2s' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6 sm:space-y-16">
         

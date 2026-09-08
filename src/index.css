@@ -648,3 +648,12 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Hide scrollbar utility for touch scrollable containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

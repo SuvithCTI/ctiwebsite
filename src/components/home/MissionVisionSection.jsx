@@ -34,8 +34,12 @@ export const MissionVisionSection = () => {
 
           {/* Mission Card (Vibrant Electric Sky Theme) */}
           <div
-            onClick={() => setExpandedMission(!expandedMission)}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[2.5rem] border-2 border-sky-300/90 bg-gradient-to-br from-white via-sky-50/70 to-cyan-100/60 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:border-sky-500 cursor-pointer"
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.innerWidth < 640) {
+                setExpandedMission(!expandedMission);
+              }
+            }}
+            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[2.5rem] border-2 border-sky-300/90 bg-gradient-to-br from-white via-sky-50/70 to-cyan-100/60 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:border-sky-500 cursor-pointer sm:cursor-default"
           >
             {/* Top Accent Bar */}
             <div className="h-2 bg-gradient-to-r from-[#0284C7] via-cyan-400 to-blue-600 w-full" />
@@ -61,30 +65,31 @@ export const MissionVisionSection = () => {
                   Our Mission
                 </h3>
 
-                {/* Clean Left-Aligned Text */}
+                {/* Left-Aligned Mission Text: Always Full on PC, Expandable on Mobile */}
                 <p className="text-left text-[10.5px] sm:text-sm font-semibold leading-snug sm:leading-relaxed text-slate-700">
-                  {expandedMission ? (
-                    <span>
-                      To deliver cutting-edge, reliable, and scalable software solutions that empower businesses to thrive in the digital era. We are committed to translating complex challenges into elegant, intuitive, and high-performance digital products that drive real-world success. By constantly evolving and adopting the latest technological standards, we bridge the gap between ambitious ideas and seamless execution.
-                    </span>
-                  ) : (
-                    <span>
-                      To deliver cutting-edge, reliable, and scalable software solutions that empower businesses to thrive in the digital era.
-                    </span>
-                  )}
+                  <span className="hidden sm:inline">
+                    To deliver cutting-edge, reliable, and scalable software solutions that empower businesses to thrive in the digital era. We are committed to translating complex challenges into elegant, intuitive, and high-performance digital products that drive real-world success. By constantly evolving and adopting the latest technological standards, we bridge the gap between ambitious ideas and seamless execution.
+                  </span>
+                  <span className="inline sm:hidden">
+                    {expandedMission ? (
+                      "To deliver cutting-edge, reliable, and scalable software solutions that empower businesses to thrive in the digital era. We are committed to translating complex challenges into elegant, intuitive, and high-performance digital products that drive real-world success. By constantly evolving and adopting the latest technological standards, we bridge the gap between ambitious ideas and seamless execution."
+                    ) : (
+                      "To deliver cutting-edge, reliable, and scalable software solutions that empower businesses to thrive in the digital era."
+                    )}
+                  </span>
                 </p>
 
-                {/* Tap to Elaborate Button */}
+                {/* Tap to Elaborate Button: MOBILE ONLY (Hidden on PC View) */}
                 <button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     setExpandedMission(!expandedMission);
                   }}
-                  className="mt-0.5 sm:mt-1 inline-flex items-center gap-1 text-[9px] sm:text-xs font-black text-[#0284C7] bg-white border border-sky-300 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-xs active:scale-95 transition"
+                  className="sm:hidden mt-0.5 inline-flex items-center gap-1 text-[9px] font-black text-[#0284C7] bg-white border border-sky-300 px-2 py-0.5 rounded-full shadow-xs active:scale-95 transition"
                 >
                   <span>{expandedMission ? 'Show Less' : 'Tap to Elaborate'}</span>
-                  {expandedMission ? <ChevronUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> : <ChevronDown className="w-2.5 h-2.5 sm:w-3 sm:h-3" />}
+                  {expandedMission ? <ChevronUp className="w-2.5 h-2.5" /> : <ChevronDown className="w-2.5 h-2.5" />}
                 </button>
               </div>
 
@@ -100,8 +105,12 @@ export const MissionVisionSection = () => {
 
           {/* Vision Card (Vibrant Neon Purple & Rose Theme) */}
           <div
-            onClick={() => setExpandedVision(!expandedVision)}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[2.5rem] border-2 border-purple-300/90 bg-gradient-to-br from-white via-purple-50/70 to-pink-100/60 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:border-purple-500 cursor-pointer"
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.innerWidth < 640) {
+                setExpandedVision(!expandedVision);
+              }
+            }}
+            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[2.5rem] border-2 border-purple-300/90 bg-gradient-to-br from-white via-purple-50/70 to-pink-100/60 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:border-purple-500 cursor-pointer sm:cursor-default"
           >
             {/* Top Accent Bar */}
             <div className="h-2 bg-gradient-to-r from-[#9333EA] via-purple-400 to-pink-600 w-full" />
@@ -127,30 +136,31 @@ export const MissionVisionSection = () => {
                   Our Vision
                 </h3>
 
-                {/* Clean Left-Aligned Text */}
+                {/* Left-Aligned Vision Text: Always Full on PC, Expandable on Mobile */}
                 <p className="text-left text-[10.5px] sm:text-sm font-semibold leading-snug sm:leading-relaxed text-slate-700">
-                  {expandedVision ? (
-                    <span>
-                      To become the most trusted global technology partner, recognized universally for our relentless innovation, unparalleled quality, and profound impact on our clients' success. We aim to shape the future of tech with solutions that lead industries forward. We envision a modern digital landscape where automation and intelligent software design set a new baseline for enterprise efficiency.
-                    </span>
-                  ) : (
-                    <span>
-                      To become the most trusted global technology partner, recognized universally for our relentless innovation and impact.
-                    </span>
-                  )}
+                  <span className="hidden sm:inline">
+                    To become the most trusted global technology partner, recognized universally for our relentless innovation, unparalleled quality, and profound impact on our clients' success. We aim to shape the future of tech with solutions that lead industries forward. We envision a modern digital landscape where automation and intelligent software design set a new baseline for enterprise efficiency.
+                  </span>
+                  <span className="inline sm:hidden">
+                    {expandedVision ? (
+                      "To become the most trusted global technology partner, recognized universally for our relentless innovation, unparalleled quality, and profound impact on our clients' success. We aim to shape the future of tech with solutions that lead industries forward. We envision a modern digital landscape where automation and intelligent software design set a new baseline for enterprise efficiency."
+                    ) : (
+                      "To become the most trusted global technology partner, recognized universally for our relentless innovation and impact."
+                    )}
+                  </span>
                 </p>
 
-                {/* Tap to Elaborate Button */}
+                {/* Tap to Elaborate Button: MOBILE ONLY (Hidden on PC View) */}
                 <button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     setExpandedVision(!expandedVision);
                   }}
-                  className="mt-0.5 sm:mt-1 inline-flex items-center gap-1 text-[9px] sm:text-xs font-black text-purple-700 bg-white border border-purple-300 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-xs active:scale-95 transition"
+                  className="sm:hidden mt-0.5 inline-flex items-center gap-1 text-[9px] font-black text-purple-700 bg-white border border-purple-300 px-2 py-0.5 rounded-full shadow-xs active:scale-95 transition"
                 >
                   <span>{expandedVision ? 'Show Less' : 'Tap to Elaborate'}</span>
-                  {expandedVision ? <ChevronUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> : <ChevronDown className="w-2.5 h-2.5 sm:w-3 sm:h-3" />}
+                  {expandedVision ? <ChevronUp className="w-2.5 h-2.5" /> : <ChevronDown className="w-2.5 h-2.5" />}
                 </button>
               </div>
 

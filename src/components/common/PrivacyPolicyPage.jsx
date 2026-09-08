@@ -53,7 +53,7 @@ export const PrivacyPolicyPage = ({ setActiveTab }) => {
       icon: <Key className="w-5 h-5 text-purple-500" />,
       content: [
         'You have the right to request access to, correction of, or deletion of your personal data. You may also opt out of marketing communications at any time.',
-        'To exercise any of these rights, email us at info@codethriveinfotech.in and we will respond within 24 hours.'
+        'To exercise any of these rights, email us at codethriveinfotech@gmail.com and we will respond within 24 hours.'
       ],
       hasEmailLink: true
     },
@@ -130,16 +130,16 @@ export const PrivacyPolicyPage = ({ setActiveTab }) => {
 
               <div className="space-y-2 text-xs sm:text-sm font-medium leading-relaxed text-slate-700 pl-11">
                 {sec.content.map((paragraph, pIdx) => {
-                  if (sec.hasEmailLink && paragraph.includes('info@codethriveinfotech.in')) {
-                    const parts = paragraph.split('info@codethriveinfotech.in');
+                  if (sec.hasEmailLink && paragraph.includes('codethriveinfotech@gmail.com')) {
+                    const parts = paragraph.split('codethriveinfotech@gmail.com');
                     return (
                       <p key={pIdx}>
                         {parts[0]}
                         <a
-                          href="mailto:info@codethriveinfotech.in"
+                          href="mailto:codethriveinfotech@gmail.com"
                           className="font-black text-[#0284C7] hover:underline underline-offset-2"
                         >
-                          info@codethriveinfotech.in
+                          codethriveinfotech@gmail.com
                         </a>
                         {parts[1]}
                       </p>
@@ -161,10 +161,10 @@ export const PrivacyPolicyPage = ({ setActiveTab }) => {
           <p className="text-xs text-slate-300 font-medium leading-relaxed">
             Reach out directly to our privacy officer at{' '}
             <a
-              href="mailto:info@codethriveinfotech.in"
+              href="mailto:codethriveinfotech@gmail.com"
               className="text-[#F3D77F] font-bold underline underline-offset-2"
             >
-              info@codethriveinfotech.in
+              codethriveinfotech@gmail.com
             </a>
             . We answer all data inquiries within 24 hours.
           </p>

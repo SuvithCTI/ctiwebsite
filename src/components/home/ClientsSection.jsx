@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { ExternalLink, RotateCcw, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ExternalLink, RotateCcw, Maximize2, X, Sparkles } from 'lucide-react';
 
 export const ClientsSection = () => {
   const [flippedCards, setFlippedCards] = useState({});
   const [selectedScreenshot, setSelectedScreenshot] = useState(null);
-  const [mobileIndex, setMobileIndex] = useState(0);
 
-  const toggleFlip = (id) => {
-    setFlippedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+  const toggleFlip = (instanceId) => {
+    setFlippedCards((prev) => ({ ...prev, [instanceId]: !prev[instanceId] }));
   };
 
   const clients = [
@@ -30,12 +29,12 @@ export const ClientsSection = () => {
         '24/7 WhatsApp Booking Bot'
       ],
       metrics: '12,000+ monthly bookings',
-      bg: 'bg-[#FFFBF2]',
+      bg: 'bg-[#FFE4BC]',
       darkBg: 'bg-[#1E1910]',
-      border: 'border-amber-300/90',
-      boxBg: 'bg-white border-amber-200',
-      chipBg: 'bg-amber-200/80 text-amber-950 border-amber-300',
-      titleColor: 'text-[#5C2B0E]',
+      border: 'border-amber-400',
+      boxBg: 'bg-white border-amber-300',
+      chipBg: 'bg-amber-300 text-amber-950 border-amber-400 font-black',
+      titleColor: 'text-[#4A2006]',
       link: 'https://codethriveinfotech.in'
     },
     {
@@ -57,12 +56,12 @@ export const ClientsSection = () => {
         'Automated Driver Payouts'
       ],
       metrics: 'Sub-3-second driver allocation',
-      bg: 'bg-[#F2FCFF]',
+      bg: 'bg-[#CBEBFB]',
       darkBg: 'bg-[#0B1E28]',
-      border: 'border-cyan-300/90',
-      boxBg: 'bg-white border-cyan-200',
-      chipBg: 'bg-cyan-200/80 text-cyan-950 border-cyan-300',
-      titleColor: 'text-[#064E63]',
+      border: 'border-cyan-400',
+      boxBg: 'bg-white border-cyan-300',
+      chipBg: 'bg-cyan-300 text-cyan-950 border-cyan-400 font-black',
+      titleColor: 'text-[#043E4F]',
       link: 'https://codethriveinfotech.in'
     },
     {
@@ -84,12 +83,12 @@ export const ClientsSection = () => {
         'Custom Package Customizer'
       ],
       metrics: '3.8x increase in online bookings',
-      bg: 'bg-[#FAF5FF]',
+      bg: 'bg-[#EAD5FF]',
       darkBg: 'bg-[#1F1035]',
-      border: 'border-purple-300/90',
-      boxBg: 'bg-white border-purple-200',
-      chipBg: 'bg-purple-200/80 text-purple-950 border-purple-300',
-      titleColor: 'text-[#4C1D95]',
+      border: 'border-purple-400',
+      boxBg: 'bg-white border-purple-300',
+      chipBg: 'bg-purple-300 text-purple-950 border-purple-400 font-black',
+      titleColor: 'text-[#3B1378]',
       link: 'https://codethriveinfotech.in'
     },
     {
@@ -111,12 +110,12 @@ export const ClientsSection = () => {
         'Telehealth Video Consults'
       ],
       metrics: '99.9% uptime with encrypted EHR',
-      bg: 'bg-[#F0FDF4]',
+      bg: 'bg-[#C6F6D5]',
       darkBg: 'bg-[#0B2319]',
-      border: 'border-emerald-300/90',
-      boxBg: 'bg-white border-emerald-200',
-      chipBg: 'bg-emerald-200/80 text-emerald-950 border-emerald-300',
-      titleColor: 'text-[#064E3B]',
+      border: 'border-emerald-400',
+      boxBg: 'bg-white border-emerald-300',
+      chipBg: 'bg-emerald-300 text-emerald-950 border-emerald-400 font-black',
+      titleColor: 'text-[#043C2E]',
       link: 'https://codethriveinfotech.in'
     },
     {
@@ -138,141 +137,209 @@ export const ClientsSection = () => {
         'High-Speed GPU Rendering'
       ],
       metrics: '500GB+ daily media transcoding',
-      bg: 'bg-[#FFF5F9]',
+      bg: 'bg-[#FBCFE8]',
       darkBg: 'bg-[#2A0B1A]',
-      border: 'border-pink-300/90',
-      boxBg: 'bg-white border-pink-200',
-      chipBg: 'bg-pink-200/80 text-pink-950 border-pink-300',
-      titleColor: 'text-[#831843]',
+      border: 'border-pink-400',
+      boxBg: 'bg-white border-pink-300',
+      chipBg: 'bg-pink-300 text-pink-950 border-pink-400 font-black',
+      titleColor: 'text-[#6B1135]',
+      link: 'https://codethriveinfotech.in'
+    },
+    {
+      id: 'thulir',
+      name: 'Thulir Healthcare',
+      fullName: 'Thulir Healthcare',
+      tagline: 'Holistic Wellness Portal',
+      industry: 'HEALTHCARE',
+      metricPill: '10k+ Patients',
+      impactMetric: '⚡ 10,000+ Active Patients',
+      location: 'Coimbatore',
+      logo: '/clients/thulir-healthcare.jpg',
+      screenshot: '/clients/thulir-healthcare-trans.png',
+      description: 'Integrated healthcare and wellness appointment management system.',
+      bullets: [
+        'Digital Patient Records',
+        'Appointment Booking',
+        'Wellness Tracking',
+        'Prescription Portal'
+      ],
+      metrics: '10,000+ active patients',
+      bg: 'bg-[#B4F8D3]',
+      darkBg: 'bg-[#0B2319]',
+      border: 'border-emerald-400',
+      boxBg: 'bg-white border-emerald-300',
+      chipBg: 'bg-emerald-300 text-emerald-950 border-emerald-400 font-black',
+      titleColor: 'text-[#033B2C]',
+      link: 'https://codethriveinfotech.in'
+    },
+    {
+      id: 'fleetmgmt',
+      name: 'Fleet Management',
+      fullName: 'Fleet Operations & Logistics',
+      tagline: 'Smart Operations Suite',
+      industry: 'LOGISTICS',
+      metricPill: '99.9% Uptime',
+      impactMetric: '⚡ 500+ Active Vehicles',
+      location: 'Chennai',
+      logo: '/clients/fleet-management.jpg',
+      screenshot: '/clients/fleet-management-trans.png',
+      description: 'Smart fleet telemetry, vehicle tracking, and operations platform.',
+      bullets: [
+        'Real-Time GPS Tracking',
+        'Fuel & Maintenance Analytics',
+        'Driver Telemetry',
+        'Route Optimization'
+      ],
+      metrics: '500+ active vehicles managed',
+      bg: 'bg-[#FDE68A]',
+      darkBg: 'bg-[#1E1B0E]',
+      border: 'border-amber-400',
+      boxBg: 'bg-white border-amber-300',
+      chipBg: 'bg-amber-300 text-amber-950 border-amber-400 font-black',
+      titleColor: 'text-[#5C2607]',
+      link: 'https://codethriveinfotech.in'
+    },
+    {
+      id: 'varavastra',
+      name: 'Vara Vastra Boutique',
+      fullName: 'Vara Vastra Boutique',
+      tagline: 'Luxury E-Commerce & Couture',
+      industry: 'FASHION',
+      metricPill: '+185% Sales',
+      impactMetric: '⚡ 15,000+ Monthly Orders',
+      location: 'Coimbatore',
+      logo: '/clients/vara-vastra.jpg',
+      screenshot: '/clients/vara-vastra-clean.png',
+      description: 'Premium luxury saree & couture e-commerce platform with custom order builder.',
+      bullets: [
+        'Custom Saree Customizer',
+        'Online Payment Gateway',
+        'Inventory Management API',
+        'Customer Loyalty Club'
+      ],
+      metrics: '15,000+ monthly boutique orders',
+      bg: 'bg-[#FFE4E6]',
+      darkBg: 'bg-[#2B0A12]',
+      border: 'border-rose-400',
+      boxBg: 'bg-white border-rose-300',
+      chipBg: 'bg-rose-300 text-rose-950 border-rose-400 font-black',
+      titleColor: 'text-[#881337]',
+      link: 'https://codethriveinfotech.in'
+    },
+    {
+      id: 'testguard',
+      name: 'TestGuard',
+      fullName: 'TestGuard AI Software Testing',
+      tagline: 'AI Automated QA Suite',
+      industry: 'CYBER & QA',
+      metricPill: '99.9% Defect Catch',
+      impactMetric: '⚡ 10,000+ Automated Tests',
+      location: 'Bangalore',
+      logo: '/clients/testguard.jpg',
+      screenshot: '/clients/testguard-trans.png',
+      description: 'Autonomous AI-powered software testing, security detection, and QA platform.',
+      bullets: [
+        'AI Test Automation Engine',
+        'Security Vulnerability Scanner',
+        'API Regression Testing',
+        'CI/CD Pipeline Integration'
+      ],
+      metrics: '10,000+ automated test suites',
+      bg: 'bg-[#E0F2FE]',
+      darkBg: 'bg-[#032B45]',
+      border: 'border-sky-400',
+      boxBg: 'bg-white border-sky-300',
+      chipBg: 'bg-sky-300 text-sky-950 border-sky-400 font-black',
+      titleColor: 'text-[#024466]',
       link: 'https://codethriveinfotech.in'
     }
   ];
 
-  // Auto-Changing Mobile Timer (Cycles strictly: 0 -> 2 -> 4 -> 0)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setMobileIndex((prev) => (prev === 0 ? 2 : prev === 2 ? 4 : 0));
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleMobileNext = () => {
-    setMobileIndex((prev) => (prev === 0 ? 2 : prev === 2 ? 4 : 0));
-  };
-
-  const handleMobilePrev = () => {
-    setMobileIndex((prev) => (prev === 0 ? 4 : prev === 2 ? 0 : 2));
-  };
-
-  // Get exact paired clients per slide for Mobile View
-  // Slide 1 (0): Samyuktha Tours & Madurai Tour Taxi
-  // Slide 2 (2): Madurai Best Tours & Therapy Universe
-  // Slide 3 (4): AMF Studio alone
-  const mobileVisibleClients = mobileIndex === 4
-    ? [clients[4]]
-    : [clients[mobileIndex], clients[mobileIndex + 1]];
-
   // Helper Card Renderer
-  // Helper Card Renderer
-  const renderCard = (c, isCompact = false) => {
-    const isFlipped = !!flippedCards[c.id];
+  const renderCard = (c, instanceId) => {
+    const isFlipped = !!flippedCards[instanceId];
     return (
       <div
-        key={c.id}
-        onClick={() => toggleFlip(c.id)}
-        className={`perspective-[1000px] ${isCompact ? 'h-[188px] max-w-[185px]' : 'h-[310px] sm:h-[340px] lg:h-[355px]'} cursor-pointer group w-full mx-auto select-none`}
+        key={instanceId}
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleFlip(instanceId);
+        }}
+        className="perspective-[1000px] h-[290px] sm:h-[310px] max-w-[270px] cursor-pointer group/card w-full mx-auto select-none"
       >
         <div
           className={`relative w-full h-full duration-700 transition-transform [transform-style:preserve-3d] ${
-            isFlipped ? '[transform:rotateY(180deg)]' : (isCompact ? '' : 'group-hover:[transform:rotateY(180deg)]')
+            isFlipped ? '[transform:rotateY(180deg)]' : 'group-hover/card:[transform:rotateY(180deg)]'
           }`}
         >
           
           {/* FRONT SIDE */}
           <div
-            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] ${c.bg} ${c.border} border ${isCompact ? 'rounded-xl p-1.5' : 'rounded-2xl p-2.5 sm:p-3 lg:p-3.5'} shadow-sm hover:shadow-xl flex flex-col justify-between overflow-hidden`}
+            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] ${c.bg} ${c.border} border-2 rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-xl flex flex-col justify-between overflow-hidden transition-all`}
           >
-            <div className={isCompact ? 'space-y-0.5' : 'space-y-1 lg:space-y-1.5'}>
+            <div className="space-y-2.5 flex-1 flex flex-col justify-between">
               
-              {/* Top White Logo Box */}
-              <div className={`bg-white border border-slate-200/90 ${isCompact ? 'rounded-lg h-10 p-0.5' : 'rounded-xl h-16 sm:h-18 lg:h-20 p-1 lg:p-1.5'} flex items-center justify-center shadow-xs overflow-hidden`}>
+              {/* Top Row: Industry Tag + Metric Pill */}
+              <div className="flex items-center justify-between gap-1.5">
+                <div className={`rounded-full font-black tracking-wider uppercase border text-[8.5px] sm:text-[10px] px-2.5 py-0.5 ${c.chipBg}`}>
+                  {c.industry}
+                </div>
+
+                <div className="rounded-full font-black bg-slate-900 text-white text-[8.5px] sm:text-[10px] px-2.5 py-0.5 shadow-xs">
+                  {c.metricPill}
+                </div>
+              </div>
+
+              {/* White Background Rectangle Box for Logo */}
+              <div className="w-full h-24 sm:h-26 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-center p-2 overflow-hidden">
                 <img
                   src={c.logo}
                   alt={c.name}
-                  className={`${isCompact ? 'h-7 w-[95%] max-h-full object-contain scale-105' : 'h-12 sm:h-14 lg:h-15 max-h-full max-w-full object-contain'} filter drop-shadow-md group-hover:scale-115 transition-transform duration-300`}
+                  className="h-20 sm:h-22 max-h-full max-w-full object-contain filter drop-shadow-xs group-hover/card:scale-105 transition-transform duration-300"
                   onError={(e) => {
                     (e.target).src = '/logo.png';
                   }}
                 />
               </div>
 
-              {/* Second Row: Industry Tag + Metric Pill */}
-              <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap pt-0.5">
-                <div className={`rounded-full font-black tracking-wider uppercase border ${isCompact ? 'px-1.5 py-0.5 text-[8px]' : 'px-2 lg:px-2.5 py-0.5 lg:py-1 text-[8.5px] sm:text-[9.5px] lg:text-[11px]'} ${c.chipBg}`}>
-                  {c.industry}
-                </div>
-
-                <div className={`rounded-full font-black bg-slate-200/80 text-slate-900 border border-slate-300/80 truncate ${isCompact ? 'px-1.5 py-0.5 text-[8px] max-w-[95px]' : 'px-2 lg:px-2.5 py-0.5 lg:py-1 text-[8.5px] sm:text-[9.5px] lg:text-[11px] max-w-[120px] lg:max-w-none'}`}>
-                  {c.metricPill}
-                </div>
-              </div>
-
-              {/* Title & Subtitle Tagline */}
-              <div className="space-y-0">
-                <h3 className={`${isCompact ? 'text-[11.5px]' : 'text-base sm:text-lg lg:text-xl'} font-black font-editorial leading-tight ${c.titleColor}`}>
+              {/* Client Title & Tagline */}
+              <div className="text-center space-y-0.5">
+                <h3 className={`text-sm sm:text-base font-black font-editorial leading-tight ${c.titleColor}`}>
                   {c.name}
                 </h3>
-                <div className={`${isCompact ? 'text-[9px]' : 'text-[9.5px] sm:text-[11px] lg:text-[12.5px]'} font-extrabold text-slate-900 leading-tight truncate`}>
+                <div className="text-[10px] sm:text-[11.5px] font-extrabold text-slate-900 leading-tight">
                   {c.tagline}
                 </div>
               </div>
 
-              {/* Short Description */}
-              <p className={`${isCompact ? 'text-[9px] line-clamp-1' : 'text-[9.5px] sm:text-[11px] lg:text-xs'} font-semibold text-slate-700 leading-snug sm:line-clamp-2`}>
-                {c.description}
-              </p>
+              {/* Rich Content Highlights Description */}
+              <div className="bg-white/90 rounded-xl p-2 text-[9.5px] sm:text-[10.5px] text-slate-950 font-bold leading-tight flex items-start gap-1.5 border border-slate-300/80 shadow-2xs">
+                <Sparkles className="w-3 h-3 text-sky-600 shrink-0 mt-0.5" />
+                <span className="line-clamp-2">{c.description}</span>
+              </div>
 
             </div>
 
-            {/* Bullets List with Green Checkmarks */}
-            <div className={`pt-1 border-t border-slate-200/60 ${isCompact ? 'space-y-0.5' : 'space-y-1 sm:space-y-1.5 lg:space-y-2'}`}>
-              {(c.bullets || []).slice(0, isCompact ? 2 : 4).map((b, idx) => (
-                <div key={idx} className={`flex items-center gap-1 ${isCompact ? 'text-[8.5px]' : 'text-[9.5px] sm:text-[11px] lg:text-[12px]'} font-bold text-slate-900 leading-tight truncate`}>
-                  <span className="text-emerald-600 font-black text-xs lg:text-sm">✓</span>
-                  <span className="truncate">{b}</span>
-                </div>
-              ))}
-
-              {/* Impact Highlight Badge on PC */}
-              {!isCompact && (
-                <div className="hidden lg:flex items-center gap-1 text-[10.5px] font-extrabold text-sky-800 bg-sky-100/90 border border-sky-200/90 px-2 py-0.5 rounded-md truncate mt-1">
-                  <span>{c.impactMetric}</span>
-                </div>
-              )}
-
-              {/* Bottom Bar: Location + Tech Flip */}
-              <div className={`pt-0.5 flex items-center justify-between font-black border-t border-slate-200/50 text-slate-900 ${isCompact ? 'text-[8.5px]' : 'text-[9px] sm:text-[10px] lg:text-xs'}`}>
-                <span className="flex items-center gap-0.5">📍 {c.location}</span>
-                <div className="flex items-center gap-0.5 text-sky-600 font-extrabold bg-sky-50 border border-sky-200/80 px-1.5 py-0.5 rounded-full shadow-2xs active:scale-95 transition">
-                  <span>Preview</span>
-                  <RotateCcw className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5 text-sky-600 animate-spin-slow" />
-                </div>
+            {/* Bottom Bar: Location + Interactive Tap-to-Flip Button */}
+            <div className="pt-2 mt-2 flex items-center justify-between font-black border-t border-slate-300/80 text-slate-950 text-[9px] sm:text-[10px]">
+              <span className="flex items-center gap-0.5">📍 {c.location}</span>
+              <div className="flex items-center gap-1 font-black px-2 py-0.5 rounded-full shadow-2xs transition-colors duration-300 bg-white text-sky-950 border border-sky-400 hover:bg-sky-600 hover:text-white">
+                <span>Tap to Flip</span>
+                <RotateCcw className="w-2.5 h-2.5 animate-spin-slow" />
               </div>
             </div>
 
           </div>
 
-          {/* BACK SIDE (100% Full Uncropped Website Screenshot Display) */}
+          {/* BACK SIDE */}
           <div
-            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] ${c.darkBg} ${c.border} border ${isCompact ? 'rounded-xl p-1.5' : 'rounded-3xl p-3'} shadow-2xl flex flex-col justify-between text-white overflow-hidden`}
+            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] ${c.bg} ${c.border} border-2 rounded-2xl p-3.5 shadow-xl flex flex-col justify-between overflow-hidden transition-all`}
           >
-            <div className="space-y-1">
+            <div className="space-y-1.5">
               
-              {/* Browser Frame Showcase Container */}
-              <div className="rounded-lg sm:rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-slate-950 flex flex-col">
-                
-                {/* Top Browser Window Controls */}
-                <div className="bg-slate-900 px-1.5 py-0.5 border-b border-slate-800 flex items-center justify-between">
+              {/* Browser Frame */}
+              <div className="rounded-xl overflow-hidden border border-slate-300/80 shadow-md bg-slate-950 flex flex-col">
+                <div className="bg-slate-900 px-2 py-1 border-b border-slate-800 flex items-center justify-between">
                   <div className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500/80" />
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500/80" />
@@ -283,34 +350,32 @@ export const ClientsSection = () => {
                       e.stopPropagation();
                       setSelectedScreenshot(c);
                     }}
-                    className="flex items-center gap-1 text-[8px] font-bold text-sky-400 hover:text-sky-300 transition"
+                    className="flex items-center gap-1 text-[8.5px] font-bold text-sky-400 hover:text-sky-300 transition cursor-pointer"
                   >
                     <span>Full View</span>
-                    <Maximize2 className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
+                    <Maximize2 className="w-2.5 h-2.5" />
                   </button>
                 </div>
 
-                {/* 100% Uncropped Full Image View Container */}
                 <div 
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedScreenshot(c);
                   }}
-                  className={`relative ${isCompact ? 'h-24' : 'h-42'} w-full overflow-hidden bg-slate-950 flex items-center justify-center p-1 group/img`}
+                  className="relative h-32 sm:h-36 w-full overflow-hidden bg-slate-950 flex items-center justify-center p-1 group/img cursor-pointer"
                 >
                   <img
                     src={c.screenshot}
                     alt={`${c.fullName} Website Screenshot`}
-                    className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500 rounded-md"
                     onError={(e) => {
                       (e.target).src = '/codethrive-hero.png';
                     }}
                   />
 
-                  {/* Full View Hover Overlay */}
                   <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
-                    <div className="px-2 py-0.5 rounded-full bg-sky-500 text-white text-[8.5px] font-bold flex items-center gap-1 shadow-lg">
-                      <Maximize2 className="w-2.5 h-2.5" />
+                    <div className="px-2.5 py-1 rounded-full bg-sky-500 text-white text-[9px] font-bold flex items-center gap-1 shadow-lg">
+                      <Maximize2 className="w-3 h-3" />
                       <span>View Full</span>
                     </div>
                   </div>
@@ -318,24 +383,24 @@ export const ClientsSection = () => {
 
               </div>
 
-              {/* Title & Description */}
+              {/* Title & Key Highlights */}
               <div className="space-y-0.5 px-0.5">
-                <h4 className="text-[10px] sm:text-xs font-black font-editorial text-white leading-tight truncate">
+                <h4 className={`text-xs sm:text-sm font-black font-editorial ${c.titleColor} leading-tight truncate`}>
                   {c.name}
                 </h4>
-                <p className="text-[8.5px] sm:text-[10px] text-slate-300 font-semibold leading-tight line-clamp-1">
-                  {c.tagline}
-                </p>
+                <div className="text-[9.5px] text-slate-900 font-black leading-tight">
+                  {c.impactMetric}
+                </div>
               </div>
 
             </div>
 
-            {/* Bottom Flip Back Action Bar */}
-            <div className="pt-0.5 border-t border-slate-800/80 flex items-center justify-between gap-1 px-0.5">
-              <span className="text-[8px] font-bold text-slate-400">Tap to flip back</span>
-              <div className="flex items-center gap-0.5 text-sky-400 text-[8.5px] font-black">
+            {/* Bottom Flip Back Action */}
+            <div className="pt-1.5 border-t border-slate-300/80 flex items-center justify-between gap-1 px-0.5 text-slate-950 text-[9px] sm:text-[10px]">
+              <span className="font-bold text-slate-700">Touch box to flip back</span>
+              <div className="flex items-center gap-1 font-black px-2 py-0.5 rounded-full shadow-2xs transition-colors duration-300 bg-white text-sky-950 border border-sky-400 hover:bg-sky-600 hover:text-white">
                 <span>Front</span>
-                <RotateCcw className="w-2.5 h-2.5 text-sky-400" />
+                <RotateCcw className="w-2.5 h-2.5 animate-spin-slow" />
               </div>
             </div>
 
@@ -347,79 +412,56 @@ export const ClientsSection = () => {
   };
 
   return (
-    <section className="py-10 sm:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white text-[#050B14] relative overflow-hidden select-none">
+    <section className="py-12 sm:py-20 bg-gradient-to-b from-white via-slate-50/50 to-white text-[#050B14] relative overflow-hidden select-none">
       
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4 sm:space-y-8">
+      {/* Keyframe Left-to-Right Marquee Animation Styles */}
+      <style>{`
+        @keyframes marqueeLeftToRight {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0%); }
+        }
+        .animate-marquee-ltr {
+          animation: marqueeLeftToRight 32s linear infinite;
+        }
+        .animate-marquee-ltr:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
         
         {/* Top Header */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[10px] font-black tracking-widest uppercase border border-slate-200 shadow-xs mb-2">
-            OUR CLIENTS
+        <div className="text-center space-y-2">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[10px] font-black tracking-widest uppercase border border-slate-200 shadow-xs">
+            OUR CLIENTS &amp; PARTNERS
           </div>
 
-          <h2 className="font-editorial text-3xl sm:text-6xl font-black text-slate-950 tracking-tight leading-tight mb-1 sm:mb-2">
+          <h2 className="font-editorial text-3xl sm:text-6xl font-black text-slate-950 tracking-tight leading-tight">
             Our Clients
           </h2>
 
-          <p className="text-slate-600 text-xs sm:text-base font-semibold max-w-xl mx-auto">
-            Trusted by forward-thinking organizations across multiple industries.
+          <p className="text-slate-600 text-xs sm:text-base font-semibold max-w-2xl mx-auto leading-relaxed">
+            Empowering ambitious startups and market leaders with scalable custom software, high-performance web applications, and enterprise digital solutions.
           </p>
         </div>
 
-        {/* 1. MOBILE VIEW: Exactly 1 Row, 2 Columns with Auto Rotation */}
-        <div className="block sm:hidden space-y-3">
+        {/* Continuous Left-to-Right Infinite Marquee Carousel */}
+        <div className="relative w-full overflow-hidden py-4 group/marquee">
           
-          {/* Top Hint Bar */}
-          <div className="flex items-center justify-end px-1">
-            <div className="text-[9px] font-bold text-slate-400">
-              Tap card to flip screenshot
-            </div>
+          {/* Left & Right Gradient Soft Fades */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-20" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-20" />
+
+          {/* Marquee Row Moving Left to Right */}
+          <div className="flex gap-4 sm:gap-6 w-max animate-marquee-ltr">
+            {/* Duplicated client list for seamless infinite loop */}
+            {[...clients, ...clients].map((c, index) => (
+              <div key={`${c.id}-${index}`} className="w-[240px] sm:w-[270px] shrink-0">
+                {renderCard(c, `${c.id}-${index}`)}
+              </div>
+            ))}
           </div>
 
-          {/* 1 Row 2 Column Grid Container (Consistently sized max-w-[200px] cards) */}
-          <div className={`grid gap-2 mx-auto ${mobileVisibleClients.length === 1 ? 'grid-cols-1 max-w-[200px]' : 'grid-cols-2 max-w-[420px]'}`}>
-            {mobileVisibleClients.map((c) => renderCard(c, true))}
-          </div>
-
-          {/* Centered Manual Arrow Buttons & Pagination Dots Bar */}
-          <div className="flex items-center justify-center gap-3 pt-1">
-            <button
-              onClick={handleMobilePrev}
-              className="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-md active:scale-95 transition"
-              title="Previous Client"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-
-            {/* Pagination Dots (3 Slides) */}
-            <div className="flex items-center gap-1.5 bg-slate-100 border border-slate-200 px-3.5 py-1 rounded-full">
-              {[0, 2, 4].map((pairIndex, i) => (
-                <button
-                  key={i}
-                  onClick={() => setMobileIndex(pairIndex)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    mobileIndex === pairIndex
-                      ? 'bg-sky-600 w-4'
-                      : 'bg-slate-300 w-1.5'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={handleMobileNext}
-              className="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-md active:scale-95 transition"
-              title="Next Client"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-
-        </div>
-
-        {/* 2. DESKTOP & TABLET VIEW: All 5 Cards Grid */}
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-2">
-          {clients.map((c) => renderCard(c, false))}
         </div>
 
       </div>

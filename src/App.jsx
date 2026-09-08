@@ -9,22 +9,18 @@ import { TestimonialsSection } from './components/home/TestimonialsSection';
 import { CtaBanner } from './components/home/CtaBanner';
 import { AboutPage } from './components/about/AboutPage';
 import { ProjectsPage } from './components/projects/ProjectsPage';
+import { GalleryPage } from './components/gallery/GalleryPage';
 import { InsightsPage } from './components/insights/InsightsPage';
 import { ContactPage } from './components/contact/ContactPage';
 import { PrivacyPolicyPage } from './components/common/PrivacyPolicyPage';
 import { TermsOfServicePage } from './components/common/TermsOfServicePage';
 import { ScheduleModal } from './components/contact/ScheduleModal';
-import { CostEstimatorModal } from './components/common/CostEstimatorModal';
 import { CookieConsent } from './components/common/CookieConsent';
 import { ThriveBot } from './components/common/ThriveBot';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
-  const [isEstimatorOpen, setIsEstimatorOpen] = useState(false);
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
-
-  const openEstimator = () => setIsEstimatorOpen(true);
-  const closeEstimator = () => setIsEstimatorOpen(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -36,35 +32,37 @@ export default function App() {
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        openEstimator={openEstimator}
       />
 
       {/* Main Content Area */}
       <main className="flex-grow">
         {activeTab === 'home' && (
           <>
-            <Hero setActiveTab={setActiveTab} openEstimator={openEstimator} />
-            <ServicesSection setActiveTab={setActiveTab} openEstimator={openEstimator} />
+            <Hero setActiveTab={setActiveTab} />
+            <ServicesSection setActiveTab={setActiveTab} />
             <ClientsSection />
             <TestimonialsSection />
             <CtaBanner
               setActiveTab={setActiveTab}
-              openEstimator={openEstimator}
               onBookConsultation={() => setIsScheduleOpen(true)}
             />
           </>
         )}
 
         {activeTab === 'about' && (
-          <AboutPage setActiveTab={setActiveTab} openEstimator={openEstimator} />
+          <AboutPage setActiveTab={setActiveTab} />
         )}
 
         {activeTab === 'industries' && (
-          <IndustriesPage setActiveTab={setActiveTab} openEstimator={openEstimator} />
+          <IndustriesPage setActiveTab={setActiveTab} />
         )}
 
         {activeTab === 'projects' && (
-          <ProjectsPage setActiveTab={setActiveTab} openEstimator={openEstimator} />
+          <ProjectsPage setActiveTab={setActiveTab} />
+        )}
+
+        {activeTab === 'gallery' && (
+          <GalleryPage setActiveTab={setActiveTab} />
         )}
 
         {activeTab === 'insights' && (
@@ -88,10 +86,9 @@ export default function App() {
       <Footer setActiveTab={setActiveTab} activeTab={activeTab} />
 
       {/* Overlays */}
-      <CostEstimatorModal isOpen={isEstimatorOpen} onClose={closeEstimator} />
       <ScheduleModal isOpen={isScheduleOpen} onClose={() => setIsScheduleOpen(false)} />
       <CookieConsent />
-      <ThriveBot setActiveTab={setActiveTab} openEstimator={openEstimator} />
+      <ThriveBot setActiveTab={setActiveTab} />
     </div>
   );
 }

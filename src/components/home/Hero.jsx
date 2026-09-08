@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Code2, Cpu, Globe, Zap } from 'lucide-react';
+import { ArrowRight, Calendar, Code2, Cpu, Globe, Rocket, Star, Users, Zap } from 'lucide-react';
 
 const TYPED_WORDS = ['high-concurrency', 'enterprise-grade', 'AI-powered', 'cloud-native'];
 
@@ -8,6 +8,41 @@ export const Hero = ({ setActiveTab }) => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  // Metric animated counter state
+  const [countProjects, setCountProjects] = useState(0);
+  const [countRating, setCountRating] = useState('0.0');
+  const [countClients, setCountClients] = useState(0);
+  const [countRetention, setCountRetention] = useState(0);
+
+  // Animated Count-Up effect for Hero metrics
+  useEffect(() => {
+    const duration = 1200;
+    const steps = 35;
+    const interval = duration / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current++;
+      const progress = current / steps;
+      const ease = 1 - Math.pow(1 - progress, 3);
+
+      setCountProjects(Math.floor(ease * 180));
+      setCountRating((ease * 9.9).toFixed(1));
+      setCountClients(Math.floor(ease * 45));
+      setCountRetention(Math.floor(ease * 96));
+
+      if (current >= steps) {
+        clearInterval(timer);
+        setCountProjects(180);
+        setCountRating('9.9');
+        setCountClients(45);
+        setCountRetention(96);
+      }
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Mouse move parallax handler
   const handleMouseMove = (e) => {
@@ -41,7 +76,7 @@ export const Hero = ({ setActiveTab }) => {
       className="relative min-h-[calc(100vh-86px)] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-32 pb-6 sm:pb-8 overflow-hidden bg-gradient-to-br from-sky-50/80 via-white to-indigo-50/60 text-[#050B14]"
     >
       <video
-        className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-30 pointer-events-none"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-50 pointer-events-none"
         src="/hero-background.mp4"
         autoPlay
         loop
@@ -49,7 +84,7 @@ export const Hero = ({ setActiveTab }) => {
         playsInline
         aria-hidden="true"
       />
-      <div className="absolute inset-0 z-0 bg-white/40 pointer-events-none" />
+      <div className="absolute inset-0 z-0 bg-white/30 pointer-events-none" />
 
       {/* Background Radial Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-300/20 blur-[160px] rounded-full pointer-events-none animate-pulse" />
@@ -80,7 +115,7 @@ export const Hero = ({ setActiveTab }) => {
             </h1>
 
             {/* 2. Subtitle */}
-            <p className="text-xs sm:text-base text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed font-semibold mb-4 sm:mb-6">
+            <p className="text-xs sm:text-base text-slate-950 max-w-xl mx-auto lg:mx-0 leading-relaxed font-black mb-4 sm:mb-6">
               Codethrive partners with founders and enterprises to craft high-concurrency digital platforms with architectural rigor, precision, and reliable scalability.
             </p>
 
@@ -91,10 +126,10 @@ export const Hero = ({ setActiveTab }) => {
                   if (setActiveTab) setActiveTab('projects');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="px-6 py-3.5 rounded-full text-xs font-black tracking-wide bg-white border border-slate-200 hover:border-slate-400 text-[#050B14] shadow-sm transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-full text-xs font-black tracking-wide bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 !text-white shadow-lg shadow-indigo-500/25 transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer border border-indigo-400/40"
               >
-                <span>See our work</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="!text-white text-white">See our work</span>
+                <ArrowRight className="w-4 h-4 !text-white text-white" />
               </button>
 
               <button
@@ -102,30 +137,31 @@ export const Hero = ({ setActiveTab }) => {
                   if (setActiveTab) setActiveTab('contact');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="px-6 py-3.5 rounded-full text-xs font-black tracking-wide bg-white border border-slate-300 hover:border-sky-500 text-[#050B14] transition-all hover:scale-105 shadow-sm cursor-pointer font-bold"
+                className="px-6 py-3.5 rounded-full text-xs font-black tracking-wide bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 !text-white shadow-lg shadow-amber-500/25 transition-all hover:scale-105 flex items-center gap-2 cursor-pointer border border-amber-300/40"
               >
-                Book a call
+                <Calendar className="w-4 h-4 !text-white text-white" />
+                <span className="!text-white text-white">Book a call</span>
               </button>
             </div>
 
             {/* 4. MOBILE VIEW ONLY: Interactive Orbital Animation Graphic in Center */}
-            <div className="flex lg:hidden items-center justify-center relative my-4 w-full">
+            <div className="flex lg:hidden items-center justify-center relative my-2 w-full">
               <div
                 style={{
                   transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`
                 }}
-                className="relative w-full max-w-[320px] sm:max-w-[440px] h-[260px] sm:h-[360px] flex items-center justify-center transition-transform duration-300 ease-out mx-auto"
+                className="relative w-full max-w-[320px] sm:max-w-[440px] h-[200px] sm:h-[360px] flex items-center justify-center transition-transform duration-300 ease-out mx-auto"
               >
                 {/* Radial Glow Pulse */}
                 <div className="absolute inset-0 bg-radial from-sky-300/40 via-purple-300/25 to-transparent blur-3xl rounded-full animate-pulse" />
 
                 {/* Orbit Rings */}
-                <div className="absolute w-[220px] sm:w-[350px] h-[220px] sm:h-[350px] rounded-full border border-sky-400/40 animate-spin-slow" />
-                <div className="absolute w-[160px] sm:w-[260px] h-[160px] sm:h-[260px] rounded-full border border-dashed border-purple-400/50 animate-reverse-spin" />
+                <div className="absolute w-[185px] sm:w-[350px] h-[185px] sm:h-[350px] rounded-full border border-sky-400/40 animate-spin-slow" />
+                <div className="absolute w-[140px] sm:w-[260px] h-[140px] sm:h-[260px] rounded-full border border-dashed border-purple-400/50 animate-reverse-spin" />
 
-                {/* Center Brand Badge */}
+                {/* Center Brand Badge (Bigger on Mobile View) */}
                 <div className="relative z-20 flex flex-col items-center justify-center animate-float">
-                  <div className="w-16 sm:w-24 h-16 sm:h-24 rounded-2xl sm:rounded-[2rem] p-2 sm:p-3 flex items-center justify-center shadow-2xl shadow-sky-400/40 border-2 border-white/90 bg-gradient-to-br from-sky-500 via-indigo-600 to-purple-600 transition-transform duration-300 hover:scale-110">
+                  <div className="w-20 sm:w-24 h-20 sm:h-24 rounded-2xl sm:rounded-[2rem] p-2.5 sm:p-3 flex items-center justify-center shadow-2xl shadow-sky-400/40 border-2 border-white/90 bg-gradient-to-br from-sky-500 via-indigo-600 to-purple-600 transition-transform duration-300 hover:scale-110">
                     <img
                       src="/brand-symbol-transparent.png"
                       alt="CodeThrive"
@@ -133,7 +169,7 @@ export const Hero = ({ setActiveTab }) => {
                       onError={(e) => { (e.target).src = '/logo.png'; }}
                     />
                   </div>
-                  <span className="mt-1.5 text-[8.5px] sm:text-xs font-black tracking-widest text-slate-900 uppercase">
+                  <span className="mt-1 text-[9px] sm:text-xs font-black tracking-widest text-slate-900 uppercase">
                     CODETHRIVE INFOTECH
                   </span>
                 </div>
@@ -183,24 +219,65 @@ export const Hero = ({ setActiveTab }) => {
               </div>
             </div>
 
-            {/* 5. Metrics Bar */}
-            <div className="pt-4 border-t border-slate-200 grid grid-cols-4 gap-2 sm:gap-4 max-w-xl mx-auto lg:mx-0">
-              <div>
-                <div className="text-xl sm:text-3xl font-black text-slate-950 font-editorial">180+</div>
-                <div className="text-[8.5px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">PROJECTS SHIPPED</div>
+            {/* 5. Clean Animated Metrics (Boxless & Borderless) */}
+            <div className="pt-6 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto lg:mx-0">
+              
+              {/* Metric 1 */}
+              <div className="space-y-1 group cursor-default transition-transform duration-300 hover:-translate-y-1 flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-emerald-600">
+                  <Rocket className="w-4 h-4 text-emerald-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                  <span className="text-[10px] font-black tracking-widest uppercase text-emerald-700">Shipped</span>
+                </div>
+                <div className="text-3xl sm:text-4xl font-black text-slate-950 font-editorial tracking-tight group-hover:text-emerald-600 transition-colors">
+                  {countProjects}+
+                </div>
+                <div className="text-[9px] sm:text-[11px] font-black text-slate-800 uppercase tracking-wider">
+                  PROJECTS SHIPPED
+                </div>
               </div>
-              <div>
-                <div className="text-xl sm:text-3xl font-black text-slate-950 font-editorial">9.9</div>
-                <div className="text-[8.5px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">AVG. CLIENT RATING</div>
+
+              {/* Metric 2 */}
+              <div className="space-y-1 group cursor-default transition-transform duration-300 hover:-translate-y-1 flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-amber-500">
+                  <Star className="w-4 h-4 fill-amber-400 text-amber-500 group-hover:rotate-12 transition-transform" />
+                  <span className="text-[10px] font-black tracking-widest uppercase text-amber-700">Rating</span>
+                </div>
+                <div className="text-3xl sm:text-4xl font-black text-slate-950 font-editorial tracking-tight group-hover:text-amber-600 transition-colors">
+                  {countRating}
+                </div>
+                <div className="text-[9px] sm:text-[11px] font-black text-slate-800 uppercase tracking-wider">
+                  AVG. CLIENT RATING
+                </div>
               </div>
-              <div>
-                <div className="text-xl sm:text-3xl font-black text-slate-950 font-editorial">45+</div>
-                <div className="text-[8.5px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">GLOBAL CLIENTS</div>
+
+              {/* Metric 3 */}
+              <div className="space-y-1 group cursor-default transition-transform duration-300 hover:-translate-y-1 flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-purple-600">
+                  <Globe className="w-4 h-4 text-purple-600 group-hover:rotate-45 transition-transform duration-500" />
+                  <span className="text-[10px] font-black tracking-widest uppercase text-purple-700">Global</span>
+                </div>
+                <div className="text-3xl sm:text-4xl font-black text-slate-950 font-editorial tracking-tight group-hover:text-purple-600 transition-colors">
+                  {countClients}+
+                </div>
+                <div className="text-[9px] sm:text-[11px] font-black text-slate-800 uppercase tracking-wider">
+                  GLOBAL CLIENTS
+                </div>
               </div>
-              <div>
-                <div className="text-xl sm:text-3xl font-black text-slate-950 font-editorial">96%</div>
-                <div className="text-[8.5px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">CLIENT RETENTION</div>
+
+              {/* Metric 4 */}
+              <div className="space-y-1 group cursor-default transition-transform duration-300 hover:-translate-y-1 flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-rose-600">
+                  <Users className="w-4 h-4 text-rose-600 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] font-black tracking-widest uppercase text-rose-700">Retention</span>
+                </div>
+                <div className="text-3xl sm:text-4xl font-black text-slate-950 font-editorial tracking-tight group-hover:text-rose-600 transition-colors">
+                  {countRetention}%
+                </div>
+                <div className="text-[9px] sm:text-[11px] font-black text-slate-800 uppercase tracking-wider">
+                  CLIENT RETENTION
+                </div>
               </div>
+
             </div>
 
             {/* 6. MOBILE VIEW ONLY: Action Buttons ("See our work" & "Book a call") AT THE VERY BOTTOM */}
@@ -210,10 +287,10 @@ export const Hero = ({ setActiveTab }) => {
                   if (setActiveTab) setActiveTab('projects');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="px-6 py-3 rounded-full text-xs font-black tracking-wide bg-white border border-slate-200 hover:border-slate-400 text-[#050B14] shadow-sm transition-transform active:scale-95 flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3 rounded-full text-xs font-black tracking-wide bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 !text-white shadow-lg shadow-indigo-500/25 transition-transform active:scale-95 flex items-center gap-2 cursor-pointer border border-indigo-400/40"
               >
-                <span>See our work</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="!text-white text-white">See our work</span>
+                <ArrowRight className="w-4 h-4 !text-white text-white" />
               </button>
 
               <button
@@ -221,9 +298,10 @@ export const Hero = ({ setActiveTab }) => {
                   if (setActiveTab) setActiveTab('contact');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="px-6 py-3 rounded-full text-xs font-black tracking-wide bg-white border border-slate-300 hover:border-sky-500 text-[#050B14] transition-all active:scale-95 shadow-sm cursor-pointer font-bold"
+                className="px-6 py-3 rounded-full text-xs font-black tracking-wide bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 !text-white shadow-lg shadow-amber-500/25 transition-all active:scale-95 flex items-center gap-2 cursor-pointer border border-amber-300/40"
               >
-                Book a call
+                <Calendar className="w-4 h-4 !text-white text-white" />
+                <span className="!text-white text-white">Book a call</span>
               </button>
             </div>
 

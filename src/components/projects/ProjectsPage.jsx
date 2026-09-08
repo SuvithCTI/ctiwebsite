@@ -284,22 +284,22 @@ export const ProjectsPage = ({ setActiveTab }) => {
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-fade-in">
           <div className="bg-white rounded-[2.5rem] max-w-4xl w-full max-h-[90vh] overflow-y-auto border-2 border-sky-300 shadow-2xl space-y-6 relative text-slate-950">
             
-            {/* Modal Sticky Header Bar */}
-            <div className="sticky top-0 z-20 bg-slate-950 text-white p-6 rounded-t-[2.3rem] flex items-center justify-between border-b border-slate-800">
+            {/* Modal Sticky Header Bar (Light Pastel Theme) */}
+            <div className="sticky top-0 z-20 bg-gradient-to-r from-sky-50 via-purple-50 to-pink-50 text-slate-950 p-5 sm:p-6 rounded-t-[2.3rem] flex items-center justify-between border-b border-slate-200/90 backdrop-blur-md shadow-xs">
               <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF2A6D]">
+                <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF2A6D] text-white">
                   {activeProject.industry || 'CASE STUDY'}
                 </span>
-                <h3 className="font-editorial text-xl sm:text-2xl font-black text-white truncate max-w-md sm:max-w-xl">
+                <h3 className="font-editorial text-xl sm:text-2xl font-black text-slate-950 truncate max-w-md sm:max-w-xl">
                   {activeProject.title}
                 </h3>
               </div>
 
               <button
                 onClick={() => setActiveProject(null)}
-                className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition cursor-pointer"
+                className="w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-xs flex items-center justify-center transition cursor-pointer"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 text-slate-700" />
               </button>
             </div>
 
@@ -423,22 +423,22 @@ export const ProjectsPage = ({ setActiveTab }) => {
                 </div>
               </div>
 
-              {/* Section 5: Client Verified Rating */}
-              <div className="p-5 rounded-2xl bg-slate-900 text-white flex items-center justify-between gap-4">
+              {/* Section 5: Client Verified Rating (Light Amber Theme) */}
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-50/90 via-orange-50/70 to-yellow-50/90 border-2 border-amber-200 text-slate-950 flex items-center justify-between gap-4 shadow-sm">
                 <div className="space-y-1">
                   <div className="flex items-center gap-1 text-amber-400">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-500" />
                     ))}
                   </div>
-                  <p className="text-xs font-bold text-slate-300">
+                  <p className="text-xs font-bold text-slate-800">
                     "CodeThrive delivered this platform 2 weeks ahead of schedule with 99.99% uptime."
                   </p>
                 </div>
 
                 <div className="text-right shrink-0">
-                  <div className="text-xs font-black text-white">Verfied Client Review</div>
-                  <div className="text-[10px] font-extrabold text-sky-400">5.0 / 5.0 Rating</div>
+                  <div className="text-xs font-black text-slate-950">Verified Client Review</div>
+                  <div className="text-[10px] font-extrabold text-amber-900">5.0 / 5.0 Rating</div>
                 </div>
               </div>
 
@@ -457,10 +457,10 @@ export const ProjectsPage = ({ setActiveTab }) => {
 
               <button
                 onClick={handleScheduleCall}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-black text-xs border border-slate-700 shadow-xl flex items-center justify-center gap-2 cursor-pointer transition hover:scale-105"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-950 font-black text-xs border-2 border-amber-300 shadow-sm flex items-center justify-center gap-2 cursor-pointer transition hover:scale-105"
               >
-                <Calendar className="w-4 h-4 text-cyan-400" />
-                <span className="text-white font-black">Schedule Technical Scoping Call</span>
+                <Calendar className="w-4 h-4 text-amber-700" />
+                <span className="text-amber-950 font-black">Schedule Technical Scoping Call</span>
               </button>
             </div>
 

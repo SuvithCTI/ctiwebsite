@@ -142,10 +142,10 @@ export const TermsOfServicePage = ({ setActiveTab }) => {
           <p className="text-xs text-slate-300 font-medium leading-relaxed">
             Contact our legal and project administration desk at{' '}
             <a
-              href="mailto:info@codethriveinfotech.in"
+              href="mailto:codethriveinfotech@gmail.com"
               className="text-[#F3D77F] font-bold underline underline-offset-2"
             >
-              info@codethriveinfotech.in
+              codethriveinfotech@gmail.com
             </a>
             . We are happy to clarify engagement terms before starting your project.
           </p>

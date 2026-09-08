@@ -1,5 +1,6 @@
 import { Sparkles, ArrowRight, ShieldCheck, Zap, Clock, Rocket, MessageSquare } from 'lucide-react';
-export const CtaBanner = ({ setActiveTab, openEstimator, onBookConsultation }) => {
+
+export const CtaBanner = ({ setActiveTab, onBookConsultation }) => {
     return (<section className="relative overflow-hidden border-t border-slate-200 bg-gradient-to-br from-[#EEF2FF] via-[#F8FAFC] to-[#F1F5F9] py-5 sm:py-6">
       
       {/* Vibrant Multi-Color Floating Orbs */}
