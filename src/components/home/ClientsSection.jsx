@@ -420,14 +420,18 @@ export const ClientsSection = () => {
   return (
     <section className="py-12 sm:py-20 bg-gradient-to-b from-white via-slate-50/50 to-white text-[#050B14] relative overflow-hidden select-none">
       
-      {/* Keyframe Left-to-Right Marquee Animation Styles */}
+      {/* Keyframe Left-to-Right Marquee Animation Styles (GPU Accelerated for 60fps Mobile Smoothness) */}
       <style>{`
         @keyframes marqueeLeftToRight {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0%); }
+          0% { transform: translate3d(-50%, 0, 0); }
+          100% { transform: translate3d(0, 0, 0); }
         }
         .animate-marquee-ltr {
-          animation: marqueeLeftToRight 32s linear infinite;
+          animation: marqueeLeftToRight 28s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transform: translate3d(0, 0, 0);
         }
         .animate-marquee-ltr:hover {
           animation-play-state: paused;
