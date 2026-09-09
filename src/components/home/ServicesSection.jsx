@@ -250,26 +250,26 @@ export const ServicesSection = ({ setActiveTab }) => {
 
               </div>
 
-              {/* Bottom Card Footer Bar (Compact Mobile Padding & Scaling) */}
-              <div className="px-2.5 sm:px-4 pb-2.5 sm:pb-4 pt-1.5 sm:pt-2.5 flex items-center justify-between gap-1 border-t border-slate-100">
+              {/* Bottom Card Footer Bar (Compact Mobile Padding & Single-Row Alignment) */}
+              <div className="px-2.5 sm:px-4 pb-2.5 sm:pb-4 pt-1.5 sm:pt-2.5 flex items-center justify-between gap-1 border-t border-slate-100 min-h-[38px] sm:min-h-[44px]">
                 
-                <div className="flex flex-wrap gap-1">
+                <div className="flex items-center gap-1 flex-nowrap overflow-hidden">
                   {s.tags.slice(0, 2).map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-1.5 sm:px-2.5 py-0.5 rounded-full bg-slate-200/90 text-black text-[8.5px] sm:text-[10px] font-black border border-slate-400 truncate max-w-[70px] sm:max-w-none"
+                      className="px-1.5 sm:px-2.5 py-0.5 rounded-full bg-slate-200/90 text-black text-[8.5px] sm:text-[10px] font-black border border-slate-400 truncate max-w-[50px] sm:max-w-none shrink-0"
                     >
                       {tag}
                     </span>
                   ))}
                   {s.tags.length > 2 && (
-                    <span className="text-[8.5px] font-black text-black sm:hidden">
+                    <span className="px-1.5 py-0.5 rounded-full bg-slate-200/90 text-black text-[8.5px] sm:text-[10px] font-black border border-slate-400 shrink-0">
                       +{s.tags.length - 2}
                     </span>
                   )}
                 </div>
 
-                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full ${s.btnColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full ${s.btnColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md ml-auto`}>
                   <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
                 </div>
 

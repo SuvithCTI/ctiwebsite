@@ -265,7 +265,7 @@ export const ClientsSection = () => {
           e.stopPropagation();
           toggleFlip(instanceId);
         }}
-        className="perspective-[1000px] h-[290px] sm:h-[310px] max-w-[270px] cursor-pointer group/card w-full mx-auto select-none"
+        className="perspective-[1000px] h-[235px] sm:h-[310px] max-w-[270px] cursor-pointer group/card w-full mx-auto select-none"
       >
         <div
           className={`relative w-full h-full duration-700 transition-transform [transform-style:preserve-3d] ${
@@ -275,27 +275,27 @@ export const ClientsSection = () => {
           
           {/* FRONT SIDE */}
           <div
-            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] ${c.bg} ${c.border} border-2 rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-xl flex flex-col justify-between overflow-hidden transition-all`}
+            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] ${c.bg} ${c.border} border-2 rounded-2xl p-2 sm:p-5 shadow-md hover:shadow-xl flex flex-col justify-between overflow-hidden transition-all`}
           >
-            <div className="space-y-2.5 flex-1 flex flex-col justify-between">
+            <div className="space-y-1 sm:space-y-2.5 flex-1 flex flex-col justify-between">
               
               {/* Top Row: Industry Tag + Metric Pill */}
-              <div className="flex items-center justify-between gap-1.5">
-                <div className={`rounded-full font-black tracking-wider uppercase border text-[8.5px] sm:text-[10px] px-2.5 py-0.5 ${c.chipBg}`}>
+              <div className="flex items-center justify-between gap-1">
+                <div className={`rounded-full font-black tracking-wider uppercase border text-[7.5px] sm:text-[10px] px-1.5 sm:px-2.5 py-0.5 truncate max-w-[75px] sm:max-w-none ${c.chipBg}`}>
                   {c.industry}
                 </div>
 
-                <div className="rounded-full font-black bg-slate-900 text-white text-[8.5px] sm:text-[10px] px-2.5 py-0.5 shadow-xs">
+                <div className="rounded-full font-black bg-slate-900 text-white text-[7.5px] sm:text-[10px] px-1.5 sm:px-2.5 py-0.5 shadow-xs truncate max-w-[85px] sm:max-w-none">
                   {c.metricPill}
                 </div>
               </div>
 
-              {/* White Background Rectangle Box for Logo */}
-              <div className="w-full h-24 sm:h-26 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-center p-2 overflow-hidden">
+              {/* White Background Rectangle Box for Logo (Full Prominent Size Preserved) */}
+              <div className="w-full h-20 sm:h-26 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-center p-1.5 overflow-hidden">
                 <img
                   src={c.logo}
                   alt={c.name}
-                  className="h-20 sm:h-22 max-h-full max-w-full object-contain filter drop-shadow-xs group-hover/card:scale-105 transition-transform duration-300"
+                  className="h-16 sm:h-22 max-h-full max-w-full object-contain filter drop-shadow-xs group-hover/card:scale-105 transition-transform duration-300"
                   onError={(e) => {
                     (e.target).src = '/logo.png';
                   }}
@@ -303,29 +303,29 @@ export const ClientsSection = () => {
               </div>
 
               {/* Client Title & Tagline */}
-              <div className="text-center space-y-0.5">
-                <h3 className={`text-sm sm:text-base font-black font-editorial leading-tight ${c.titleColor}`}>
+              <div className="text-center space-y-0">
+                <h3 className={`text-xs sm:text-base font-black font-editorial leading-tight ${c.titleColor}`}>
                   {c.name}
                 </h3>
-                <div className="text-[10px] sm:text-[11.5px] font-extrabold text-slate-900 leading-tight">
+                <div className="text-[8.5px] sm:text-[11.5px] font-extrabold text-slate-900 leading-tight truncate">
                   {c.tagline}
                 </div>
               </div>
 
               {/* Rich Content Highlights Description */}
-              <div className="bg-white/90 rounded-xl p-2 text-[9.5px] sm:text-[10.5px] text-slate-950 font-bold leading-tight flex items-start gap-1.5 border border-slate-300/80 shadow-2xs">
-                <Sparkles className="w-3 h-3 text-sky-600 shrink-0 mt-0.5" />
+              <div className="bg-white/90 rounded-lg p-1 sm:p-1.5 text-[7.5px] sm:text-[10.5px] text-slate-950 font-bold leading-tight flex items-start gap-0.5 border border-slate-300/80 shadow-2xs">
+                <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-sky-600 shrink-0 mt-0.5" />
                 <span className="line-clamp-2">{c.description}</span>
               </div>
 
             </div>
 
             {/* Bottom Bar: Location + Interactive Tap-to-Flip Button */}
-            <div className="pt-2 mt-2 flex items-center justify-between font-black border-t border-slate-300/80 text-slate-950 text-[9px] sm:text-[10px]">
-              <span className="flex items-center gap-0.5">📍 {c.location}</span>
-              <div className="flex items-center gap-1 font-black px-2 py-0.5 rounded-full shadow-2xs transition-colors duration-300 bg-white text-sky-950 border border-sky-400 hover:bg-sky-600 hover:text-white">
-                <span>Tap to Flip</span>
-                <RotateCcw className="w-2.5 h-2.5 animate-spin-slow" />
+            <div className="pt-1 mt-1 flex items-center justify-between font-black border-t border-slate-300/80 text-slate-950 text-[7.5px] sm:text-[10px]">
+              <span className="flex items-center gap-0.5 truncate">📍 {c.location}</span>
+              <div className="flex items-center gap-1 font-black px-1.5 sm:px-2 py-0.5 rounded-full shadow-2xs transition-colors duration-300 bg-white text-sky-950 border border-sky-400 hover:bg-sky-600 hover:text-white shrink-0">
+                <span>Flip</span>
+                <RotateCcw className="w-2 h-2 sm:w-2.5 sm:h-2.5 animate-spin-slow" />
               </div>
             </div>
 
@@ -333,13 +333,13 @@ export const ClientsSection = () => {
 
           {/* BACK SIDE */}
           <div
-            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] ${c.bg} ${c.border} border-2 rounded-2xl p-3.5 shadow-xl flex flex-col justify-between overflow-hidden transition-all`}
+            className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] ${c.bg} ${c.border} border-2 rounded-2xl p-2 sm:p-5 shadow-xl flex flex-col justify-between overflow-hidden transition-all`}
           >
-            <div className="space-y-1.5">
+            <div className="space-y-1 sm:space-y-2.5 flex-1 flex flex-col justify-between">
               
               {/* Browser Frame */}
               <div className="rounded-xl overflow-hidden border border-slate-300/80 shadow-md bg-slate-950 flex flex-col">
-                <div className="bg-slate-900 px-2 py-1 border-b border-slate-800 flex items-center justify-between">
+                <div className="bg-slate-900 px-1.5 sm:px-2 py-0.5 sm:py-1 border-b border-slate-800 flex items-center justify-between">
                   <div className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500/80" />
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500/80" />
@@ -350,10 +350,10 @@ export const ClientsSection = () => {
                       e.stopPropagation();
                       setSelectedScreenshot(c);
                     }}
-                    className="flex items-center gap-1 text-[8.5px] font-bold text-sky-400 hover:text-sky-300 transition cursor-pointer"
+                    className="flex items-center gap-0.5 text-[7.5px] sm:text-[8.5px] font-bold text-sky-400 hover:text-sky-300 transition cursor-pointer"
                   >
                     <span>Full View</span>
-                    <Maximize2 className="w-2.5 h-2.5" />
+                    <Maximize2 className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
                   </button>
                 </div>
 
@@ -362,7 +362,7 @@ export const ClientsSection = () => {
                     e.stopPropagation();
                     setSelectedScreenshot(c);
                   }}
-                  className="relative h-32 sm:h-36 w-full overflow-hidden bg-slate-950 flex items-center justify-center p-1 group/img cursor-pointer"
+                  className="relative h-20 sm:h-36 w-full overflow-hidden bg-slate-950 flex items-center justify-center p-1 group/img cursor-pointer"
                 >
                   <img
                     src={c.screenshot}
@@ -374,8 +374,8 @@ export const ClientsSection = () => {
                   />
 
                   <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
-                    <div className="px-2.5 py-1 rounded-full bg-sky-500 text-white text-[9px] font-bold flex items-center gap-1 shadow-lg">
-                      <Maximize2 className="w-3 h-3" />
+                    <div className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-sky-500 text-white text-[8px] sm:text-[9px] font-bold flex items-center gap-1 shadow-lg">
+                      <Maximize2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       <span>View Full</span>
                     </div>
                   </div>
@@ -384,23 +384,29 @@ export const ClientsSection = () => {
               </div>
 
               {/* Title & Key Highlights */}
-              <div className="space-y-0.5 px-0.5">
+              <div className="space-y-0 text-center px-0.5">
                 <h4 className={`text-xs sm:text-sm font-black font-editorial ${c.titleColor} leading-tight truncate`}>
                   {c.name}
                 </h4>
-                <div className="text-[9.5px] text-slate-900 font-black leading-tight">
+                <div className="text-[8.5px] sm:text-[9.5px] text-slate-900 font-extrabold leading-tight truncate">
                   {c.impactMetric}
                 </div>
+              </div>
+
+              {/* Rich Key Feature Highlight Badge on Back Side */}
+              <div className="bg-white/90 rounded-lg p-1 text-[7.5px] sm:text-[9px] text-slate-950 font-bold leading-tight flex items-center justify-center gap-1 border border-slate-300/80 shadow-2xs">
+                <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-sky-600 shrink-0" />
+                <span className="truncate">{c.bullets?.[0] || c.description}</span>
               </div>
 
             </div>
 
             {/* Bottom Flip Back Action */}
-            <div className="pt-1.5 border-t border-slate-300/80 flex items-center justify-between gap-1 px-0.5 text-slate-950 text-[9px] sm:text-[10px]">
-              <span className="font-bold text-slate-700">Touch box to flip back</span>
-              <div className="flex items-center gap-1 font-black px-2 py-0.5 rounded-full shadow-2xs transition-colors duration-300 bg-white text-sky-950 border border-sky-400 hover:bg-sky-600 hover:text-white">
+            <div className="pt-1 mt-1 flex items-center justify-between font-black border-t border-slate-300/80 text-slate-950 text-[7.5px] sm:text-[10px]">
+              <span className="font-bold text-slate-700 truncate">Touch box to flip back</span>
+              <div className="flex items-center gap-1 font-black px-1.5 sm:px-2 py-0.5 rounded-full shadow-2xs transition-colors duration-300 bg-white text-sky-950 border border-sky-400 hover:bg-sky-600 hover:text-white shrink-0">
                 <span>Front</span>
-                <RotateCcw className="w-2.5 h-2.5 animate-spin-slow" />
+                <RotateCcw className="w-2 h-2 sm:w-2.5 sm:h-2.5 animate-spin-slow" />
               </div>
             </div>
 
@@ -448,15 +454,15 @@ export const ClientsSection = () => {
         {/* Continuous Left-to-Right Infinite Marquee Carousel */}
         <div className="relative w-full overflow-hidden py-4 group/marquee">
           
-          {/* Left & Right Gradient Soft Fades */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-20" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-20" />
+          {/* Left & Right Gradient Soft Fades (Hidden on Mobile) */}
+          <div className="hidden sm:block pointer-events-none absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-20" />
+          <div className="hidden sm:block pointer-events-none absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-20" />
 
-          {/* Marquee Row Moving Left to Right */}
-          <div className="flex gap-4 sm:gap-6 w-max animate-marquee-ltr">
+          {/* Marquee Row Moving Left to Right (2 Columns side-by-side in 1 Row on Mobile) */}
+          <div className="flex gap-2.5 sm:gap-6 w-max animate-marquee-ltr">
             {/* Duplicated client list for seamless infinite loop */}
             {[...clients, ...clients].map((c, index) => (
-              <div key={`${c.id}-${index}`} className="w-[240px] sm:w-[270px] shrink-0">
+              <div key={`${c.id}-${index}`} className="w-[calc(50vw-18px)] sm:w-[270px] max-w-[175px] sm:max-w-[270px] shrink-0">
                 {renderCard(c, `${c.id}-${index}`)}
               </div>
             ))}

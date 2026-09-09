@@ -76,7 +76,7 @@ export const Hero = ({ setActiveTab }) => {
       className="relative min-h-[calc(100vh-86px)] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-32 pb-6 sm:pb-8 overflow-hidden bg-gradient-to-br from-sky-50/80 via-white to-indigo-50/60 text-[#050B14]"
     >
       <video
-        className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-50 pointer-events-none"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-[50%_35%] sm:object-center opacity-55 sm:opacity-50 pointer-events-none scale-105 sm:scale-100 transition-all duration-300"
         src="/hero-background.mp4"
         autoPlay
         loop
