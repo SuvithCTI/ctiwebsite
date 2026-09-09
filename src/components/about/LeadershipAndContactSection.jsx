@@ -108,7 +108,7 @@ export const LeadershipAndContactSection = ({ setActiveTab }) => {
               </div>
 
               <p className="text-[9px] sm:text-[11px] font-extrabold text-slate-950 leading-tight">
-                Mon - Sat: 10 AM - 5 PM
+                Mon - Sat: 9 AM - 6 PM
               </p>
             </div>
 

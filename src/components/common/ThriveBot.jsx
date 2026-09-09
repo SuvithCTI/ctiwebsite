@@ -35,7 +35,7 @@ export const ThriveBot = ({ setActiveTab }) => {
       id: 'call',
       name: 'Direct Call',
       subtitle: '+91 9150781685',
-      badge: '10 AM – 5 PM',
+      badge: '9 AM – 6 PM',
       badgeBg: 'bg-blue-600 text-white font-black',
       iconBg: 'bg-blue-600 text-white shadow-md',
       borderBg: 'border-2 border-blue-400 bg-gradient-to-r from-sky-100/90 via-blue-50 to-indigo-100/80 hover:from-sky-200 hover:to-indigo-100',

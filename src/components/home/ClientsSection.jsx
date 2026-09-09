@@ -182,7 +182,7 @@ export const ClientsSection = () => {
       impactMetric: '⚡ 500+ Active Vehicles',
       location: 'Chennai',
       logo: '/clients/fleet-management.jpg',
-      screenshot: '/clients/fleet-management-trans.png',
+      screenshot: '/clients/preview-fleet-management.jpg',
       description: 'Smart fleet telemetry, vehicle tracking, and operations platform.',
       bullets: [
         'Real-Time GPS Tracking',
