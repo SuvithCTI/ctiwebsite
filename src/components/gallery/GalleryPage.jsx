@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Maximize2, MapPin, Sparkles, Building2, CheckCircle2, 
-  ArrowRight, Phone, Clock, Award, X, ChevronLeft, ChevronRight,
-  Compass, Eye, Users, Laptop, Flame
+  ArrowRight, Phone, Clock, X, ChevronLeft, ChevronRight, Eye
 } from 'lucide-react';
 
 export const TOUR_STOPS = [

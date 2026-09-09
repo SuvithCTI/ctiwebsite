@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Search, ArrowRight, X, Clock, User, Calendar, Sparkles } from 'lucide-react';
+import { Search, ArrowRight, X, Clock, User, Calendar } from 'lucide-react';
 import { INSIGHTS } from '../../data/mockData';
 
-export const InsightsPage = ({ setActiveTab }) => {
+export const InsightsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(null);

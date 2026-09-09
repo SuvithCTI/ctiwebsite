@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Mail, Phone, Clock, Users, MessageSquare, ArrowRight, Lock } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, MessageSquare, ArrowRight, Lock } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/mockData';
 
 export const LeadershipAndContactSection = ({ setActiveTab }) => {
