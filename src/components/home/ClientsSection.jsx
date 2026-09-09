@@ -155,7 +155,7 @@ export const ClientsSection = () => {
       impactMetric: '⚡ 10,000+ Active Patients',
       location: 'Coimbatore',
       logo: '/clients/thulir-healthcare.jpg',
-      screenshot: '/clients/thulir-healthcare-trans.png',
+      screenshot: '/clients/preview-thulir.jpg',
       description: 'Integrated healthcare and wellness appointment management system.',
       bullets: [
         'Digital Patient Records',
@@ -209,7 +209,7 @@ export const ClientsSection = () => {
       impactMetric: '⚡ 15,000+ Monthly Orders',
       location: 'Coimbatore',
       logo: '/clients/vara-vastra.jpg',
-      screenshot: '/clients/vara-vastra-clean.png',
+      screenshot: '/clients/preview-vara-vastra.jpg',
       description: 'Premium luxury saree & couture e-commerce platform with custom order builder.',
       bullets: [
         'Custom Saree Customizer',
@@ -236,7 +236,7 @@ export const ClientsSection = () => {
       impactMetric: '⚡ 10,000+ Automated Tests',
       location: 'Bangalore',
       logo: '/clients/testguard.jpg',
-      screenshot: '/clients/testguard-trans.png',
+      screenshot: '/clients/preview-testguard.jpg',
       description: 'Autonomous AI-powered software testing, security detection, and QA platform.',
       bullets: [
         'AI Test Automation Engine',

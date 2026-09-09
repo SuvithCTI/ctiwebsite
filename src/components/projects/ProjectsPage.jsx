@@ -279,52 +279,41 @@ export const ProjectsPage = ({ setActiveTab }) => {
 
       </div>
 
-      {/* ELABORATE PROJECT READER MODAL (Exact Match to User Request) */}
+      {/* ELABORATE PROJECT READER MODAL */}
       {activeProject && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-fade-in">
-          <div className="bg-white rounded-[2.5rem] max-w-4xl w-full max-h-[90vh] overflow-y-auto border-2 border-sky-300 shadow-2xl space-y-6 relative text-slate-950">
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fade-in">
+          <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] max-w-4xl w-full max-h-[90vh] flex flex-col border-2 border-sky-300 shadow-2xl relative text-slate-950 overflow-hidden">
             
-            {/* Modal Sticky Header Bar (Light Pastel Theme) */}
-            <div className="sticky top-0 z-20 bg-gradient-to-r from-sky-50 via-purple-50 to-pink-50 text-slate-950 p-5 sm:p-6 rounded-t-[2.3rem] flex items-center justify-between border-b border-slate-200/90 backdrop-blur-md shadow-xs">
-              <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF2A6D] text-white">
-                  {activeProject.industry || 'CASE STUDY'}
+            {/* Modal Header Bar (Clean, Non-overlapping) */}
+            <div className="shrink-0 bg-gradient-to-r from-sky-50 via-purple-50 to-pink-50 text-slate-950 p-4 sm:p-6 flex items-center justify-between border-b border-slate-200/90 shadow-xs">
+              <div className="flex items-center gap-2.5 sm:gap-3 overflow-hidden">
+                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-[#FF2A6D] text-white shrink-0">
+                  {activeProject.category || activeProject.industry || 'CASE STUDY'}
                 </span>
-                <h3 className="font-editorial text-xl sm:text-2xl font-black text-slate-950 truncate max-w-md sm:max-w-xl">
+                <h3 className="font-editorial text-base sm:text-2xl font-black text-slate-950 truncate">
                   {activeProject.title}
                 </h3>
               </div>
 
               <button
                 onClick={() => setActiveProject(null)}
-                className="w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-xs flex items-center justify-center transition cursor-pointer"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-xs flex items-center justify-center transition cursor-pointer shrink-0 ml-2"
+                aria-label="Close project modal"
               >
-                <X className="w-5 h-5 text-slate-700" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
               </button>
             </div>
 
-            {/* Modal Body Container */}
-            <div className="p-6 sm:p-8 space-y-8">
+            {/* Modal Scrollable Body Container */}
+            <div className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6 sm:space-y-8">
               
-              {/* Cover Banner Image with Auto Slider & Live Demo Button Overlay */}
-              <div className="relative rounded-3xl overflow-hidden bg-slate-950 shadow-xl">
+              {/* Cover Banner Image with Auto Slider */}
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 shadow-xl">
                 <AutoImageSlider
                   images={activeProject.images || [activeProject.imageUrl]}
                   title={activeProject.title}
-                  heightClass="h-64 sm:h-80"
+                  heightClass="h-52 sm:h-80"
                 />
-
-                {/* Banner Overlay Controls */}
-                <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pointer-events-none">
-                  <div className="space-y-1">
-                    <div className="text-xs font-black text-cyan-400 uppercase tracking-widest">
-                      ENTERPRISE DEPLOYMENT
-                    </div>
-                    <div className="text-xl sm:text-2xl font-black font-editorial text-white">
-                      {activeProject.title}
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Section 1: Executive Summary */}
@@ -444,8 +433,8 @@ export const ProjectsPage = ({ setActiveTab }) => {
 
             </div>
 
-            {/* Modal Sticky Footer Bar */}
-            <div className="sticky bottom-0 bg-white p-6 rounded-b-[2.3rem] border-t border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xl">
+            {/* Modal Footer Bar */}
+            <div className="shrink-0 bg-white p-4 sm:p-6 rounded-b-[2rem] sm:rounded-b-[2.3rem] border-t border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-2xl">
               <button
                 onClick={(e) => handleLaunchLiveDemo(e, activeProject.demoUrl)}
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#06B6D4] to-[#9333EA] hover:from-[#0891B2] hover:to-[#7E22CE] text-white font-black text-xs shadow-lg shadow-purple-200 flex items-center justify-center gap-2 cursor-pointer transition hover:scale-105"
