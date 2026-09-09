@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { X, Calendar, CheckCircle2, Video, Clock, Sparkles, User, Mail } from 'lucide-react';
+import { X, Calendar, CheckCircle2, Clock, Sparkles, User, Mail, Phone, FileText, Check } from 'lucide-react';
 
 export const ScheduleModal = ({ isOpen, onClose }) => {
   const [selectedDate, setSelectedDate] = useState('2026-09-05');
@@ -8,6 +8,8 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
   const [meetingType, setMeetingType] = useState('🚀 Custom Web & Mobile App Development (30m)');
   const [fullName, setFullName] = useState('');
   const [workEmail, setWorkEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [description, setDescription] = useState('');
   const [isBooked, setIsBooked] = useState(false);
 
   if (!isOpen) return null;
@@ -18,6 +20,29 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
     e.preventDefault();
     setIsBooked(true);
     confetti({ particleCount: 140, spread: 80, origin: { y: 0.6 } });
+
+    const messageLines = [
+      `📅 *New Consultation Booking Request*`,
+      ``,
+      `🎯 *Meeting Focus:* ${meetingType}`,
+      `🗓️ *Date:* ${selectedDate}`,
+      `⏰ *Time Slot:* ${selectedTime}`,
+      `👤 *Full Name:* ${fullName}`,
+      `✉️ *Work Email:* ${workEmail}`
+    ];
+
+    if (phone) {
+      messageLines.push(`📱 *Phone Number:* ${phone}`);
+    }
+
+    if (description) {
+      messageLines.push(``, `📋 *Description / Requirements:*\n${description}`);
+    }
+
+    const messageText = messageLines.join('\n');
+    const whatsappUrl = `https://wa.me/919150781685?text=${encodeURIComponent(messageText)}`;
+
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleClose = () => {
@@ -27,7 +52,7 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-md animate-fade-in">
-      <div className="relative w-full max-w-xl bg-white border border-slate-200/90 rounded-3xl shadow-2xl overflow-hidden text-slate-900 select-none">
+      <div className="relative w-full max-w-xl bg-white border border-slate-200/90 rounded-3xl shadow-2xl overflow-hidden text-slate-900 select-none max-h-[92vh] overflow-y-auto">
         
         {/* Top Gold & Purple Accent Ribbon */}
         <div className="h-1.5 w-full bg-gradient-to-r from-[#FF2A6D] via-[#9333EA] to-[#0284C7]" />
@@ -43,7 +68,7 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
 
         <div className="p-5 sm:p-8">
           {!isBooked ? (
-            <div className="space-y-6">
+            <div className="space-y-5">
               
               {/* Modal Header */}
               <div className="flex items-start gap-3.5 pr-8">
@@ -64,7 +89,7 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
               </div>
 
               {/* Form Controls */}
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3.5">
                 
                 {/* Meeting Focus */}
                 <div>
@@ -84,11 +109,12 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
                     <option value="🏥 Healthcare, EHR & HIPAA Compliance (30m)">🏥 Healthcare, EHR &amp; HIPAA Compliance (30m)</option>
                     <option value="💼 Dedicated Engineering Team & Staffing (30m)">💼 Dedicated Engineering Team &amp; Staffing (30m)</option>
                     <option value="📊 Project Scope, Timeline & Cost Estimation (30m)">📊 Project Scope, Timeline &amp; Cost Estimation (30m)</option>
+                    <option value="💡 Others (Custom Project / Technical Discussion)">💡 Others (Custom Project / Technical Discussion)</option>
                   </select>
                 </div>
 
                 {/* Date & Time Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-[11px] font-black uppercase tracking-wider text-slate-700 mb-1.5 flex items-center gap-1">
                       <Calendar className="w-3 h-3 text-slate-400" />
@@ -99,7 +125,7 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
                       value={selectedDate}
                       onChange={(e) => setSelectedDate(e.target.value)}
                       required
-                      className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 outline-none transition shadow-xs"
+                      className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-900 outline-none transition shadow-xs"
                     />
                   </div>
 
@@ -111,7 +137,7 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
                     <select
                       value={selectedTime}
                       onChange={(e) => setSelectedTime(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 outline-none transition cursor-pointer shadow-xs"
+                      className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-900 outline-none transition cursor-pointer shadow-xs"
                     >
                       {timeSlots.map((ts) => (
                         <option key={ts} value={ts}>{ts}</option>
@@ -121,11 +147,11 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Name & Email Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-[11px] font-black uppercase tracking-wider text-slate-700 mb-1.5 flex items-center gap-1">
                       <User className="w-3 h-3 text-slate-400" />
-                      <span>Your Full Name</span>
+                      <span>Your Full Name *</span>
                     </label>
                     <input
                       type="text"
@@ -133,14 +159,14 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="e.g. Alex Morgan"
-                      className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 placeholder-slate-400 outline-none transition shadow-xs"
+                      className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-900 placeholder-slate-400 outline-none transition shadow-xs"
                     />
                   </div>
 
                   <div>
                     <label className="block text-[11px] font-black uppercase tracking-wider text-slate-700 mb-1.5 flex items-center gap-1">
                       <Mail className="w-3 h-3 text-slate-400" />
-                      <span>Work Email</span>
+                      <span>Work Email *</span>
                     </label>
                     <input
                       type="email"
@@ -148,25 +174,56 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
                       value={workEmail}
                       onChange={(e) => setWorkEmail(e.target.value)}
                       placeholder="alex@company.com"
-                      className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 placeholder-slate-400 outline-none transition shadow-xs"
+                      className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-900 placeholder-slate-400 outline-none transition shadow-xs"
                     />
                   </div>
                 </div>
 
-                {/* Google Meet Banner */}
-                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 border border-sky-200/90 text-xs font-extrabold text-sky-950 flex items-center gap-3 shadow-xs">
-                  <div className="w-8 h-8 rounded-xl bg-sky-500 text-white flex items-center justify-center shrink-0 shadow-sm">
-                    <Video className="w-4 h-4" />
+                {/* Phone Number Field */}
+                <div>
+                  <label className="block text-[11px] font-black uppercase tracking-wider text-slate-700 mb-1.5 flex items-center gap-1">
+                    <Phone className="w-3 h-3 text-slate-400" />
+                    <span>Phone Number *</span>
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="+91 91507 81685"
+                    className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-900 placeholder-slate-400 outline-none transition shadow-xs"
+                  />
+                </div>
+
+                {/* Description Field */}
+                <div>
+                  <label className="block text-[11px] font-black uppercase tracking-wider text-slate-700 mb-1.5 flex items-center gap-1">
+                    <FileText className="w-3 h-3 text-slate-400" />
+                    <span>Description / Requirements</span>
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Briefly describe your project, technical goals, or specific topics for discussion..."
+                    className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-900 placeholder-slate-400 outline-none transition shadow-xs resize-none"
+                  />
+                </div>
+
+                {/* Response Notification Banner */}
+                <div className="p-3 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-sky-50 border border-emerald-200 text-xs font-extrabold text-emerald-950 flex items-center gap-2.5 shadow-xs">
+                  <div className="w-7 h-7 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                    <Check className="w-4 h-4" />
                   </div>
-                  <span className="leading-snug">
-                    Google Meet link will be automatically generated and emailed to your address.
+                  <span className="leading-snug text-emerald-900 font-bold">
+                    Response will be given shortly. Our Engineering Leadership team will confirm your slot via WhatsApp &amp; Email.
                   </span>
                 </div>
 
                 {/* Action Submit Button */}
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-full text-xs font-black tracking-wider uppercase text-white bg-gradient-to-r from-[#FF2A6D] via-[#9333EA] to-[#0284C7] hover:scale-[1.01] active:scale-98 shadow-md hover:shadow-lg transition-all cursor-pointer"
+                  className="w-full py-3 rounded-full text-xs font-black tracking-wider uppercase text-white bg-gradient-to-r from-[#FF2A6D] via-[#9333EA] to-[#0284C7] hover:scale-[1.01] active:scale-98 shadow-md hover:shadow-lg transition-all cursor-pointer"
                 >
                   Confirm Consultation Slot
                 </button>
@@ -180,10 +237,10 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <h3 className="font-editorial text-3xl font-black text-slate-950">
-                  Consultation Confirmed!
+                  Request Submitted!
                 </h3>
                 <p className="text-xs sm:text-sm font-semibold text-slate-600 max-w-md mx-auto mt-2 leading-relaxed">
-                  Thank you, <span className="text-slate-950 font-black">{fullName}</span>. An invitation with the Google Meet conference link has been dispatched to <span className="text-purple-600 font-mono font-black">{workEmail}</span>.
+                  Thank you, <span className="text-slate-950 font-black">{fullName}</span>. Response will be given shortly! Our Engineering team will confirm your session for <span className="text-purple-600 font-mono font-black">{selectedDate} at {selectedTime}</span>.
                 </p>
               </div>
 

@@ -18,22 +18,6 @@ export function AboutPage({ setActiveTab }) {
 
   return (
     <div className="min-h-screen bg-white text-[#050B14]">
-      
-      {/* Top Gold Ticker Marquee */}
-      <div className="bg-[#0A0E1A] border-b border-amber-500/30 py-2.5 overflow-hidden select-none">
-        <div className="flex items-center gap-8 animate-marquee text-amber-300 text-xs font-black uppercase tracking-widest whitespace-nowrap">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="flex items-center gap-6">
-              <span className="flex items-center gap-2 text-white">
-                <img src="/brand-symbol-transparent.png" alt="" className="w-4 h-4 object-contain" onError={(e) => { (e.target).src = '/logo.png'; }} />
-                <span>CODETHRIVE INFOTECH</span>
-              </span>
-              <span className="text-amber-400 font-bold">Progress. Cultivate. Innovate.</span>
-              <span className="text-amber-300 font-extrabold">✦</span>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* Hero Showcase Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#EBF5FF] via-[#F4F9FF] to-[#E9F3FF] px-4 pt-28 pb-16 sm:px-6 lg:px-8">

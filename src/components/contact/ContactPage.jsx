@@ -19,6 +19,31 @@ export const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+    const messageLines = [
+      `👋 *New Project Inquiry from Website*`,
+      ``,
+      `👤 *Name:* ${fullName}`,
+      `📱 *Mobile / Phone:* ${formData.mobileNumber}`,
+      `✉️ *Work Email:* ${formData.workEmail}`
+    ];
+
+    if (formData.companyEmail) {
+      messageLines.push(`🏢 *Company Email:* ${formData.companyEmail}`);
+    }
+
+    messageLines.push(
+      ``,
+      `📋 *Project Overview & Requirements:*`,
+      formData.projectOverview
+    );
+
+    const messageText = messageLines.join('\n');
+    const whatsappUrl = `https://wa.me/919150781685?text=${encodeURIComponent(messageText)}`;
+
+    window.open(whatsappUrl, '_blank');
+
     setFormSubmitted(true);
     setTimeout(() => {
       setFormSubmitted(false);

@@ -106,12 +106,13 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             <div className="flex items-center md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-full border cursor-pointer"
+                className="p-2 rounded-xl border cursor-pointer active:scale-95 transition-transform"
                 style={{
                   borderColor: 'rgba(243,215,127,0.40)',
                   background: 'rgba(243,215,127,0.15)',
                   color: GOLD_PRIMARY
                 }}
+                aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -119,25 +120,32 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
           </div>
         </div>
 
-        {/* Mobile menu dropdown (Sleek Compact Size & Height for Mobile View Alone) */}
+        {/* Mobile menu dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t mt-1.5 py-2 px-3 space-y-1 bg-[#1C1005]" style={{ borderColor: 'rgba(243,215,127,0.2)' }}>
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className="block w-full text-left px-3 py-1.5 rounded-lg font-extrabold text-xs cursor-pointer transition-all"
-                style={{
-                  color: activeTab === item.id ? GOLD_BRIGHT : GOLD_MUTED,
-                  background: activeTab === item.id ? 'rgba(243,215,127,0.18)' : 'transparent'
-                }}
-              >
-                {item.label}
-              </button>
-            ))}
+          <div className="md:hidden border-t mt-1.5 py-3 px-4 space-y-1 bg-[#1C1005]/95 backdrop-blur-md shadow-2xl animate-fadeIn" style={{ borderColor: 'rgba(243,215,127,0.2)' }}>
+            {navItems.map((item) => {
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className="flex items-center justify-between w-full text-left px-3.5 py-2.5 rounded-xl font-extrabold text-xs cursor-pointer transition-all active:scale-[0.99]"
+                  style={{
+                    color: isActive ? GOLD_BRIGHT : GOLD_MUTED,
+                    background: isActive ? 'rgba(243,215,127,0.20)' : 'rgba(255,255,255,0.03)',
+                    border: isActive ? '1px solid rgba(243,215,127,0.35)' : '1px solid transparent'
+                  }}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span className="w-2 h-2 rounded-full shadow-[0_0_8px_#F3D77F]" style={{ background: GOLD_PRIMARY }} />
+                  )}
+                </button>
+              );
+            })}
             <button
               onClick={() => handleNavClick('contact')}
-              className="block w-full text-center px-3 py-2 rounded-full font-black text-xs text-[#1A0E02] mt-2 shadow-md cursor-pointer transition-transform active:scale-98"
+              className="block w-full text-center px-4 py-3 rounded-full font-black text-xs text-[#1A0E02] mt-3 shadow-lg cursor-pointer transition-transform active:scale-95"
               style={{
                 background: 'linear-gradient(135deg, #F5CF60 0%, #E8B830 50%, #C8920A 100%)'
               }}

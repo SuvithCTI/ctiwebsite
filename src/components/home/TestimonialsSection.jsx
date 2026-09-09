@@ -4,13 +4,55 @@ import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck } from 'lucide-reac
 
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isBlinking, setIsBlinking] = useState(false);
+
+  const handleNext = () => {
+    if (isBlinking) return;
+    setIsBlinking(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 2) % TESTIMONIALS.length);
+      setTimeout(() => {
+        setIsBlinking(false);
+      }, 50);
+    }, 200);
+  };
+
+  const handlePrev = () => {
+    if (isBlinking) return;
+    setIsBlinking(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev <= 1 ? TESTIMONIALS.length - 2 : prev - 2));
+      setTimeout(() => {
+        setIsBlinking(false);
+      }, 50);
+    }, 200);
+  };
+
+  const handleSelect = (targetIndex) => {
+    if (isBlinking || targetIndex === currentIndex) return;
+    setIsBlinking(true);
+    setTimeout(() => {
+      setCurrentIndex(targetIndex);
+      setTimeout(() => {
+        setIsBlinking(false);
+      }, 50);
+    }, 200);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+      if (!isBlinking) {
+        setIsBlinking(true);
+        setTimeout(() => {
+          setCurrentIndex((prev) => (prev + 2) % TESTIMONIALS.length);
+          setTimeout(() => {
+            setIsBlinking(false);
+          }, 50);
+        }, 200);
+      }
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isBlinking]);
 
   return (
     <section className="py-12 sm:py-18 bg-gradient-to-br from-pink-100/70 via-rose-50 to-fuchsia-100/50 text-[#050B14] relative overflow-hidden select-none">
@@ -40,7 +82,11 @@ export const TestimonialsSection = () => {
             return (
               <article
                 key={testimonial.id}
-                className="relative rounded-3xl bg-white p-5 border border-pink-200/80 shadow-xl transition-all duration-500 max-w-md mx-auto flex flex-col justify-between"
+                className={`relative rounded-3xl bg-white p-5 border border-pink-200/80 shadow-xl transition-all duration-300 max-w-md mx-auto flex flex-col justify-between transform ${
+                  isBlinking
+                    ? 'opacity-0 scale-95 blur-[3px]'
+                    : 'opacity-100 scale-100 blur-0'
+                }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -58,9 +104,17 @@ export const TestimonialsSection = () => {
                 </div>
 
                 <div className="flex items-center gap-3 border-t border-slate-100 pt-3 mt-2">
-                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${testimonial.avatarBg} text-white font-black text-xs flex items-center justify-center shadow-md shrink-0 border-2 border-white`}>
-                    {testimonial.initials}
-                  </div>
+                  {testimonial.avatarUrl ? (
+                    <img
+                      src={testimonial.avatarUrl}
+                      alt={testimonial.author}
+                      className="w-10 h-10 rounded-full object-cover shadow-md shrink-0 border-2 border-white"
+                    />
+                  ) : (
+                    <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${testimonial.avatarBg} text-white font-black text-xs flex items-center justify-center shadow-md shrink-0 border-2 border-white`}>
+                      {testimonial.initials}
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-sans text-xs font-black text-slate-950 leading-tight">
                       {testimonial.author}
@@ -83,7 +137,11 @@ export const TestimonialsSection = () => {
             return (
               <article
                 key={`${testimonial.id}-${offset}`}
-                className="relative rounded-3xl bg-white p-6 border border-pink-200/80 shadow-xl transition-all duration-500 flex flex-col justify-between"
+                className={`relative rounded-3xl bg-white p-6 border border-pink-200/80 shadow-xl transition-all duration-300 flex flex-col justify-between transform ${
+                  isBlinking
+                    ? 'opacity-0 scale-95 blur-[3px]'
+                    : 'opacity-100 scale-100 blur-0'
+                }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -102,9 +160,17 @@ export const TestimonialsSection = () => {
                 </div>
 
                 <div className="flex items-center gap-3.5 border-t border-slate-100 pt-4 mt-2">
-                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${testimonial.avatarBg} text-white font-black text-sm flex items-center justify-center shadow-md shrink-0 border-2 border-white`}>
-                    {testimonial.initials}
-                  </div>
+                  {testimonial.avatarUrl ? (
+                    <img
+                      src={testimonial.avatarUrl}
+                      alt={testimonial.author}
+                      className="w-11 h-11 rounded-full object-cover shadow-md shrink-0 border-2 border-white"
+                    />
+                  ) : (
+                    <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${testimonial.avatarBg} text-white font-black text-sm flex items-center justify-center shadow-md shrink-0 border-2 border-white`}>
+                      {testimonial.initials}
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-sans text-sm font-black text-slate-950 leading-tight">
                       {testimonial.author}
@@ -119,32 +185,35 @@ export const TestimonialsSection = () => {
           })}
         </div>
 
-        {/* Carousel Navigation Controls & Dots */}
+        {/* Carousel Navigation Controls & Dots (5 Dots for 5 Pages of 10 Total Reviews) */}
         <div className="flex items-center justify-center gap-4 pt-2">
           <button
-            onClick={() => setCurrentIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1))}
+            onClick={handlePrev}
             className="p-2.5 rounded-full bg-white border border-pink-200 hover:bg-pink-100 text-slate-700 hover:text-pink-700 shadow-md active:scale-95 transition cursor-pointer"
             aria-label="Previous testimonials"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Dots Indicator */}
+          {/* Dots Indicator (Exactly 5 Dots) */}
           <div className="flex items-center gap-1.5 bg-white border border-pink-200 px-3.5 py-1.5 rounded-full shadow-xs">
-            {TESTIMONIALS.map((t, index) => (
-              <button
-                key={t.id}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  currentIndex === index ? 'w-5 bg-pink-600' : 'w-2 bg-pink-200'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+            {[0, 1, 2, 3, 4].map((pageIndex) => {
+              const activePageIndex = Math.floor(currentIndex / 2);
+              return (
+                <button
+                  key={pageIndex}
+                  onClick={() => handleSelect(pageIndex * 2)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    activePageIndex === pageIndex ? 'w-5 bg-pink-600' : 'w-2 bg-pink-200'
+                  }`}
+                  aria-label={`Go to page ${pageIndex + 1}`}
+                />
+              );
+            })}
           </div>
 
           <button
-            onClick={() => setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length)}
+            onClick={handleNext}
             className="p-2.5 rounded-full bg-white border border-pink-200 hover:bg-pink-100 text-slate-700 hover:text-pink-700 shadow-md active:scale-95 transition cursor-pointer"
             aria-label="Next testimonials"
           >

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, RotateCcw, Maximize2, X, Sparkles } from 'lucide-react';
+import { RotateCcw, Maximize2, X, Sparkles } from 'lucide-react';
 
 export const ClientsSection = () => {
   const [flippedCards, setFlippedCards] = useState({});
@@ -504,20 +504,11 @@ export const ClientsSection = () => {
               />
             </div>
 
-            {/* Modal Footer Link */}
-            <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
+            {/* Modal Footer */}
+            <div className="pt-3 border-t border-slate-800 flex items-center justify-center">
               <span className="text-xs text-slate-400 font-semibold">
                 Click anywhere outside or X to close
               </span>
-              <a
-                href={selectedScreenshot.link || 'https://codethriveinfotech.in'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full bg-sky-500 hover:bg-sky-400 text-white text-xs font-bold flex items-center gap-1.5 transition shadow-md"
-              >
-                <span>Visit Live Client Site</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
             </div>
           </div>
         </div>

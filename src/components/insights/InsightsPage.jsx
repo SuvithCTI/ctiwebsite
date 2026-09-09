@@ -31,6 +31,7 @@ export const InsightsPage = ({ setActiveTab }) => {
         return {
           border: 'border-sky-300 hover:border-sky-500',
           accentBg: 'bg-sky-600',
+          gradientBorder: 'from-sky-400 via-blue-500 to-cyan-400',
           cardBg: 'bg-gradient-to-br from-white via-sky-50/40 to-cyan-50/30',
           textColor: 'text-sky-700',
           glow: 'hover:shadow-sky-200/80',
@@ -40,6 +41,7 @@ export const InsightsPage = ({ setActiveTab }) => {
         return {
           border: 'border-purple-300 hover:border-purple-500',
           accentBg: 'bg-purple-600',
+          gradientBorder: 'from-purple-500 via-pink-500 to-indigo-500',
           cardBg: 'bg-gradient-to-br from-white via-purple-50/40 to-pink-50/30',
           textColor: 'text-purple-700',
           glow: 'hover:shadow-purple-200/80',
@@ -49,6 +51,7 @@ export const InsightsPage = ({ setActiveTab }) => {
         return {
           border: 'border-emerald-300 hover:border-emerald-500',
           accentBg: 'bg-emerald-600',
+          gradientBorder: 'from-emerald-400 via-teal-500 to-cyan-500',
           cardBg: 'bg-gradient-to-br from-white via-emerald-50/40 to-teal-50/30',
           textColor: 'text-emerald-700',
           glow: 'hover:shadow-emerald-200/80',
@@ -58,6 +61,7 @@ export const InsightsPage = ({ setActiveTab }) => {
         return {
           border: 'border-rose-300 hover:border-rose-500',
           accentBg: 'bg-rose-600',
+          gradientBorder: 'from-rose-500 via-orange-400 to-red-500',
           cardBg: 'bg-gradient-to-br from-white via-rose-50/40 to-orange-50/30',
           textColor: 'text-rose-700',
           glow: 'hover:shadow-rose-200/80',
@@ -67,6 +71,7 @@ export const InsightsPage = ({ setActiveTab }) => {
         return {
           border: 'border-amber-300 hover:border-amber-500',
           accentBg: 'bg-amber-600',
+          gradientBorder: 'from-amber-400 via-yellow-500 to-orange-400',
           cardBg: 'bg-gradient-to-br from-white via-amber-50/40 to-yellow-50/30',
           textColor: 'text-amber-700',
           glow: 'hover:shadow-amber-200/80',
@@ -76,6 +81,7 @@ export const InsightsPage = ({ setActiveTab }) => {
         return {
           border: 'border-slate-200 hover:border-slate-400',
           accentBg: 'bg-slate-800',
+          gradientBorder: 'from-slate-400 via-slate-500 to-slate-600',
           cardBg: 'bg-white',
           textColor: 'text-slate-700',
           glow: 'hover:shadow-slate-200',
@@ -161,7 +167,7 @@ export const InsightsPage = ({ setActiveTab }) => {
                     <img
                       src={art.imageUrl}
                       alt={art.title}
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
 
@@ -241,12 +247,15 @@ export const InsightsPage = ({ setActiveTab }) => {
                   <span>{selectedArticle.readTime}</span>
                 </div>
 
-                <div className="rounded-2xl overflow-hidden h-64 sm:h-80 w-full bg-slate-950 shadow-inner">
-                  <img
-                    src={selectedArticle.imageUrl}
-                    alt={selectedArticle.title}
-                    className="w-full h-full object-cover"
-                  />
+                <div className={`p-1 rounded-[1.4rem] bg-gradient-to-r ${styles.gradientBorder || 'from-[#FF2A6D] via-[#9333EA] to-[#0284C7]'} max-w-lg mx-auto w-full shadow-xl hover:shadow-2xl transition-all duration-500 group/modalImg cursor-pointer`}>
+                  <div className="rounded-[1.2rem] overflow-hidden h-36 sm:h-48 w-full bg-slate-950 relative border-2 border-white shadow-inner">
+                    <img
+                      src={selectedArticle.imageUrl}
+                      alt={selectedArticle.title}
+                      className="w-full h-full object-cover group-hover/modalImg:scale-108 transition-transform duration-700 ease-out animate-in fade-in zoom-in-95"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover/modalImg:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  </div>
                 </div>
 
                 <div className="prose max-w-none text-slate-800 text-sm sm:text-base leading-relaxed space-y-4 font-semibold">

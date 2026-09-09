@@ -27,7 +27,7 @@ export default function App() {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-transparent text-[#050B14] flex flex-col font-sans selection:bg-sky-600 selection:text-white">
+    <div className="min-h-screen bg-transparent text-[#050B14] flex flex-col font-sans selection:bg-sky-600 selection:text-white overflow-x-hidden w-full">
       {/* Top Gold Navbar */}
       <Navbar
         activeTab={activeTab}
@@ -35,7 +35,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-grow">
+      <main className="flex-grow w-full overflow-x-hidden">
         {activeTab === 'home' && (
           <>
             <Hero setActiveTab={setActiveTab} />

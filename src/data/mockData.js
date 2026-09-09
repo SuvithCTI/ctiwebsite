@@ -14,7 +14,7 @@ export const COMPANY_INFO = {
   websiteUrl: 'https://codethriveinfotech.in',
   socialLinks: {
     linkedin: 'https://www.linkedin.com/in/codethrive-infotech-5b6361402',
-    github: 'https://github.com/Codethriveinfotech',
+    message: 'sms:+919150781685',
     instagram: 'https://www.instagram.com/codethriveinfotech_official?igsh=MTIzZXA5MXF5dXRlaQ==',
     facebook: 'https://www.facebook.com/share/18pBfimAcw/',
     youtube: 'https://www.youtube.com/@CodeThriveInfotech',
@@ -668,64 +668,80 @@ Migration Phases:
 export const TESTIMONIALS = [
   {
     id: '1',
-    quote: 'CodeThrive Infotech engineered our enterprise booking platform and automated WhatsApp engine. Bookings grew by +140% with zero downtime during peak holiday seasons.',
+    quote: 'Working with CodeThrive was one of the best decisions we made for Samyuktha Tours. They engineered our entire online booking platform and automated WhatsApp engine from scratch. Even during peak holiday season, everything ran smoothly without a single technical glitch.',
     author: 'K. Rajasekaran',
     role: 'Managing Director',
     company: 'Samyuktha Tours & Travels',
     location: 'Coimbatore',
     rating: 5,
     initials: 'KR',
-    avatarBg: 'from-[#0284C7] to-[#0369A1]'
+    avatarBg: 'from-[#0284C7] to-[#0369A1]',
+    avatarUrl: '/team/avatar-rajasekaran.png'
   },
   {
     id: '2',
-    quote: 'From 4K media storage pipelines to automated cloud transcoding, CodeThrive delivered an enterprise system ahead of schedule with 5x faster video rendering.',
+    quote: 'CodeThrive optimized our media processing pipeline at AMF Studio, making video rendering 5x faster. Delivered ahead of schedule with exceptional technical quality.',
     author: 'V. Anand',
     role: 'Chief Technology Officer',
     company: 'AMF Studio',
     location: 'Bangalore',
     rating: 5,
     initials: 'VA',
-    avatarBg: 'from-[#9333EA] to-[#6B21A8]'
+    avatarBg: 'from-[#9333EA] to-[#6B21A8]',
+    avatarUrl: '/team/avatar-vignesh.png'
   },
   {
     id: '3',
-    quote: 'Our HIPAA-compliant patient EHR portal was built with top-tier security standards and intuitive scheduling. CodeThrive is our trusted long-term tech partner.',
+    quote: 'Patient privacy and system security were critical for our healthcare portal. CodeThrive built a clean, intuitive EHR system that our doctors and patients love using. Their ongoing support makes them our trusted tech partner.',
     author: 'Dr. A. Meenakshi',
     role: 'Clinical Director',
     company: 'The Therapy Universe',
     location: 'Coimbatore',
     rating: 5,
     initials: 'AM',
-    avatarBg: 'from-[#059669] to-[#047857]'
+    avatarBg: 'from-[#059669] to-[#047857]',
+    avatarUrl: '/team/avatar-meenakshi.png'
   },
   {
     id: '4',
-    quote: 'The real-time GPS telemetry and driver dispatch dashboard built by CodeThrive cut allocation times to under 3 seconds. Exceptional engineering standards!',
-    author: 'S. Karthikeyan',
-    role: 'Head of Logistics',
-    company: 'Fleet Operations & Logistics',
+    quote: 'CodeThrive completely transformed our mobile POS and multi-store inventory system. Stock sync errors dropped to zero, and our store managers had zero learning curve. Truly world-class engineering work!',
+    author: 'Priya Sundaram',
+    role: 'Head of Digital Product',
+    company: 'RetailPulse Systems',
     location: 'Chennai',
     rating: 5,
-    initials: 'SK',
-    avatarBg: 'from-[#D97706] to-[#B45309]'
+    initials: 'PS',
+    avatarBg: 'from-[#D97706] to-[#B45309]',
+    avatarUrl: '/team/avatar-female-lead.png'
   },
   {
     id: '5',
-    quote: 'CodeThrive built our integrated holistic health portal seamlessly. Patient appointment booking and digital health records are faster and 100% reliable.',
-    author: 'Dr. S. Thangavel',
+    quote: 'Dispatch response times dropped to seconds with CodeThrive’s real-time fleet dashboard. Exceptional engineering standards and super fast communication!',
+    author: 'Deepa Ramakrishnan',
+    role: 'Operations Director',
+    company: 'NextGen Logistics',
+    location: 'Coimbatore',
+    rating: 5,
+    initials: 'DR',
+    avatarBg: 'from-[#E11D48] to-[#BE123C]',
+    avatarUrl: '/team/avatar-female-exec.png'
+  },
+  {
+    id: '6',
+    quote: 'Finding a software team that truly understands clinic workflows is rare. CodeThrive developed our patient records and appointment scheduling system seamlessly. Fast, reliable, and our staff loves it.',
+    author: 'S. Karthikeyan',
     role: 'Founder & Chief Physician',
     company: 'Thulir Healthcare',
     location: 'Coimbatore',
     rating: 5,
-    initials: 'ST',
+    initials: 'SK',
     avatarBg: 'from-[#10B981] to-[#059669]'
   },
   {
-    id: '6',
-    quote: 'Sub-second ride allocation and instant fare calculation transformed our fleet operations across Tamil Nadu. Highly recommend CodeThrive Infotech.',
+    id: '7',
+    quote: 'Our fleet needed an instant trip allocation and schedule coordinator that could handle heavy daily traffic. CodeThrive built a super responsive platform, and whenever we have a question, their team responds instantly on WhatsApp.',
     author: 'P. Murugesan',
-    role: 'Operations Director',
+    role: 'Operations Manager',
     company: 'Madurai Tour Taxi',
     location: 'Madurai',
     rating: 5,
@@ -733,8 +749,8 @@ export const TESTIMONIALS = [
     avatarBg: 'from-[#0891B2] to-[#0E7490]'
   },
   {
-    id: '7',
-    quote: 'Our online booking conversions increased 3.8x after CodeThrive redesigned our multi-day tour checkout portal. Stellar UI design and backend speed.',
+    id: '8',
+    quote: 'Our client inquiries quadrupled after CodeThrive redesigned our tour booking portal. Sleek mobile design and amazing performance speed!',
     author: 'R. Vignesh',
     role: 'Founder & CEO',
     company: 'Madurai Best Tours',
@@ -744,15 +760,26 @@ export const TESTIMONIALS = [
     avatarBg: 'from-[#7C3AED] to-[#5B21B6]'
   },
   {
-    id: '8',
-    quote: 'CodeThrive senior engineering pod delivered our custom web & mobile app architecture with clean code and SOC-2 security protocols. World-class team!',
+    id: '9',
+    quote: 'Transparent communication, clean code, and zero hassle throughout the entire build. CodeThrive delivered our web and mobile app architecture right on time. Highly recommended!',
     author: 'T. Senthil Kumar',
     role: 'VP of Product Strategy',
     company: 'Enterprise Commerce Systems',
     location: 'Bangalore',
     rating: 5,
     initials: 'TS',
-    avatarBg: 'from-[#E11D48] to-[#BE123C]'
+    avatarBg: 'from-[#EA580C] to-[#C2410C]'
+  },
+  {
+    id: '10',
+    quote: 'System response times dropped by 65% after CodeThrive rebuilt our cloud architecture. Honest, skilled, and reliable technology partners.',
+    author: 'Arun Prakash',
+    role: 'Technical Co-Founder',
+    company: 'CloudScale Solutions',
+    location: 'Chennai',
+    rating: 5,
+    initials: 'AP',
+    avatarBg: 'from-[#4F46E5] to-[#3730A3]'
   }
 ];
 

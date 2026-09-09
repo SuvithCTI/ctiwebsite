@@ -43,14 +43,14 @@ export const TOUR_STOPS = [
   },
   {
     step: '03',
-    id: 'reception',
-    title: 'Reception & Client Lounge',
+    id: 'client-lounge',
+    title: 'Client Lounge',
     tagline: 'First Impressions of Elegance',
     badge: 'CLIENT LOUNGE',
     category: 'Client Experience',
     imageUrl: '/gallery/reception-lounge.jpg',
-    location: 'Reception Lobby, Srihari Nivas',
-    story: 'A contemporary reception area featuring geometric textured walls, a custom consultation desk, and comfortable executive seating for visiting partners.',
+    location: 'Executive Lounge, Srihari Nivas',
+    story: 'A contemporary client lounge featuring geometric textured walls, a custom consultation desk, and comfortable executive seating for visiting partners.',
     specs: [
       'Custom Two-Tone Desk',
       'Geometric Textured Wall',
