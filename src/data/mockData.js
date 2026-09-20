@@ -156,7 +156,7 @@ export const INDUSTRIES = [
       'Zero-trust security protocols with TLS 1.3 encrypted data vaulting',
       'Custom executive dashboard with real-time KPI session tracking'
     ],
-    featuredProject: 'Medical Shop Website'
+    featuredProject: 'Dr. Dentiqo'
   },
   {
     id: 'education',
@@ -212,7 +212,7 @@ export const INDUSTRIES = [
       'AI recommendation engine boosting average order value by up to +35%',
       'Automated WhatsApp & SMS order tracking with live map package updates'
     ],
-    featuredProject: 'Cake & Bakery Shop'
+    featuredProject: 'The Feinheit Boutique'
   },
   {
     id: 'enterprise',
@@ -268,7 +268,7 @@ export const INDUSTRIES = [
       'Auto-scaling microservices prepared for sudden 10x traffic surges',
       'High-fidelity clickable Figma prototypes for venture capital presentations'
     ],
-    featuredProject: 'Gym Website'
+    featuredProject: 'Sivakasi Sparkles Fireworks'
   },
   {
     id: 'finance',
@@ -662,36 +662,14 @@ export const PROJECTS = [
       { label: 'On-Time Delivery', value: '99.8%' }
     ],
     technologies: ['React', 'Tailwind CSS', 'Lucide Icons', 'Vercel'],
-    imageUrl: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80',
     images: [
-      'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=900&q=80'
+      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80'
     ],
     demoUrl: 'https://wafsticheryhouse.vercel.app/',
     liveUrl: 'https://wafsticheryhouse.vercel.app/'
-  },
-  {
-    id: 'gym-website',
-    title: 'Gym Website',
-    client: 'Pulse Fitness Club',
-    category: 'Enterprise',
-    industry: 'FITNESS',
-    badge: 'WEB',
-    description: 'An energetic, modern fitness club management and scheduling portal with vibrant animations, class booking, and trainer highlights.',
-    metrics: [
-      { label: 'Membership Signups', value: '+85%' },
-      { label: 'Class Attendance', value: '94%' }
-    ],
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80'
-    ],
-    demoUrl: 'https://ornate-squirrel-175112.netlify.app/',
-    liveUrl: 'https://ornate-squirrel-175112.netlify.app/'
   },
   {
     id: 'restaurant-website',
@@ -714,50 +692,6 @@ export const PROJECTS = [
     ],
     demoUrl: 'https://chipper-narwhal-2b443d.netlify.app/',
     liveUrl: 'https://chipper-narwhal-2b443d.netlify.app/'
-  },
-  {
-    id: 'cake-bakery-shop',
-    title: 'Cake & Bakery Shop',
-    client: 'Artisan Confectionery Hub',
-    category: 'Enterprise',
-    industry: 'RETAIL',
-    badge: 'WEB',
-    description: 'A charming, visual e-commerce catalog template for custom celebratory cakes, gourmet bakery goods, and seamless online pre-orders.',
-    metrics: [
-      { label: 'Online Orders', value: '+110%' },
-      { label: 'Avg Order Value', value: '+$35' }
-    ],
-    technologies: ['React', 'Tailwind CSS', 'Framer Motion'],
-    imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80'
-    ],
-    demoUrl: 'https://ephemeral-semolina-06c7fc.netlify.app/',
-    liveUrl: 'https://ephemeral-semolina-06c7fc.netlify.app/'
-  },
-  {
-    id: 'medical-shop-website',
-    title: 'Medical Shop Website',
-    client: 'HealthRx Pharmacy',
-    category: 'Healthcare',
-    industry: 'HEALTHCARE',
-    badge: 'WEB',
-    description: 'A clean, high-performance web storefront for medical shops, prescription uploads, and everyday health wellness products.',
-    metrics: [
-      { label: 'Prescription Uploads', value: '5,000+/mo' },
-      { label: 'Order Processing', value: '< 5 mins' }
-    ],
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=900&q=80'
-    ],
-    demoUrl: 'https://sparkly-pixie-11db8a.netlify.app/',
-    liveUrl: 'https://sparkly-pixie-11db8a.netlify.app/'
   },
   {
     id: 'pet-shop-website',
@@ -802,28 +736,6 @@ export const PROJECTS = [
     ],
     demoUrl: 'https://stalwart-froyo-a435ec.netlify.app/',
     liveUrl: 'https://stalwart-froyo-a435ec.netlify.app/'
-  },
-  {
-    id: 'clothing-store',
-    title: 'Clothing Store',
-    client: 'Vogue Threads',
-    category: 'Enterprise',
-    industry: 'RETAIL',
-    badge: 'WEB',
-    description: 'A high-end clothing store catalog presenting the latest runway apparel collections with dynamic visual grids and size selectors.',
-    metrics: [
-      { label: 'Fashion Sales', value: '+125%' },
-      { label: 'Session Duration', value: '4.2 mins' }
-    ],
-    technologies: ['React', 'Next.js', 'Tailwind CSS'],
-    imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=80'
-    ],
-    demoUrl: 'https://luminous-strudel-016c8f.netlify.app/',
-    liveUrl: 'https://luminous-strudel-016c8f.netlify.app/'
   },
   {
     id: 'organics-store',
