@@ -3,7 +3,8 @@ import confetti from 'canvas-confetti';
 import { X, Calendar, CheckCircle2, Clock, Sparkles, User, Mail, Phone, FileText, Check } from 'lucide-react';
 
 export const ScheduleModal = ({ isOpen, onClose }) => {
-  const [selectedDate, setSelectedDate] = useState('2026-09-05');
+  const todayStr = new Date().toISOString().split('T')[0];
+  const [selectedDate, setSelectedDate] = useState(todayStr);
   const [selectedTime, setSelectedTime] = useState('02:00 PM');
   const [meetingType, setMeetingType] = useState('🚀 Custom Web & Mobile App Development (30m)');
   const [fullName, setFullName] = useState('');
@@ -123,6 +124,7 @@ export const ScheduleModal = ({ isOpen, onClose }) => {
                     <input
                       type="date"
                       value={selectedDate}
+                      min={todayStr}
                       onChange={(e) => setSelectedDate(e.target.value)}
                       required
                       className="w-full bg-slate-50 border border-slate-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 rounded-xl px-3.5 py-2 text-xs font-bold text-slate-900 outline-none transition shadow-xs"

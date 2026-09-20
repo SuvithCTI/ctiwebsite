@@ -54,7 +54,7 @@ const WhatsappIcon = () => (
 export const Footer = ({ setActiveTab }) => {
   const handleNav = (tab) => {
     if (setActiveTab) setActiveTab(tab);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleCapabilityNav = () => {
@@ -93,7 +93,7 @@ export const Footer = ({ setActiveTab }) => {
     { icon: InstagramIcon, label: 'Instagram', href: COMPANY_INFO?.socialLinks?.instagram || 'https://www.instagram.com/codethriveinfotech_official?igsh=MTIzZXA5MXF5dXRlaQ==' },
     { icon: FacebookIcon, label: 'Facebook', href: COMPANY_INFO?.socialLinks?.facebook || 'https://www.facebook.com/share/18pBfimAcw/' },
     { icon: YoutubeIcon, label: 'YouTube', href: COMPANY_INFO?.socialLinks?.youtube || 'https://www.youtube.com/@CodeThriveInfotech' },
-    { icon: PortfolioIcon, label: 'Portfolio (Add URL later)', href: COMPANY_INFO?.socialLinks?.portfolio || '#' },
+    { icon: PortfolioIcon, label: 'Portfolio', href: COMPANY_INFO?.socialLinks?.portfolio && COMPANY_INFO.socialLinks.portfolio !== '#' ? COMPANY_INFO.socialLinks.portfolio : 'https://codethriveinfotech.in' },
     { icon: WhatsappIcon, label: 'WhatsApp', href: 'https://wa.me/919150781685' },
   ];
 

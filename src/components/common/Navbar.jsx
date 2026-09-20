@@ -31,7 +31,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
   const handleNavClick = (tab) => {
     setActiveTab(tab);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (

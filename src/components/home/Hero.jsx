@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { ArrowRight, Calendar, Code2, Cpu, Globe, Rocket, Star, Users, Zap } from 'lucide-react';
 
 const TYPED_WORDS = ['high-concurrency', 'enterprise-grade', 'AI-powered', 'cloud-native'];
@@ -8,50 +8,71 @@ export const Hero = ({ setActiveTab }) => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-  // Metric animated counter state
-  const [countProjects, setCountProjects] = useState(0);
-  const [countRating, setCountRating] = useState('0.0');
-  const [countClients, setCountClients] = useState(0);
-  const [countRetention, setCountRetention] = useState(0);
+  // Single consolidated metric state for atomic, zero-overhead updates
+  const [metrics, setMetrics] = useState({
+    projects: 180,
+    rating: '9.9',
+    clients: 45,
+    retention: 96
+  });
 
-  // Animated Count-Up effect for Hero metrics
+  const rafRef = useRef(null);
+
+  // Smooth animated count-up once on mount
   useEffect(() => {
-    const duration = 1200;
-    const steps = 35;
-    const interval = duration / steps;
-    let current = 0;
+    let currentStep = 0;
+    const totalSteps = 24;
+    const intervalMs = 45;
 
     const timer = setInterval(() => {
-      current++;
-      const progress = current / steps;
+      currentStep++;
+      const progress = currentStep / totalSteps;
       const ease = 1 - Math.pow(1 - progress, 3);
 
-      setCountProjects(Math.floor(ease * 180));
-      setCountRating((ease * 9.9).toFixed(1));
-      setCountClients(Math.floor(ease * 45));
-      setCountRetention(Math.floor(ease * 96));
+      setMetrics({
+        projects: Math.floor(ease * 180),
+        rating: (ease * 9.9).toFixed(1),
+        clients: Math.floor(ease * 45),
+        retention: Math.floor(ease * 96)
+      });
 
-      if (current >= steps) {
+      if (currentStep >= totalSteps) {
         clearInterval(timer);
-        setCountProjects(180);
-        setCountRating('9.9');
-        setCountClients(45);
-        setCountRetention(96);
+        setMetrics({
+          projects: 180,
+          rating: '9.9',
+          clients: 45,
+          retention: 96
+        });
       }
-    }, interval);
+    }, intervalMs);
 
-    return () => clearInterval(timer);
+    // Defer background video load slightly to give priority to hero text & critical render
+    const videoTimer = setTimeout(() => {
+      setVideoLoaded(true);
+    }, 400);
+
+    return () => {
+      clearInterval(timer);
+      clearTimeout(videoTimer);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
-  // Mouse move parallax handler
-  const handleMouseMove = (e) => {
+  // RequestAnimationFrame throttled mouse parallax for silky 60fps
+  const handleMouseMove = useCallback((e) => {
+    if (rafRef.current) return;
     const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 20;
-    const y = (clientY / innerHeight - 0.5) * 20;
-    setMousePos({ x, y });
-  };
+    rafRef.current = requestAnimationFrame(() => {
+      const { innerWidth, innerHeight } = window;
+      const x = ((clientX / innerWidth) - 0.5) * 16;
+      const y = ((clientY / innerHeight) - 0.5) * 16;
+      setMousePos({ x, y });
+      rafRef.current = null;
+    });
+  }, []);
 
   // Typing effect
   useEffect(() => {
@@ -75,15 +96,19 @@ export const Hero = ({ setActiveTab }) => {
       onMouseMove={handleMouseMove}
       className="relative min-h-[calc(100vh-86px)] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-32 pb-6 sm:pb-8 overflow-hidden bg-gradient-to-br from-sky-50/80 via-white to-indigo-50/60 text-[#050B14]"
     >
-      <video
-        className="absolute inset-0 z-0 h-full w-full object-cover object-[50%_15%] sm:object-center opacity-35 sm:opacity-50 pointer-events-none scale-100 transition-all duration-300"
-        src="/hero-background.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        aria-hidden="true"
-      />
+      {/* High-Performance Defer-Loaded Background Video */}
+      {videoLoaded && (
+        <video
+          className="absolute inset-0 z-0 h-full w-full object-cover object-[50%_15%] sm:object-center opacity-35 sm:opacity-50 pointer-events-none scale-100 transition-opacity duration-1000"
+          src="/hero-background.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
+          aria-hidden="true"
+        />
+      )}
       <div className="absolute inset-0 z-0 bg-white/30 pointer-events-none" />
 
       {/* Background Radial Glow */}
@@ -124,7 +149,7 @@ export const Hero = ({ setActiveTab }) => {
               <button
                 onClick={() => {
                   if (setActiveTab) setActiveTab('projects');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo(0, 0);
                 }}
                 className="px-6 py-3.5 rounded-full text-xs font-black tracking-wide bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 !text-white shadow-lg shadow-indigo-500/25 transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer border border-indigo-400/40"
               >
@@ -135,7 +160,7 @@ export const Hero = ({ setActiveTab }) => {
               <button
                 onClick={() => {
                   if (setActiveTab) setActiveTab('contact');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo(0, 0);
                 }}
                 className="px-6 py-3.5 rounded-full text-xs font-black tracking-wide bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 !text-white shadow-lg shadow-amber-500/25 transition-all hover:scale-105 flex items-center gap-2 cursor-pointer border border-amber-300/40"
               >
@@ -229,7 +254,7 @@ export const Hero = ({ setActiveTab }) => {
                   <span className="text-[10px] font-black tracking-widest uppercase text-emerald-700">Shipped</span>
                 </div>
                 <div className="text-3xl sm:text-4xl font-black text-slate-950 font-editorial tracking-tight group-hover:text-emerald-600 transition-colors">
-                  {countProjects}+
+                  {metrics.projects}+
                 </div>
                 <div className="text-[9px] sm:text-[11px] font-black text-slate-800 uppercase tracking-wider">
                   PROJECTS SHIPPED
@@ -243,7 +268,7 @@ export const Hero = ({ setActiveTab }) => {
                   <span className="text-[10px] font-black tracking-widest uppercase text-amber-700">Rating</span>
                 </div>
                 <div className="text-3xl sm:text-4xl font-black text-slate-950 font-editorial tracking-tight group-hover:text-amber-600 transition-colors">
-                  {countRating}
+                  {metrics.rating}
                 </div>
                 <div className="text-[9px] sm:text-[11px] font-black text-slate-800 uppercase tracking-wider">
                   AVG. CLIENT RATING
@@ -257,7 +282,7 @@ export const Hero = ({ setActiveTab }) => {
                   <span className="text-[10px] font-black tracking-widest uppercase text-purple-700">Global</span>
                 </div>
                 <div className="text-3xl sm:text-4xl font-black text-slate-950 font-editorial tracking-tight group-hover:text-purple-600 transition-colors">
-                  {countClients}+
+                  {metrics.clients}+
                 </div>
                 <div className="text-[9px] sm:text-[11px] font-black text-slate-800 uppercase tracking-wider">
                   GLOBAL CLIENTS
@@ -271,7 +296,7 @@ export const Hero = ({ setActiveTab }) => {
                   <span className="text-[10px] font-black tracking-widest uppercase text-rose-700">Retention</span>
                 </div>
                 <div className="text-3xl sm:text-4xl font-black text-slate-950 font-editorial tracking-tight group-hover:text-rose-600 transition-colors">
-                  {countRetention}%
+                  {metrics.retention}%
                 </div>
                 <div className="text-[9px] sm:text-[11px] font-black text-slate-800 uppercase tracking-wider">
                   CLIENT RETENTION
@@ -285,7 +310,7 @@ export const Hero = ({ setActiveTab }) => {
               <button
                 onClick={() => {
                   if (setActiveTab) setActiveTab('projects');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo(0, 0);
                 }}
                 className="px-6 py-3 rounded-full text-xs font-black tracking-wide bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 !text-white shadow-lg shadow-indigo-500/25 transition-transform active:scale-95 flex items-center gap-2 cursor-pointer border border-indigo-400/40"
               >
@@ -296,7 +321,7 @@ export const Hero = ({ setActiveTab }) => {
               <button
                 onClick={() => {
                   if (setActiveTab) setActiveTab('contact');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo(0, 0);
                 }}
                 className="px-6 py-3 rounded-full text-xs font-black tracking-wide bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 !text-white shadow-lg shadow-amber-500/25 transition-all active:scale-95 flex items-center gap-2 cursor-pointer border border-amber-300/40"
               >

@@ -18,7 +18,7 @@ export const COMPANY_INFO = {
     instagram: 'https://www.instagram.com/codethriveinfotech_official?igsh=MTIzZXA5MXF5dXRlaQ==',
     facebook: 'https://www.facebook.com/share/18pBfimAcw/',
     youtube: 'https://www.youtube.com/@CodeThriveInfotech',
-    portfolio: '#' // Replace with your official Portfolio URL later
+    portfolio: 'https://codethriveinfotech.in'
   },
   stats: {
     projectsDelivered: '180+',

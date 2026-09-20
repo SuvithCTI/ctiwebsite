@@ -387,7 +387,7 @@ export const GalleryPage = ({ setActiveTab }) => {
             <button
               onClick={() => {
                 if (setActiveTab) setActiveTab('contact');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo(0, 0);
               }}
               className="w-full sm:w-auto px-4 py-2 rounded-full text-xs font-bold text-slate-800 border border-slate-300 hover:bg-slate-100 transition-colors cursor-pointer text-center"
             >
@@ -544,7 +544,7 @@ export const GalleryPage = ({ setActiveTab }) => {
                   onClick={() => {
                     setActiveItem(null);
                     if (setActiveTab) setActiveTab('contact');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo(0, 0);
                   }}
                   className="w-full sm:w-auto px-5 py-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black text-xs shadow-sm transition cursor-pointer text-center"
                 >

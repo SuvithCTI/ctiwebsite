@@ -54,7 +54,7 @@ export const ThriveBot = ({ setActiveTab }) => {
       action: () => {
         setIsOpen(false);
         if (setActiveTab) setActiveTab('contact');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo(0, 0);
       }
     },
     {
@@ -170,7 +170,7 @@ export const ThriveBot = ({ setActiveTab }) => {
               onClick={() => {
                 setIsOpen(false);
                 if (setActiveTab) setActiveTab('contact');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo(0, 0);
               }}
               className="text-[#0284C7] hover:text-[#0369A1] font-black text-[10.5px] sm:text-xs flex items-center gap-1 cursor-pointer"
             >

@@ -5,12 +5,12 @@ import { COMPANY_INFO } from '../../data/mockData';
 export const LeadershipAndContactSection = ({ setActiveTab }) => {
   const handleStartConsultation = () => {
     if (setActiveTab) setActiveTab('contact');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleExploreWork = () => {
     if (setActiveTab) setActiveTab('projects');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (

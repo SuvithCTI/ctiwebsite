@@ -628,10 +628,10 @@
 
 @keyframes marqueeLeftToRight {
   0% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
   100% {
-    transform: translateX(0%);
+    transform: translate3d(0%, 0, 0);
   }
 }
 
@@ -639,15 +639,21 @@
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marqueeLeftToRight 25s linear infinite;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  animation: marqueeLeftToRight 28s linear infinite;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
 }
 
 @keyframes marqueeScroll {
   0% {
-    transform: translateX(0%);
+    transform: translate3d(0%, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -655,6 +661,8 @@
   display: flex;
   width: max-content;
   will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   animation: marqueeScroll 30s linear infinite;
 }
 

@@ -8,12 +8,12 @@ import { LeadershipAndContactSection } from './LeadershipAndContactSection';
 export function AboutPage({ setActiveTab }) {
   const handleContact = () => {
     if (setActiveTab) setActiveTab('contact');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleProjects = () => {
     if (setActiveTab) setActiveTab('projects');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (

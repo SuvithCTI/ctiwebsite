@@ -1,31 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { Hero } from './components/home/Hero';
 import { ServicesSection } from './components/home/ServicesSection';
 import { ClientsSection } from './components/home/ClientsSection';
-import { IndustriesPage } from './components/industries/IndustriesPage';
 import { TestimonialsSection } from './components/home/TestimonialsSection';
 import { CtaBanner } from './components/home/CtaBanner';
-import { AboutPage } from './components/about/AboutPage';
-import { ProjectsPage } from './components/projects/ProjectsPage';
-import { GalleryPage } from './components/gallery/GalleryPage';
-import { InsightsPage } from './components/insights/InsightsPage';
-import { ContactPage } from './components/contact/ContactPage';
-import { PrivacyPolicyPage } from './components/common/PrivacyPolicyPage';
-import { TermsOfServicePage } from './components/common/TermsOfServicePage';
-import { ScheduleModal } from './components/contact/ScheduleModal';
 import { CookieConsent } from './components/common/CookieConsent';
 import { ThriveBot } from './components/common/ThriveBot';
-import { SplashScreen } from './components/common/SplashScreen';
+
+// Direct pre-cached dynamic imports
+const loadAbout = () => import('./components/about/AboutPage');
+const loadIndustries = () => import('./components/industries/IndustriesPage');
+const loadProjects = () => import('./components/projects/ProjectsPage');
+const loadGallery = () => import('./components/gallery/GalleryPage');
+const loadInsights = () => import('./components/insights/InsightsPage');
+const loadContact = () => import('./components/contact/ContactPage');
+const loadPrivacy = () => import('./components/common/PrivacyPolicyPage');
+const loadTerms = () => import('./components/common/TermsOfServicePage');
+const loadSchedule = () => import('./components/contact/ScheduleModal');
+
+const AboutPage = lazy(() => loadAbout().then(m => ({ default: m.AboutPage })));
+const IndustriesPage = lazy(() => loadIndustries().then(m => ({ default: m.IndustriesPage })));
+const ProjectsPage = lazy(() => loadProjects().then(m => ({ default: m.ProjectsPage })));
+const GalleryPage = lazy(() => loadGallery().then(m => ({ default: m.GalleryPage })));
+const InsightsPage = lazy(() => loadInsights().then(m => ({ default: m.InsightsPage })));
+const ContactPage = lazy(() => loadContact().then(m => ({ default: m.ContactPage })));
+const PrivacyPolicyPage = lazy(() => loadPrivacy().then(m => ({ default: m.PrivacyPolicyPage })));
+const TermsOfServicePage = lazy(() => loadTerms().then(m => ({ default: m.TermsOfServicePage })));
+const ScheduleModal = lazy(() => loadSchedule().then(m => ({ default: m.ScheduleModal })));
 
 export default function App() {
-  const [showSplash, setShowSplash] = useState(true);
   const [activeTab, setActiveTab] = useState('home');
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Silently pre-load all subpages immediately in memory so every tab switch opens in 0.00ms
+    const prefetch = () => {
+      loadAbout();
+      loadIndustries();
+      loadProjects();
+      loadGallery();
+      loadInsights();
+      loadContact();
+      loadPrivacy();
+      loadTerms();
+      loadSchedule();
+    };
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(prefetch);
+    } else {
+      setTimeout(prefetch, 50);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, [activeTab]);
 
   return (
@@ -51,45 +82,49 @@ export default function App() {
           </>
         )}
 
-        {activeTab === 'about' && (
-          <AboutPage setActiveTab={setActiveTab} />
-        )}
+        <Suspense fallback={<div className="min-h-[40vh]" />}>
+          {activeTab === 'about' && (
+            <AboutPage setActiveTab={setActiveTab} />
+          )}
 
-        {activeTab === 'industries' && (
-          <IndustriesPage setActiveTab={setActiveTab} />
-        )}
+          {activeTab === 'industries' && (
+            <IndustriesPage setActiveTab={setActiveTab} />
+          )}
 
-        {activeTab === 'projects' && (
-          <ProjectsPage setActiveTab={setActiveTab} />
-        )}
+          {activeTab === 'projects' && (
+            <ProjectsPage setActiveTab={setActiveTab} />
+          )}
 
-        {activeTab === 'gallery' && (
-          <GalleryPage setActiveTab={setActiveTab} />
-        )}
+          {activeTab === 'gallery' && (
+            <GalleryPage setActiveTab={setActiveTab} />
+          )}
 
-        {activeTab === 'insights' && (
-          <InsightsPage setActiveTab={setActiveTab} />
-        )}
+          {activeTab === 'insights' && (
+            <InsightsPage setActiveTab={setActiveTab} />
+          )}
 
-        {activeTab === 'contact' && (
-          <ContactPage setActiveTab={setActiveTab} />
-        )}
+          {activeTab === 'contact' && (
+            <ContactPage setActiveTab={setActiveTab} />
+          )}
 
-        {activeTab === 'privacy' && (
-          <PrivacyPolicyPage setActiveTab={setActiveTab} />
-        )}
+          {activeTab === 'privacy' && (
+            <PrivacyPolicyPage setActiveTab={setActiveTab} />
+          )}
 
-        {activeTab === 'terms' && (
-          <TermsOfServicePage setActiveTab={setActiveTab} />
-        )}
+          {activeTab === 'terms' && (
+            <TermsOfServicePage setActiveTab={setActiveTab} />
+          )}
+
+          {isScheduleOpen && (
+            <ScheduleModal isOpen={isScheduleOpen} onClose={() => setIsScheduleOpen(false)} />
+          )}
+        </Suspense>
       </main>
 
       {/* Footer */}
       <Footer setActiveTab={setActiveTab} activeTab={activeTab} />
 
       {/* Overlays */}
-      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} duration={2000} />}
-      <ScheduleModal isOpen={isScheduleOpen} onClose={() => setIsScheduleOpen(false)} />
       <CookieConsent />
       <ThriveBot setActiveTab={setActiveTab} />
     </div>

@@ -419,25 +419,6 @@ export const ClientsSection = () => {
 
   return (
     <section className="py-12 sm:py-20 bg-gradient-to-b from-white via-slate-50/50 to-white text-[#050B14] relative overflow-hidden select-none">
-      
-      {/* Keyframe Left-to-Right Marquee Animation Styles (GPU Accelerated for 60fps Mobile Smoothness) */}
-      <style>{`
-        @keyframes marqueeLeftToRight {
-          0% { transform: translate3d(-50%, 0, 0); }
-          100% { transform: translate3d(0, 0, 0); }
-        }
-        .animate-marquee-ltr {
-          animation: marqueeLeftToRight 28s linear infinite;
-          will-change: transform;
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-          transform: translate3d(0, 0, 0);
-        }
-        .animate-marquee-ltr:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
         
         {/* Top Header */}

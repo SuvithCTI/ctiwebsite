@@ -8,12 +8,12 @@ export const IndustriesPage = ({ setActiveTab }) => {
 
   const handleBuildSolution = () => {
     if (setActiveTab) setActiveTab('contact');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleViewWork = () => {
     if (setActiveTab) setActiveTab('projects');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   // High-res domain photography & theme mappings per industry

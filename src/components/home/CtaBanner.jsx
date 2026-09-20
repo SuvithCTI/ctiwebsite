@@ -67,7 +67,7 @@ export const CtaBanner = ({ setActiveTab, onBookConsultation }) => {
 
               <button onClick={() => {
             setActiveTab('contact');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
         }} className="px-3.5 py-2 sm:px-7 sm:py-3 rounded-full text-[11px] sm:text-sm font-black tracking-wide text-[#050B14] bg-white border border-slate-300 hover:border-cyan-500 hover:bg-cyan-50/50 transition-all duration-300 hover:scale-105 shadow-xs flex items-center gap-1 cursor-pointer">
                 <MessageSquare className="w-3.5 h-3.5 text-cyan-600"/>
                 <span>Talk To Team</span>
