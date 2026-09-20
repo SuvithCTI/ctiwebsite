@@ -119,20 +119,24 @@ export const ProjectsPage = ({ setActiveTab }) => {
 
   const categories = [
     'All',
-    'Cloud & SaaS',
-    'Healthcare',
-    'Enterprise'
+    'E-Commerce & Retail',
+    'Hospitality & Food',
+    'Lifestyle & Wellness',
+    'Education & Enterprise'
   ];
 
   const filteredProjects = PROJECTS.filter((project) => {
     const matchesCategory = selectedCategory === 'All' || project.category === selectedCategory;
-    const query = searchQuery.toLowerCase();
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return matchesCategory;
+
     const matchesSearch =
-      project.title.toLowerCase().includes(query) ||
+      (project.title && project.title.toLowerCase().includes(query)) ||
       (project.client && project.client.toLowerCase().includes(query)) ||
+      (project.category && project.category.toLowerCase().includes(query)) ||
       (project.industry && project.industry.toLowerCase().includes(query)) ||
-      project.description.toLowerCase().includes(query) ||
-      project.technologies.some((tech) => tech.toLowerCase().includes(query));
+      (project.description && project.description.toLowerCase().includes(query)) ||
+      (project.technologies && project.technologies.some((tech) => tech.toLowerCase().includes(query)));
     return matchesCategory && matchesSearch;
   });
 
@@ -247,117 +251,136 @@ export const ProjectsPage = ({ setActiveTab }) => {
 
         </div>
 
-        {/* 21 Colorful Cards Grid (2 columns on mobile, 3 columns on desktop) */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-7 pt-2">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              onClick={() => setActiveProject(project)}
-              className="group bg-white rounded-xl sm:rounded-3xl border-2 border-slate-200/90 hover:border-sky-400 shadow-lg sm:shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 flex flex-col justify-between cursor-pointer"
-            >
-              <div>
-                
-                {/* AUTO-CHANGING MULTI-IMAGE CAROUSEL CONTAINER (Full h-32 Image Height) */}
-                <div className="relative">
-                  <AutoImageSlider 
-                    images={project.images || [project.imageUrl]} 
-                    title={project.title} 
-                    heightClass="h-32 sm:h-52" 
-                  />
+        {/* Cards Grid (2 columns on mobile, 3 columns on desktop) */}
+        {filteredProjects.length > 0 ? (
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-7 pt-2">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                onClick={() => setActiveProject(project)}
+                className="group bg-white rounded-xl sm:rounded-3xl border-2 border-slate-200/90 hover:border-sky-400 shadow-lg sm:shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 flex flex-col justify-between cursor-pointer"
+              >
+                <div>
 
-                  {/* WEB & Industry Badge Top Left */}
-                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex items-center gap-1 sm:gap-2">
-                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[8.5px] sm:text-[10px] font-black uppercase tracking-wider bg-[#FF2A6D] text-white shadow-md">
-                      WEB
-                    </span>
-                    <span className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[8.5px] sm:text-[10px] font-black uppercase tracking-wider bg-slate-900/80 backdrop-blur-md text-cyan-300 border border-cyan-400/40 shadow-md truncate max-w-[80px] sm:max-w-none">
-                      {project.industry || 'ENGINEERING'}
-                    </span>
+                  {/* AUTO-CHANGING MULTI-IMAGE CAROUSEL CONTAINER (Full h-32 Image Height) */}
+                  <div className="relative">
+                    <AutoImageSlider
+                      images={project.images || [project.imageUrl]}
+                      title={project.title}
+                      heightClass="h-32 sm:h-52"
+                    />
+
+                    {/* WEB & Industry Badge Top Left */}
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex items-center gap-1 sm:gap-2">
+                      <span className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[8.5px] sm:text-[10px] font-black uppercase tracking-wider bg-[#FF2A6D] text-white shadow-md">
+                        WEB
+                      </span>
+                      <span className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[8.5px] sm:text-[10px] font-black uppercase tracking-wider bg-slate-900/80 backdrop-blur-md text-cyan-300 border border-cyan-400/40 shadow-md truncate max-w-[80px] sm:max-w-none">
+                        {project.industry || 'ENGINEERING'}
+                      </span>
+                    </div>
+
+                    {/* Click to Elaborate Overlay Hint Bottom Left */}
+                    <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 z-10 flex items-center gap-1 text-[8.5px] sm:text-[10px] font-bold text-white/90">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-sky-400" />
+                      <span>Case study</span>
+                    </div>
                   </div>
 
-                  {/* Click to Elaborate Overlay Hint Bottom Left */}
-                  <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 z-10 flex items-center gap-1 text-[8.5px] sm:text-[10px] font-bold text-white/90">
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-sky-400" />
-                    <span>Case study</span>
+                  {/* Reduced Height Content Box Body */}
+                  <div className="p-2 sm:p-4 space-y-1 sm:space-y-2.5">
+
+                    {/* Category */}
+                    <div className="text-[8px] sm:text-[10px] font-black tracking-widest uppercase text-[#0284C7]">
+                      {project.category || 'CASE STUDY'}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xs sm:text-xl font-black font-editorial tracking-tight text-slate-950 group-hover:text-[#0284C7] transition-colors leading-tight line-clamp-2">
+                      {project.title}
+                    </h3>
+
+                    {/* Metric Stats Box (Sleek Compact Padding) */}
+                    <div className="p-1 sm:p-3 rounded-lg sm:rounded-2xl bg-gradient-to-r from-slate-50 to-sky-50/50 border border-slate-200/90 grid grid-cols-2 gap-1 sm:gap-2">
+                      {(project.metrics || []).slice(0, 2).map((m, idx) => (
+                        <div key={idx} className="space-y-0.5">
+                          <div className="text-[7.5px] sm:text-[9.5px] font-black uppercase text-slate-500 truncate">
+                            {m.label}
+                          </div>
+                          <div className="text-xs sm:text-lg font-black font-editorial text-sky-700">
+                            {m.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
                   </div>
+
                 </div>
 
-                {/* Reduced Height Content Box Body */}
-                <div className="p-2 sm:p-4 space-y-1 sm:space-y-2.5">
-                  
-                  {/* Category */}
-                  <div className="text-[8px] sm:text-[10px] font-black tracking-widest uppercase text-[#0284C7]">
-                    {project.category || 'CASE STUDY'}
-                  </div>
+                {/* Bottom Card Footer Bar */}
+                <div className="px-2.5 pb-2.5 sm:px-5 sm:pb-5 flex items-center justify-between gap-1.5 sm:gap-2 border-t border-slate-100 pt-2 sm:pt-3">
 
-                  {/* Title */}
-                  <h3 className="text-xs sm:text-xl font-black font-editorial tracking-tight text-slate-950 group-hover:text-[#0284C7] transition-colors leading-tight line-clamp-2">
-                    {project.title}
-                  </h3>
-
-                  {/* Metric Stats Box (Sleek Compact Padding) */}
-                  <div className="p-1 sm:p-3 rounded-lg sm:rounded-2xl bg-gradient-to-r from-slate-50 to-sky-50/50 border border-slate-200/90 grid grid-cols-2 gap-1 sm:gap-2">
-                    {(project.metrics || []).slice(0, 2).map((m, idx) => (
-                      <div key={idx} className="space-y-0.5">
-                        <div className="text-[7.5px] sm:text-[9.5px] font-black uppercase text-slate-500 truncate">
-                          {m.label}
-                        </div>
-                        <div className="text-xs sm:text-lg font-black font-editorial text-sky-700">
-                          {m.value}
-                        </div>
-                      </div>
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-1 sm:gap-1.5 max-w-[70%] sm:max-w-[80%]">
+                    {(project.technologies || []).slice(0, 2).map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full bg-slate-100 text-slate-800 text-[8px] sm:text-[9.5px] font-bold border border-slate-200/90 truncate max-w-[65px] sm:max-w-none"
+                      >
+                        {tech}
+                      </span>
                     ))}
+                    {(project.technologies || []).length > 2 && (
+                      <span className="text-[8px] sm:text-[9.5px] font-bold text-slate-400 self-center">
+                        +{(project.technologies || []).length - 2}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Action Buttons: Live Link & Modal Arrow */}
+                  <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+                    {project.demoUrl && (
+                      <button
+                        type="button"
+                        onClick={(e) => handleLaunchLiveDemo(e, project.demoUrl)}
+                        className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-emerald-50 hover:bg-emerald-600 text-emerald-600 hover:text-white border border-emerald-200 flex items-center justify-center transition-all cursor-pointer shadow-xs hover:scale-110 shrink-0"
+                        title="Launch live website in new tab"
+                      >
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                      </button>
+                    )}
+                    <div
+                      className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#0284C7] group-hover:bg-sky-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform"
+                      title="View elaborate case study details"
+                    >
+                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                    </div>
                   </div>
 
                 </div>
 
               </div>
-
-              {/* Bottom Card Footer Bar */}
-              <div className="px-2.5 pb-2.5 sm:px-5 sm:pb-5 flex items-center justify-between gap-1.5 sm:gap-2 border-t border-slate-100 pt-2 sm:pt-3">
-                
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-1 sm:gap-1.5 max-w-[70%] sm:max-w-[80%]">
-                  {(project.technologies || []).slice(0, 2).map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full bg-slate-100 text-slate-800 text-[8px] sm:text-[9.5px] font-bold border border-slate-200/90 truncate max-w-[65px] sm:max-w-none"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {(project.technologies || []).length > 2 && (
-                    <span className="text-[8px] sm:text-[9.5px] font-bold text-slate-400 self-center">
-                      +{(project.technologies || []).length - 2}
-                    </span>
-                  )}
-                </div>
-
-                {/* Action Buttons: Live Link & Modal Arrow */}
-                <div className="flex items-center gap-1 sm:gap-2 shrink-0">
-                  {project.demoUrl && (
-                    <button
-                      type="button"
-                      onClick={(e) => handleLaunchLiveDemo(e, project.demoUrl)}
-                      className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-emerald-50 hover:bg-emerald-600 text-emerald-600 hover:text-white border border-emerald-200 flex items-center justify-center transition-all cursor-pointer shadow-xs hover:scale-110 shrink-0"
-                      title="Launch live website in new tab"
-                    >
-                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                    </button>
-                  )}
-                  <div
-                    className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#0284C7] group-hover:bg-sky-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform"
-                    title="View elaborate case study details"
-                  >
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-                  </div>
-                </div>
-
-              </div>
-
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 shadow-sm p-8 max-w-lg mx-auto">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-pink-50 flex items-center justify-center text-[#FF2A6D]">
+              <Search className="w-8 h-8" />
             </div>
-          ))}
-        </div>
+            <h3 className="text-lg font-black text-slate-900 mb-1">No matching projects found</h3>
+            <p className="text-xs text-slate-500 mb-5">Try tweaking your search term or select "All" categories to see all 17 live projects.</p>
+            <button
+              onClick={() => {
+                setSelectedCategory('All');
+                setSearchQuery('');
+              }}
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FF2A6D] to-[#FF4D4D] text-white text-xs font-black shadow-md hover:opacity-90 transition-opacity cursor-pointer"
+            >
+              Reset All Filters
+            </button>
+          </div>
+        )}
 
       </div>
 
