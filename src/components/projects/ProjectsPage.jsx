@@ -94,17 +94,22 @@ export const ProjectsPage = ({ setActiveTab }) => {
 
   const categories = [
     'All',
-    'Cloud & SaaS',
-    'Healthcare',
-    'Enterprise'
+    'Fashion & Retail',
+    'Food & Hospitality',
+    'Architecture & Design',
+    'Events & Services',
+    'Education & Wellness'
   ];
 
   const filteredProjects = PROJECTS.filter((project) => {
     const matchesCategory = selectedCategory === 'All' || project.category === selectedCategory;
+    const query = searchQuery.toLowerCase();
     const matchesSearch =
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.technologies.some((tech) => tech.toLowerCase().includes(searchQuery.toLowerCase()));
+      project.title.toLowerCase().includes(query) ||
+      (project.client && project.client.toLowerCase().includes(query)) ||
+      (project.industry && project.industry.toLowerCase().includes(query)) ||
+      project.description.toLowerCase().includes(query) ||
+      project.technologies.some((tech) => tech.toLowerCase().includes(query));
     return matchesCategory && matchesSearch;
   });
 
@@ -140,39 +145,81 @@ export const ProjectsPage = ({ setActiveTab }) => {
         </div>
 
         {/* Category Filters Row & Search Input */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 pt-2">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3.5 sm:gap-4 pt-1">
           
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-            {categories.map((cat) => {
-              const isSelected = selectedCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-black transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${
-                    isSelected
-                      ? 'bg-gradient-to-r from-[#FF2A6D] to-[#FF4D4D] text-white shadow-md shadow-pink-200 scale-105'
-                      : 'bg-white text-slate-800 border border-slate-200/90 hover:border-slate-400 hover:bg-slate-50'
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
+          {/* Category Filter Pills - Mobile Touch-Scrollable with Natural Edge Padding */}
+          <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto no-scrollbar py-1">
+            <div className="flex items-center gap-1.5 sm:gap-2 w-max p-1 sm:p-1.5 rounded-2xl sm:rounded-full bg-slate-100/90 border border-slate-200/80 backdrop-blur-md shadow-xs">
+              {categories.map((cat) => {
+                const isSelected = selectedCategory === cat;
+                const count =
+                  cat === 'All'
+                    ? PROJECTS.length
+                    : PROJECTS.filter((p) => p.category === cat).length;
+
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`category-pill-active relative flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full text-xs font-black transition-all duration-200 cursor-pointer whitespace-nowrap select-none active:scale-95 ${
+                      isSelected
+                        ? 'bg-[#0F172A] text-white shadow-md shadow-slate-900/25 border border-slate-700'
+                        : 'bg-white/80 text-slate-700 hover:text-slate-950 hover:bg-white border border-slate-200/80'
+                    }`}
+                    style={{
+                      color: isSelected ? '#FFFFFF' : '#334155'
+                    }}
+                  >
+                    <span
+                      className="relative z-10 font-black tracking-tight"
+                      style={{ color: isSelected ? '#FFFFFF' : '#334155' }}
+                    >
+                      {cat}
+                    </span>
+
+                    {/* Dynamic Count Badge */}
+                    <span
+                      className={`relative z-10 text-[10px] font-black px-2 py-0.5 rounded-full transition-colors ${
+                        isSelected
+                          ? 'bg-sky-500/25 text-sky-300 border border-sky-400/40'
+                          : 'bg-slate-100 text-slate-600 border border-slate-200'
+                      }`}
+                      style={{
+                        color: isSelected ? '#38BDF8' : '#64748B'
+                      }}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Right Aligned Search Input */}
-          <div className="relative w-full lg:w-80 shrink-0">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-pink-500" />
+          {/* Right Aligned Modern Search Bar */}
+          <div className="relative w-full lg:w-84 shrink-0">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
             <input
               type="text"
-              placeholder="Search tech, industry or keyword..."
+              placeholder="Search by tech, name, or keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-11 pr-5 py-2.5 rounded-full bg-white border border-pink-200 text-xs font-bold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-pink-400 shadow-sm"
+              className="w-full pl-11 pr-20 py-2.5 sm:py-3 rounded-full bg-white border border-slate-200/90 text-xs font-bold text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/30 focus:border-sky-500 shadow-sm transition-all"
             />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="absolute right-12 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 hover:text-slate-700 flex items-center justify-center cursor-pointer"
+                title="Clear search"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+            <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full pointer-events-none border border-slate-200">
+              {filteredProjects.length}
+            </span>
           </div>
 
         </div>
@@ -263,12 +310,24 @@ export const ProjectsPage = ({ setActiveTab }) => {
                   )}
                 </div>
 
-                {/* Open Elaborate Modal Arrow Button */}
-                <div
-                  className="w-9 h-9 rounded-full bg-[#0284C7] group-hover:bg-[#0284c7] text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform"
-                  title="View elaborate case study details"
-                >
-                  <ArrowRight className="w-4 h-4 text-white" />
+                {/* Action Buttons: Live Link & Modal Arrow */}
+                <div className="flex items-center gap-2 shrink-0">
+                  {project.demoUrl && (
+                    <button
+                      type="button"
+                      onClick={(e) => handleLaunchLiveDemo(e, project.demoUrl)}
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-emerald-50 hover:bg-emerald-600 text-emerald-600 hover:text-white border border-emerald-200 flex items-center justify-center transition-all cursor-pointer shadow-xs hover:scale-110"
+                      title="Launch live website in new tab"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    </button>
+                  )}
+                  <div
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0284C7] group-hover:bg-sky-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform"
+                    title="View elaborate case study details"
+                  >
+                    <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+                  </div>
                 </div>
 
               </div>

@@ -386,12 +386,298 @@ export const INDUSTRIES = [
 
 export const PROJECTS = [
   {
+    id: 'the-feinheit-boutique',
+    title: 'The Feinheit Boutique',
+    client: 'The Feinheit Couture',
+    category: 'Fashion & Retail',
+    industry: 'BOUTIQUE & FASHION',
+    badge: 'LIVE APP',
+    description: 'An haute-couture luxury boutique storefront offering bespoke fashion collections, interactive designer lookbooks, and seamless fitting reservations.',
+    metrics: [
+      { label: 'Online Inquiries', value: '+140%' },
+      { label: 'Client Engagement', value: '4.8 mins' }
+    ],
+    technologies: ['React 19', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://the-fein-heit-boutique-3wrs.vercel.app/',
+    liveUrl: 'https://the-fein-heit-boutique-3wrs.vercel.app/'
+  },
+  {
+    id: 'cloud-kitchen-platform',
+    title: 'Cloud Kitchen Platform',
+    client: 'Urban Gourmet Kitchens',
+    category: 'Food & Hospitality',
+    industry: 'FOOD & RESTAURANT',
+    badge: 'LIVE APP',
+    description: 'A multi-brand digital cloud kitchen ordering platform featuring instant digital menu curation, live kitchen dispatch tracking, and rapid delivery coordination.',
+    metrics: [
+      { label: 'Order Processing', value: '< 2.5 mins' },
+      { label: 'Daily Deliveries', value: '850+ Orders' }
+    ],
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'http://cloud-kitchen-chi-six.vercel.app/',
+    liveUrl: 'http://cloud-kitchen-chi-six.vercel.app/'
+  },
+  {
+    id: 'ar-clothing-designs',
+    title: 'AR Clothing Designs',
+    client: 'AR Fashion Studio',
+    category: 'Fashion & Retail',
+    industry: 'APPAREL & RETAIL',
+    badge: 'LIVE APP',
+    description: 'A trendsetting apparel e-commerce portal and designer catalog showcasing contemporary streetwear, festive collections, and custom tailoring.',
+    metrics: [
+      { label: 'Cart Conversion', value: '+78%' },
+      { label: 'Catalog Views', value: '25K+/mo' }
+    ],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://ar-clothing-designs.vercel.app/',
+    liveUrl: 'https://ar-clothing-designs.vercel.app/'
+  },
+  {
+    id: 'catering-service-platform',
+    title: 'Catering Service Platform',
+    client: 'Elite Feast Catering Services',
+    category: 'Food & Hospitality',
+    industry: 'FOOD & CATERING',
+    badge: 'LIVE APP',
+    description: 'A full-service banquet & event catering platform with custom menu builders, live guest headcount calculators, and wedding feast reservations.',
+    metrics: [
+      { label: 'Event Bookings', value: '+95%' },
+      { label: 'Customer Rating', value: '4.9/5' }
+    ],
+    technologies: ['React', 'Tailwind CSS', 'Lucide Icons', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://catering-service-xi.vercel.app/',
+    liveUrl: 'https://catering-service-xi.vercel.app/'
+  },
+  {
+    id: 'stylist-makeup-artist',
+    title: 'Stylist Makeup Artist',
+    client: 'Glow Artistry & Bridal Glam',
+    category: 'Education & Wellness',
+    industry: 'BEAUTY & WELLNESS',
+    badge: 'LIVE APP',
+    description: 'A luxury beauty and bridal makeup artist portfolio featuring 4K transformation galleries, service rate cards, and direct appointment scheduling.',
+    metrics: [
+      { label: 'Bridal Inquiries', value: '+120%' },
+      { label: 'Booking Rate', value: '96% Full' }
+    ],
+    technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://stylist-makeup-artist.vercel.app/',
+    liveUrl: 'https://stylist-makeup-artist.vercel.app/'
+  },
+  {
+    id: 'minutes-drafting-architecture',
+    title: 'Minutes Drafting Architecture',
+    client: 'Minutes Drafting Studio',
+    category: 'Architecture & Design',
+    industry: 'ARCHITECTURE & CAD',
+    badge: 'LIVE APP',
+    description: 'A specialized architectural drafting and CAD engineering portal showcasing 2D/3D blueprints, structural schematics, and construction project lifecycle docs.',
+    metrics: [
+      { label: 'CAD Consultations', value: '+110%' },
+      { label: 'Blueprint Delivery', value: '99.5% On-Time' }
+    ],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://minutes-drafting-web-ue45.vercel.app/',
+    liveUrl: 'https://minutes-drafting-web-ue45.vercel.app/'
+  },
+  {
+    id: 'sivakasi-sparkles-crackers',
+    title: 'Sivakasi Sparkles Crackers',
+    client: 'Sparkle Fireworks Trading',
+    category: 'Fashion & Retail',
+    industry: 'E-COMMERCE & FESTIVITIES',
+    badge: 'LIVE APP',
+    description: 'A festive wholesale & retail fireworks e-commerce platform with wholesale price list generators, festive combo packs, and safe checkout.',
+    metrics: [
+      { label: 'Festive Volume', value: '10K+ Orders' },
+      { label: 'Checkout Speed', value: '25 seconds' }
+    ],
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://sivakashi-sparkal.vercel.app/',
+    liveUrl: 'https://sivakashi-sparkal.vercel.app/'
+  },
+  {
+    id: 'event-planning-platform',
+    title: 'Event Planning & Management',
+    client: 'Moments & Milestones Events',
+    category: 'Events & Services',
+    industry: 'EVENTS & MANAGEMENT',
+    badge: 'LIVE APP',
+    description: 'An end-to-end luxury event management showcase for weddings, corporate galas, and stage decor with interactive theme visualizers.',
+    metrics: [
+      { label: 'Gala Retainers', value: '+85%' },
+      { label: 'Client Satisfaction', value: '100%' }
+    ],
+    technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://event-planning-eight-blue.vercel.app/',
+    liveUrl: 'https://event-planning-eight-blue.vercel.app/'
+  },
+  {
+    id: 'bright-path-academy',
+    title: 'Bright Path Academy',
+    client: 'Bright Path Educational Trust',
+    category: 'Education & Wellness',
+    industry: 'EDUCATION & EDTECH',
+    badge: 'LIVE APP',
+    description: 'A modern academic institution and coaching academy platform with interactive course syllabi, faculty directories, and online admission portals.',
+    metrics: [
+      { label: 'Student Admissions', value: '+135%' },
+      { label: 'Parent Engagement', value: '92%' }
+    ],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://bright-path-academy-du9v.vercel.app/',
+    liveUrl: 'https://bright-path-academy-du9v.vercel.app/'
+  },
+  {
+    id: 'anuradha-homemade-organics',
+    title: 'Anuradha Homemade Organics',
+    client: 'Anuradha Natural Herbs & Foods',
+    category: 'Fashion & Retail',
+    industry: 'ORGANIC RETAIL',
+    badge: 'LIVE APP',
+    description: 'A traditional, chemical-free organic foods and handcrafted wellness catalog with farm-fresh harvest tracking and direct online ordering.',
+    metrics: [
+      { label: 'Organic Sales', value: '+160%' },
+      { label: 'Repeat Customers', value: '88%' }
+    ],
+    technologies: ['React', 'Tailwind CSS', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://anuradha-homemade-products.vercel.app/',
+    liveUrl: 'https://anuradha-homemade-products.vercel.app/'
+  },
+  {
+    id: 'castal-interior-studio',
+    title: 'Castal Interiors Studio',
+    client: 'Castal Living Spaces',
+    category: 'Architecture & Design',
+    industry: 'INTERIOR DESIGN',
+    badge: 'LIVE APP',
+    description: 'A premier interior architectural showcase featuring 3D modular kitchen walk-throughs, living room aesthetics, and bespoke residential finishes.',
+    metrics: [
+      { label: 'Design Inquiries', value: '+90%' },
+      { label: 'Avg Project Value', value: '+$45K' }
+    ],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://castalinterior.vercel.app/',
+    liveUrl: 'https://castalinterior.vercel.app/'
+  },
+  {
+    id: 'morning-brew-cafe',
+    title: 'Morning Brew Cafe',
+    client: 'Morning Brew Roastery',
+    category: 'Food & Hospitality',
+    industry: 'FOOD & BEVERAGE',
+    badge: 'LIVE APP',
+    description: 'An artisanal coffee roastery & cafe website with specialty roast subscriptions, daily patisserie menus, and cozy cafe ambiance galleries.',
+    metrics: [
+      { label: 'Subscription Signups', value: '+105%' },
+      { label: 'Daily Footfall', value: '450+ Visitors' }
+    ],
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://morningbrewcafe.vercel.app/',
+    liveUrl: 'https://morningbrewcafe.vercel.app/'
+  },
+  {
+    id: 'waf-stitchery-house',
+    title: 'WAF Stitchery House',
+    client: 'WAF Bespoke Tailoring',
+    category: 'Fashion & Retail',
+    industry: 'FASHION & COUTURE',
+    badge: 'LIVE APP',
+    description: 'A customized tailoring and designer embroidery studio website with custom measurements guides, blouse pattern catalogs, and doorstep pickup.',
+    metrics: [
+      { label: 'Custom Stitching Orders', value: '+115%' },
+      { label: 'On-Time Delivery', value: '99.8%' }
+    ],
+    technologies: ['React', 'Tailwind CSS', 'Lucide Icons', 'Vercel'],
+    imageUrl: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=900&q=80'
+    ],
+    demoUrl: 'https://wafsticheryhouse.vercel.app/',
+    liveUrl: 'https://wafsticheryhouse.vercel.app/'
+  },
+  {
     id: 'gym-website',
-    title: 'Gym Website',
+    title: 'Gym & Fitness Portal',
     client: 'Pulse Fitness Club',
-    category: 'Enterprise',
-    industry: 'FITNESS',
-    badge: 'WEB',
+    category: 'Education & Wellness',
+    industry: 'FITNESS & HEALTH',
+    badge: 'LIVE APP',
     description: 'An energetic, modern fitness club management and scheduling portal with vibrant animations, class booking, and trainer highlights.',
     metrics: [
       { label: 'Membership Signups', value: '+85%' },
@@ -409,12 +695,12 @@ export const PROJECTS = [
   },
   {
     id: 'restaurant-website',
-    title: 'Restaurant Website',
+    title: 'Fine Dining Restaurant',
     client: 'Samyuktha Culinary Group',
-    category: 'Cloud & SaaS',
-    industry: 'HOTELS',
-    badge: 'WEB',
-    description: 'A premium, highly interactive dining website template designed for modern fine dining and restaurant venues.',
+    category: 'Food & Hospitality',
+    industry: 'HOTELS & RESTAURANT',
+    badge: 'LIVE APP',
+    description: 'A premium, highly interactive dining website template designed for modern fine dining, chef tasting menus, and restaurant table bookings.',
     metrics: [
       { label: 'Direct Bookings', value: '+68%' },
       { label: 'Page Speed', value: '0.4s' }
@@ -431,12 +717,12 @@ export const PROJECTS = [
   },
   {
     id: 'cake-bakery-shop',
-    title: 'Cake & Bakery Shop',
+    title: 'Artisan Cake & Bakery Shop',
     client: 'Artisan Confectionery Hub',
-    category: 'Enterprise',
-    industry: 'RETAIL',
-    badge: 'WEB',
-    description: 'A charming, visual e-commerce catalog template for custom cakes, bakery goods, and online orders.',
+    category: 'Food & Hospitality',
+    industry: 'BAKERY & RETAIL',
+    badge: 'LIVE APP',
+    description: 'A charming, visual e-commerce catalog template for custom celebratory cakes, gourmet bakery goods, and seamless online pre-orders.',
     metrics: [
       { label: 'Online Orders', value: '+110%' },
       { label: 'Avg Order Value', value: '+$35' }
@@ -453,12 +739,12 @@ export const PROJECTS = [
   },
   {
     id: 'medical-shop-website',
-    title: 'Medical Shop Website',
+    title: 'HealthRx Medical & Pharmacy Store',
     client: 'HealthRx Pharmacy',
-    category: 'Healthcare',
-    industry: 'HEALTHCARE',
-    badge: 'WEB',
-    description: 'A clean, high-performance web storefront for medical shops, prescription uploads, and health products.',
+    category: 'Education & Wellness',
+    industry: 'HEALTHCARE & PHARMA',
+    badge: 'LIVE APP',
+    description: 'A clean, high-performance web storefront for medical shops, prescription uploads, and everyday health wellness products.',
     metrics: [
       { label: 'Prescription Uploads', value: '5,000+/mo' },
       { label: 'Order Processing', value: '< 5 mins' }
@@ -475,12 +761,12 @@ export const PROJECTS = [
   },
   {
     id: 'pet-shop-website',
-    title: 'Pet Shop Website',
+    title: 'Paws & Tails Care Pet Store',
     client: 'Paws & Tails Care',
-    category: 'Healthcare',
-    industry: 'HEALTHCARE',
-    badge: 'WEB',
-    description: 'A friendly and bright pet shop catalog website featuring interactive pet products and care services.',
+    category: 'Education & Wellness',
+    industry: 'PET CARE & RETAIL',
+    badge: 'LIVE APP',
+    description: 'A friendly and bright pet shop catalog website featuring interactive pet food catalogs, accessories, and grooming appointments.',
     metrics: [
       { label: 'Recurring Subscriptions', value: '+92%' },
       { label: 'Grooming Bookings', value: '98% Full' }
@@ -497,12 +783,12 @@ export const PROJECTS = [
   },
   {
     id: 'groceries-shop',
-    title: 'Groceries Shop',
+    title: 'FreshMart Express Groceries',
     client: 'FreshMart Express',
-    category: 'Cloud & SaaS',
-    industry: 'RETAIL',
-    badge: 'WEB',
-    description: 'A colorful, automated grocery store shopping website with quick checkout and instant cart management.',
+    category: 'Fashion & Retail',
+    industry: 'GROCERY & RETAIL',
+    badge: 'LIVE APP',
+    description: 'A colorful, automated grocery store shopping website with quick checkout, real-time inventory, and instant cart management.',
     metrics: [
       { label: 'Checkout Speed', value: '35 seconds' },
       { label: 'Cart Conversion', value: '+58%' }
@@ -519,15 +805,15 @@ export const PROJECTS = [
   },
   {
     id: 'clothing-store',
-    title: 'Clothing Store',
+    title: 'Vogue Threads Clothing Boutique',
     client: 'Vogue Threads',
-    category: 'Enterprise',
-    industry: 'RETAIL',
-    badge: 'WEB',
-    description: 'A high-end clothing store catalog presenting the latest fashion apparel collections with dynamic visual grids.',
+    category: 'Fashion & Retail',
+    industry: 'APPAREL & FASHION',
+    badge: 'LIVE APP',
+    description: 'A high-end clothing store catalog presenting the latest runway apparel collections with dynamic visual grids and size selectors.',
     metrics: [
       { label: 'Fashion Sales', value: '+125%' },
-      { label: 'Average Session Duration', value: '4.2 mins' }
+      { label: 'Session Duration', value: '4.2 mins' }
     ],
     technologies: ['React', 'Next.js', 'Tailwind CSS'],
     imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
@@ -541,15 +827,15 @@ export const PROJECTS = [
   },
   {
     id: 'organics-store',
-    title: 'Organics Store',
+    title: 'Pure Earth Botanicals & Organics',
     client: 'Pure Earth Botanicals',
-    category: 'Cloud & SaaS',
-    industry: 'RETAIL',
-    badge: 'WEB',
-    description: 'A clean, health-focused online store selling organic cosmetics, foods, and eco-friendly products.',
+    category: 'Fashion & Retail',
+    industry: 'ORGANIC WELLNESS',
+    badge: 'LIVE APP',
+    description: 'A clean, health-focused online store selling organic cosmetics, botanical extracts, and eco-friendly wellness products.',
     metrics: [
       { label: 'Bundle Sales', value: '+94%' },
-      { label: 'Customer Trust Score', value: '4.9/5' }
+      { label: 'Customer Trust', value: '4.9/5' }
     ],
     technologies: ['React', 'TypeScript', 'Tailwind CSS'],
     imageUrl: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80',
