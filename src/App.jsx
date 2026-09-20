@@ -8,6 +8,7 @@ import { TestimonialsSection } from './components/home/TestimonialsSection';
 import { CtaBanner } from './components/home/CtaBanner';
 import { CookieConsent } from './components/common/CookieConsent';
 import { ThriveBot } from './components/common/ThriveBot';
+import { SplashScreen } from './components/common/SplashScreen';
 
 // Direct pre-cached dynamic imports
 const loadAbout = () => import('./components/about/AboutPage');
@@ -31,6 +32,7 @@ const TermsOfServicePage = lazy(() => loadTerms().then(m => ({ default: m.TermsO
 const ScheduleModal = lazy(() => loadSchedule().then(m => ({ default: m.ScheduleModal })));
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [activeTab, setActiveTab] = useState('home');
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
 
@@ -125,6 +127,7 @@ export default function App() {
       <Footer setActiveTab={setActiveTab} activeTab={activeTab} />
 
       {/* Overlays */}
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} duration={2000} />}
       <CookieConsent />
       <ThriveBot setActiveTab={setActiveTab} />
     </div>
