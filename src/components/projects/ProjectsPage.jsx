@@ -1,19 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PROJECTS } from '../../data/mockData';
 import { Search, ArrowRight, ExternalLink, Play, X, CheckCircle2, Calendar, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Auto-Changing Multi-Image Carousel Component
-const AutoImageSlider = ({ images = [], title = '', heightClass = 'h-44 sm:h-56' }) => {
+// Ultra-High-Performance Auto-Changing Multi-Image Carousel Component (Zero Lag on Mobile)
+const AutoImageSlider = ({ images = [], title = '', heightClass = 'h-32 sm:h-52' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef(null);
+  const [isInViewport, setIsInViewport] = useState(false);
 
+  // IntersectionObserver: ONLY run animation when card is actually visible in viewport
   useEffect(() => {
-    if (!images || images.length <= 1) return;
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setIsInViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInViewport(entry.isIntersecting);
+      },
+      { rootMargin: '100px 0px', threshold: 0.05 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Timer only active when visible
+  useEffect(() => {
+    if (!isInViewport || !images || images.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // Changes automatically every 3 seconds
+    }, 3800);
 
     return () => clearInterval(timer);
-  }, [images]);
+  }, [isInViewport, images]);
 
   const handlePrev = (e) => {
     e.stopPropagation();
@@ -28,37 +50,40 @@ const AutoImageSlider = ({ images = [], title = '', heightClass = 'h-44 sm:h-56'
   const currentImgList = images.length > 0 ? images : ['/codethrive-hero.png'];
 
   return (
-    <div className={`relative ${heightClass} w-full overflow-hidden bg-slate-950 group/slider`}>
-      
-      {/* Auto Fading Images */}
-      {currentImgList.map((img, idx) => (
-        <img
-          key={idx}
-          src={img}
-          alt={`${title} Showcase ${idx + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
-            idx === currentIndex ? 'opacity-100 scale-105' : 'opacity-0 scale-100 pointer-events-none'
-          }`}
-          onError={(e) => {
-            (e.target).src = 'https://images.unsplash.com/photo-1556742049-0a6756574f9d?auto=format&fit=crop&w=900&q=80';
-          }}
-        />
-      ))}
+    <div
+      ref={containerRef}
+      className={`relative ${heightClass} w-full overflow-hidden bg-slate-950 group/slider`}
+      style={{ transform: 'translate3d(0,0,0)', willChange: 'opacity' }}
+    >
+      {/* Current Image with hardware accelerated opacity */}
+      <img
+        src={currentImgList[currentIndex]}
+        alt={`${title} Showcase ${currentIndex + 1}`}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+        style={{ willChange: 'opacity' }}
+        onError={(e) => {
+          (e.target).src = 'https://images.unsplash.com/photo-1556742049-0a6756574f9d?auto=format&fit=crop&w=900&q=80';
+        }}
+      />
 
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
 
-      {/* Manual Arrow Controls (Visible on Hover) */}
+      {/* Manual Arrow Controls (Desktop only on hover) */}
       {currentImgList.length > 1 && (
         <>
           <button
             onClick={handlePrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-slate-950/70 hover:bg-sky-600 text-white flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity shadow-md"
+            className="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-slate-950/70 hover:bg-sky-600 text-white items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity shadow-md"
+            aria-label="Previous slide"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-slate-950/70 hover:bg-sky-600 text-white flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity shadow-md"
+            className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-slate-950/70 hover:bg-sky-600 text-white items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-opacity shadow-md"
+            aria-label="Next slide"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -67,7 +92,7 @@ const AutoImageSlider = ({ images = [], title = '', heightClass = 'h-44 sm:h-56'
 
       {/* Pagination Dots (Bottom Right) */}
       {currentImgList.length > 1 && (
-        <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 bg-slate-950/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+        <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 z-20 flex items-center gap-1 sm:gap-1.5 bg-slate-950/70 backdrop-blur-md px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-white/20">
           {currentImgList.map((_, idx) => (
             <button
               key={idx}
@@ -75,8 +100,8 @@ const AutoImageSlider = ({ images = [], title = '', heightClass = 'h-44 sm:h-56'
                 e.stopPropagation();
                 setCurrentIndex(idx);
               }}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                idx === currentIndex ? 'bg-cyan-400 w-4' : 'bg-white/50 w-1.5 hover:bg-white'
+              className={`h-1 sm:h-1.5 rounded-full transition-all duration-300 ${
+                idx === currentIndex ? 'bg-cyan-400 w-3 sm:w-4' : 'bg-white/50 w-1 sm:w-1.5 hover:bg-white'
               }`}
             />
           ))}
@@ -125,10 +150,10 @@ export const ProjectsPage = ({ setActiveTab }) => {
   return (
     <div className="pt-32 pb-24 min-h-screen bg-gradient-to-br from-[#FFFDF9] via-[#FAF6F0] to-[#FFF8F2] text-[#050B14] relative overflow-hidden select-none">
       
-      {/* Background Radial Glow Spotlights */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-pink-300/20 blur-[170px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-amber-300/20 blur-[170px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-cyan-300/20 blur-[170px] pointer-events-none" />
+      {/* Background Radial Glow Spotlights (Desktop only, saves mobile GPU rasterization) */}
+      <div className="hidden sm:block absolute top-0 left-0 w-[600px] h-[600px] bg-pink-300/20 blur-[170px] pointer-events-none" />
+      <div className="hidden sm:block absolute bottom-0 right-0 w-[600px] h-[600px] bg-amber-300/20 blur-[170px] pointer-events-none" />
+      <div className="hidden sm:block absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-cyan-300/20 blur-[170px] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10 space-y-6 sm:space-y-8">
         
@@ -252,7 +277,7 @@ export const ProjectsPage = ({ setActiveTab }) => {
 
                   {/* Click to Elaborate Overlay Hint Bottom Left */}
                   <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 z-10 flex items-center gap-1 text-[8.5px] sm:text-[10px] font-bold text-white/90">
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-sky-400 animate-ping" />
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-sky-400" />
                     <span>Case study</span>
                   </div>
                 </div>
